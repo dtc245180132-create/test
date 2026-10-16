@@ -19,7 +19,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 header h1 {
@@ -33,7 +33,7 @@ header h1 code {
     padding: 2px 8px;
     border-radius: 4px;
     color: #2563eb;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .subtitle {
@@ -41,6 +41,54 @@ header h1 code {
     color: #64748b;
 }
 
+/* Thẻ sơ đồ đường kẻ cột */
+.diagram-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px dashed #3b82f6;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.05);
+}
+
+.diagram-card h3 {
+    font-size: 15px;
+    color: #1e40af;
+    margin-bottom: 15px;
+}
+
+.column-lines-ruler {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: bold;
+    color: #d97706;
+    margin-bottom: 6px;
+    padding: 0 5px;
+}
+
+.column-lines-ruler .last {
+    text-align: right;
+}
+
+.grid-columns-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.grid-columns-preview div {
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    padding: 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    border-radius: 4px;
+}
+
+/* Các section ví dụ */
 .example-section {
     background-color: #ffffff;
     border-radius: 10px;
@@ -90,54 +138,63 @@ header h1 code {
     font-weight: 600;
 }
 
-/* ===================================================
-   VÍ DỤ 1: Tạo 3 cột có kích thước bằng nhau
-   grid-template-columns: 1fr 1fr 1fr;
-   =================================================== */
-.example-1 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
-
-.example-1 div {
-    background-color: lightblue;
+/* Định dạng cơ bản cho các ô Grid chung */
+.grid-container div {
+    background-color: #cbd5e1;
     padding: 20px;
     text-align: center;
     font-weight: bold;
-    color: #0c4a6e;
+    color: #1e293b;
     border-radius: 6px;
-    border: 1px solid #7dd3fc;
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #94a3b8;
+    transition: transform 0.2s;
 }
 
-.example-1 div:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.grid-container div.highlight {
+    background-color: #38bdf8;
+    color: #082f49;
+    border: 2px solid #0284c7;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
 }
 
 /* ===================================================
-   VÍ DỤ 2: Tạo các cột có kích thước khác nhau
-   grid-template-columns: 100px 200px 1fr;
+   VÍ DỤ 1: grid-column-start: auto
+   Lưới 100px 100px 100px
    =================================================== */
-.example-2 {
+.example-auto {
     display: grid;
-    grid-template-columns: 100px 200px 1fr;
+    grid-template-columns: 100px 100px 100px;
     gap: 10px;
 }
 
-.example-2 div {
-    background-color: lightgreen;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: #14532d;
-    border-radius: 6px;
-    border: 1px solid #86efac;
-    transition: transform 0.2s, box-shadow 0.2s;
+.example-auto .item1 {
+    grid-column-start: auto;
 }
 
-.example-2 div:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* ===================================================
+   VÍ DỤ 2: grid-column-start: span 2
+   Lưới repeat(4, 1fr)
+   =================================================== */
+.example-span {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.example-span .item1 {
+    grid-column-start: span 2;
+}
+
+/* ===================================================
+   VÍ DỤ 3: grid-column-start: 2 (column-line)
+   Lưới repeat(4, 1fr)
+   =================================================== */
+.example-line {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.example-line .item1 {
+    grid-column-start: 2;
 }

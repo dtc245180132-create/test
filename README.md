@@ -1,56 +1,75 @@
-# Bài thực hành: Thuộc tính `grid-template-columns` trong CSS Grid
+# Bài thực hành: Thuộc tính `grid-column-start` trong CSS Grid
 
-Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-template-columns` trong CSS Grid để quy định số lượng cột và kích thước cụ thể của từng cột trong bố cục lưới.
+Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-column-start` trong CSS Grid để quy định đường kẻ cột (column line) nơi phần tử Grid Item bắt đầu.
 
 ---
 
-## 🎯 Chi tiết các ví dụ
+## 🎯 Chi tiết các giá trị và ví dụ
 
-### 1. Ví dụ 1: Tạo 3 cột có kích thước bằng nhau
-- **Mã CSS**:
+### Cú pháp:
+```css
+grid-column-start: auto | span n | column-line;
+```
+
+### 1. Giá trị `auto` (Mặc định)
+- **Mã nguồn**:
   ```css
   .grid-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 100px 100px 100px;
       gap: 10px;
   }
-  .grid-container div {
-      background-color: lightblue;
-      padding: 20px;
-      text-align: center;
+  .item1 {
+      grid-column-start: auto;
   }
   ```
-- **Giải thích**:
-  - `1fr`: Đại diện cho một phần phân số không gian còn trống của container Grid.
-  - Cung cấp 3 giá trị `1fr 1fr 1fr` tạo ra 3 cột có bề rộng chia đều bằng nhau.
-  - Khi có 6 phần tử con (`Ô 1` đến `Ô 6`), CSS Grid tự động phân bố thành 2 hàng, mỗi hàng 3 cột.
+- **Giải thích**: `auto` đặt Grid Item theo luồng sắp xếp thông thường, không can thiệp vào vị trí tự nhiên của phần tử trong lưới.
 
-### 2. Ví dụ 2: Tạo các cột có kích thước khác nhau
-- **Mã CSS**:
+### 2. Giá trị `span n` (Kéo dài qua n cột)
+- **Mã nguồn**:
   ```css
   .grid-container {
       display: grid;
-      grid-template-columns: 100px 200px 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
   }
-  .grid-container div {
-      background-color: lightgreen;
-      padding: 20px;
-      text-align: center;
+  .item1 {
+      grid-column-start: span 2;
+  }
+  ```
+- **Giải thích**: `Item 1` được mở rộng để chiếm trọn vẹn 2 cột trong hàng lưới.
+
+### 3. Giá trị `column-line` (Vị trí đường kẻ cột cụ thể)
+- **Mã nguồn**:
+  ```css
+  .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+  }
+  .item1 {
+      grid-column-start: 2;
   }
   ```
 - **Giải thích**:
-  - `100px`: Cột thứ nhất có kích thước cố định là 100 pixel.
-  - `200px`: Cột thứ hai có kích thước cố định là 200 pixel.
-  - `1fr`: Cột thứ ba linh hoạt co giãn chiếm toàn bộ phần diện tích còn lại của lưới.
+  - Với lưới gồm 4 cột, có tất cả 5 đường kẻ cột (`column lines`):
+    ```
+    |  Cột 1  |  Cột 2  |  Cột 3  |  Cột 4  |
+    1         2         3         4         5
+    ↑         ↑         ↑         ↑         ↑
+    Đường     Đường     Đường     Đường     Đường
+    kẻ 1      kẻ 2      kẻ 3      kẻ 4      kẻ 5
+    ```
+  - Khi thiết lập `grid-column-start: 2;`, `Item 1` sẽ bắt đầu từ đường kẻ số 2 (bỏ trống Cột 1 phía trước).
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Cả 2 ví dụ grid-template-columns trong CSS Grid
-├── style.css                   # File CSS định dạng cho cả 2 ví dụ Grid (1fr 1fr 1fr & 100px 200px 1fr)
-├── grid_template_columns.html  # Bản sao độc lập tích hợp đầy đủ HTML và CSS nội bộ
+├── index.html                  # Bài thực hành hiện tại: Cả 3 ví dụ grid-column-start (auto, span n, column-line)
+├── style.css                   # File CSS định dạng cho 3 ví dụ và thước đo column lines
+├── grid_column_start.html      # Bản sao độc lập lưu trữ bài grid-column-start
+├── grid_template_columns.html  # Bài thực hành: Thuộc tính grid-template-columns (1fr 1fr 1fr & 100px 200px 1fr)
 ├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
 ├── script.js                   # File JavaScript điều khiển toggle active cho navbar
 ├── float_overflow_layout.html  # Bài thực hành: Bố cục trang với Float và Overflow
@@ -111,5 +130,5 @@ Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-template-co
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **File bài nộp trực tiếp**:
-  - `index.html`: Cấu trúc HTML trực quan gồm cả Ví dụ 1 và Ví dụ 2
-  - `style.css`: Quy tắc định dạng lưới CSS Grid `grid-template-columns: 1fr 1fr 1fr` và `grid-template-columns: 100px 200px 1fr`
+  - `index.html`: Cấu trúc HTML gồm cả 3 ví dụ về `grid-column-start` và thước đo đường kẻ cột
+  - `style.css`: Quy tắc định dạng CSS cho `auto`, `span 2` và `column-line: 2`

@@ -3,53 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuộc tính grid-template-columns trong CSS Grid</title>
+    <title>Thuộc tính grid-column-start trong CSS Grid</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="page-wrapper">
         <header>
-            <h1>Thuộc tính <code>grid-template-columns</code> trong CSS</h1>
-            <p class="subtitle">Luyện tập thiết lập số lượng cột và kích thước các cột trong lưới CSS Grid</p>
+            <h1>Thuộc tính <code>grid-column-start</code> trong CSS Grid</h1>
+            <p class="subtitle">Xác định vị trí đường kẻ cột (column line) nơi phần tử Grid Item bắt đầu</p>
         </header>
 
-        <!-- VÍ DỤ 1: Tạo 3 cột có kích thước bằng nhau -->
+        <!-- SƠ ĐỒ ĐƯỜNG KẺ CỘT (COLUMN LINES) -->
+        <div class="diagram-card">
+            <h3>📌 Minh họa các đường kẻ cột trong lưới 4 cột (4 columns = 5 column lines):</h3>
+            <div class="column-lines-ruler">
+                <span>| Đường 1</span>
+                <span>| Đường 2</span>
+                <span>| Đường 3</span>
+                <span>| Đường 4</span>
+                <span class="last">| Đường 5</span>
+            </div>
+            <div class="grid-columns-preview">
+                <div>Cột 1</div>
+                <div>Cột 2</div>
+                <div>Cột 3</div>
+                <div>Cột 4</div>
+            </div>
+        </div>
+
+        <!-- VÍ DỤ 1: auto -->
         <section class="example-section">
             <div class="section-header">
-                <h2>Ví dụ 1: Tạo 3 cột có kích thước bằng nhau</h2>
-                <code>grid-template-columns: 1fr 1fr 1fr; gap: 10px;</code>
+                <h2>Ví dụ 1: Giá trị <code>auto</code> (Mặc định)</h2>
+                <code>grid-column-start: auto;</code>
             </div>
             <p class="desc">
-                Sử dụng 3 giá trị <code>1fr</code> chia đều không gian Grid thành 3 phần bằng nhau. 
-                Gồm 6 ô nội dung tự động sắp xếp thành 2 hàng, mỗi hàng 3 cột.
+                Giá trị <code>auto</code> đặt phần tử theo luồng sắp xếp tự nhiên của CSS Grid (lưới 3 cột <code>100px 100px 100px</code>).
             </p>
-            <div class="grid-container example-1">
-                <div>Ô 1</div>
-                <div>Ô 2</div>
-                <div>Ô 3</div>
-                <div>Ô 4</div>
-                <div>Ô 5</div>
-                <div>Ô 6</div>
+            <div class="grid-container example-auto">
+                <div class="item1 highlight">1 (auto)</div>
+                <div>2</div>
+                <div>3</div>
             </div>
         </section>
 
-        <!-- VÍ DỤ 2: Tạo các cột có kích thước khác nhau -->
+        <!-- VÍ DỤ 2: span n -->
         <section class="example-section">
             <div class="section-header">
-                <h2>Ví dụ 2: Tạo các cột có kích thước khác nhau</h2>
-                <code>grid-template-columns: 100px 200px 1fr; gap: 10px;</code>
+                <h2>Ví dụ 2: Giá trị <code>span n</code> (Kéo dài qua n cột)</h2>
+                <code>grid-column-start: span 2;</code>
             </div>
             <p class="desc">
-                Cột 1 có chiều rộng cố định <code>100px</code>, Cột 2 có chiều rộng cố định <code>200px</code>, 
-                Cột 3 sử dụng phần không gian còn lại với <code>1fr</code>.
+                Phần tử <strong>Item 1</strong> kéo dài qua <code>2 cột</code> trong lưới 4 cột (<code>repeat(4, 1fr)</code>).
             </p>
-            <div class="grid-container example-2">
-                <div>Cột 1</div>
-                <div>Cột 2</div>
-                <div>Cột 3</div>
-                <div>Cột 1</div>
-                <div>Cột 2</div>
-                <div>Cột 3</div>
+            <div class="grid-container example-span">
+                <div class="item1 highlight">Item 1 (span 2)</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+                <div>Item 4</div>
+            </div>
+        </section>
+
+        <!-- VÍ DỤ 3: column-line -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 3: Giá trị <code>column-line</code> (Đường kẻ cụ thể)</h2>
+                <code>grid-column-start: 2;</code>
+            </div>
+            <p class="desc">
+                Phần tử <strong>Item 1</strong> bắt đầu tại <strong>đường kẻ cột số 2</strong> (để trống Cột 1 phía trước) trong lưới 4 cột (<code>repeat(4, 1fr)</code>).
+            </p>
+            <div class="grid-container example-line">
+                <div class="item1 highlight">Item 1 (start: 2)</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+                <div>Item 4</div>
             </div>
         </section>
     </div>

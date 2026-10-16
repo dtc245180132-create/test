@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần 1: Form Thông Tin Cá Nhân</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            padding: 40px 20px;
+        }
+        .form-card {
+            background: #ffffff;
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+        .field {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #2563eb;
+            color: white;
+        }
+        input[type="reset"] {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <h2>Phần 1: Form thông tin cá nhân</h2>
+        <form action="" method="POST">
+            <div class="field">
+                <label for="yourname">Họ và tên:</label>
+                <input type="text" id="yourname" name="yourname" placeholder="Nhập họ và tên..." required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="field">
+                <label>Sở thích:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="hobby" value="reading"> Đọc sách</label>
+                    <label><input type="checkbox" name="hobby" value="sports"> Thể thao</label>
+                    <label><input type="checkbox" name="hobby" value="music"> Nghe nhạc</label>
+                    <label><input type="checkbox" name="hobby" value="travel"> Du lịch</label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Gửi thông tin">
+                <input type="reset" value="Nhập lại">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

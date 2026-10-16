@@ -1,20 +1,21 @@
-# Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)
+# Bài thực hành: Tạo Menu ngang Dropdown (Trình đơn thả xuống)
 
-Dự án thực hành tạo thanh menu điều hướng cố định trên cùng (`position: fixed`) giúp nâng cao trải nghiệm người dùng khi cuộn trang.
+Dự án thực hành xây dựng trình đơn hàng ngang hai cấp có khả năng thả xuống (dropdown) khi di chuột qua mục cha trong CSS.
 
-## 🎯 Mục tiêu & Các thuộc tính CSS quan trọng
-1. **`position: fixed`**: Giữ phần tử menu cố định tại một vị trí xác định trên khung nhìn (viewport), không bị cuộn theo nội dung trang web.
-2. **`top: 0`**: Neo thanh menu dính sát mép trên cùng của màn hình trình duyệt.
-3. **`width: 100%`**: Kéo dài thanh menu tràn đều toàn bộ bề ngang cửa sổ trình duyệt.
-4. **`overflow: hidden`**: Ẩn các phần tử tràn và giải quyết vấn đề float của các liên kết con `<a>`.
-5. **`margin-top` trên `.main`**: Tạo khoảng cách phía trên phần nội dung để không bị thanh menu cố định che khuất.
-6. **`height: 1500px`**: Tạo chiều cao trang lớn để xuất hiện thanh cuộn (scrollbar) giúp quan sát rõ hiệu ứng menu cố định.
+## 🎯 Mục tiêu & Các bộ chọn CSS quan trọng
+1. **Khung chứa trình đơn `#menu`**: Cố định chiều cao `30px`, màu nền đen `#000000`, đường viền `1px solid #CDCDCD`.
+2. **Các mục chọn `#menu li`**: Sử dụng `float: left;` để xếp menu thành hàng ngang và `position: relative;` làm mốc tọa độ định vị cho menu con.
+3. **Liên kết `#menu li a`**: Thiết lập `width: 100px;`, `height: 30px;`, `display: block;`, căn giữa văn bản `text-align: center;`, `line-height: 30px;`, màu chữ trắng trên nền đen.
+4. **Hiệu ứng hover `#menu li a:hover`**: Đổi màu nền liên kết sang màu đỏ (`background-color: red;`) khi rê chuột.
+5. **Menu con `#menu ul ul`**: Định vị tuyệt đối `position: absolute; top: 30px; left: 0;` và ẩn mặc định bằng thuộc tính `visibility: hidden;`.
+6. **Kích hoạt hiển thị `#menu ul li:hover ul`**: Đổi trạng thái sang `visibility: visible;` để làm xuất hiện menu con khi rê chuột vào mục cha tương ứng.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Hướng dẫn tạo Fixed Menu
-├── style.css                # File CSS định dạng cho Fixed Menu và nội dung trang
-├── fixed_menu.html          # File lưu trữ độc lập cho bài Fixed Menu
+├── index.html               # Bài thực hành hiện tại: Tạo Menu ngang Dropdown
+├── style.css                # File CSS định dạng cho menu ngang dropdown
+├── dropdown_menu.html       # File lưu trữ độc lập cho bài Menu ngang Dropdown
+├── fixed_menu.html          # Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)
 ├── open_source_records.html # Bài thực hành: Model 2 (Open Source Records - CSS Box Model)
 ├── box_model_layout.html    # Bài thực hành: Xây dựng bố cục với Mô hình hộp CSS (content-box vs border-box)
 ├── box_model_layout.css     # File CSS định dạng cho 3 thẻ card (content-box vs border-box)

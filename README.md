@@ -1,24 +1,25 @@
-# Bài tập: Sử dụng màu nền (background-color) và ảnh nền (background-image) trong CSS
+# Bài tập: Thực hành CSS Box Model
 
-Dự án thực hành sử dụng thuộc tính `background-color` và `background-image` để thiết kế giao diện trang web hiện đại.
+Dự án thực hành tìm hiểu và ứng dụng mô hình hộp (**Box Model**) trong CSS.
 
-## 🎯 Mục tiêu
-- **Thiết lập màu nền (`background-color`)**: Áp dụng màu nền đồng nhất, tinh tế cho toàn bộ trang web thông qua thẻ `body`.
-- **Thêm ảnh nền (`background-image`)**: Sử dụng ảnh nền cho khối `<div>` chứa nội dung quan trọng (`background-image: url('background.jpg')`), kết hợp `background-size: cover`, `background-position: center`.
-- **Căn giữa nội dung**: Căn giữa toàn bộ nội dung văn bản bên trong khối `<div>` (`text-align: center`).
+## 🎯 Mục tiêu & Công thức tính Box Model
+Xác định kích thước của phần tử `<div>` dựa trên 4 thành phần của Box Model:
+- **Content width**: `200px`
+- **Padding** (khoảng đệm bên trong): `35px` mỗi bên (trái, phải, trên, dưới)
+- **Border** (đường viền nét đứt màu indianred): `20px` mỗi bên
+- **Margin** (khoảng cách bên ngoài): `25px` mỗi bên
+- **Background-color**: `lightseagreen`
 
-## 📋 Các phần tử trên trang
-1. **Tiêu đề `<h1>`**: `"Chào mừng đến với trang web của tôi"` được căn giữa rõ ràng.
-2. **Đoạn văn `<p>`**: Giới thiệu và mô tả mục đích của trang web.
-3. **Khối `<div>` quan trọng**: Khối banner nổi bật có ảnh nền chất lượng cao, chứa tiêu đề phụ `<h2>`, thông điệp quan trọng và nút liên kết hành động.
+$$\text{Tổng chiều rộng} = \text{width} + (\text{left} + \text{right})\text{padding} + (\text{left} + \text{right})\text{border} + (\text{left} + \text{right})\text{margin}$$
+$$= 200 + (35 + 35) + (20 + 20) + (25 + 25) = 360\text{px}$$
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập hiện tại: Sử dụng background-color và background-image
-├── style.css                # File CSS định dạng cho bài tập màu nền & ảnh nền
+├── index.html               # Bài thực hành hiện tại: CSS Box Model
+├── box_model.html           # File lưu trữ độc lập cho bài CSS Box Model
+├── background_styling.html  # Bài thực hành: Sử dụng màu nền (background-color) và ảnh nền (background-image)
+├── background_style.css     # File CSS định dạng cho bài màu nền & ảnh nền
 ├── background.jpg           # Ảnh nền chất lượng cao dùng cho khối div quan trọng
-├── background_styling.html  # Bản sao lưu trữ độc lập cho bài tập Màu nền & Ảnh nền
-├── background_style.css     # Bản sao CSS độc lập cho bài tập Màu nền & Ảnh nền
 ├── css_selectors.html       # Bản sao lưu trữ bài tập các bộ chọn CSS (class, id, element, grouping, pseudo-classes)
 ├── selectors_style.css      # File CSS cho bài tập các bộ chọn CSS
 ├── css_embedding.html       # Bài thực hành: Nhúng CSS vào trang web (Inline, Internal, External)

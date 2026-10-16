@@ -1,33 +1,26 @@
-# Bài tập: Xây dựng bố cục với Mô hình hộp CSS (Box Model)
+# Bài tập: Hoàn thiện CSS Box Model - Model 2 (Open Source Records)
 
-Dự án thực hành tìm hiểu và so sánh sự khác biệt trực quan giữa `box-sizing: content-box` và `box-sizing: border-box`.
+Dự án thực hành hoàn thiện bố cục và kiểu dáng trang web ban nhạc "Open Source Records" bằng CSS Box Model (`margin`, `padding`, `border`, `width`).
 
-## 🎯 Mục tiêu & So sánh kích thước thực tế
-Áp dụng các thuộc tính `width`, `height`, `padding`, `border`, `margin` và `box-sizing` cho 3 thẻ `.card`:
-- **Khai báo chung:**
-  - `width: 280px;`
-  - `height: 150px;`
-  - `padding: 20px;` (ở tất cả 4 cạnh)
-  - `border: 5px solid #3498db;` (ở tất cả 4 cạnh)
-  - `margin: 20px;` (ở tất cả 4 cạnh)
-
-| Thuộc tính | Thẻ 1 (`content-box`) - Xanh lá (`#2ecc71`) | Thẻ 2 & 3 (`border-box`) - Vàng (`#f1c40f`) / Đỏ (`#e74c3c`) |
-| :--- | :--- | :--- |
-| **box-sizing** | `content-box` (mặc định) | `border-box` |
-| **Chiều rộng nội dung (content width)** | `280px` | `280 - (20*2) - (5*2) = 230px` |
-| **Chiều cao nội dung (content height)** | `150px` | `150 - (20*2) - (5*2) = 100px` |
-| **Tổng chiều rộng hiển thị (Element Width)** | **`330px`** ($280 + 40 + 10$) | **`280px`** (cố định theo khai báo) |
-| **Tổng chiều cao hiển thị (Element Height)** | **`200px`** ($150 + 40 + 10$) | **`150px`** (cố định theo khai báo) |
-| **Tổng không gian chiếm chỗ (kèm margin)** | **`370px × 240px`** | **`320px × 190px`** |
-
-> **Nhận xét quan trọng:** Với `border-box`, kích thước phần tử luôn cố định đúng bằng giá trị `width` và `height` đã đặt, padding và border sẽ tự động co vào trong thay vì nở ra ngoài như `content-box`. Đây là lý do tại sao `box-sizing: border-box` được xem là chuẩn mực trong thiết kế web hiện đại.
+## 🎯 Mục tiêu & Các thuộc tính CSS Box Model áp dụng
+1. **Tiêu đề `h1`**: Đặt trên cùng với đường viền kẻ chân phân cách nổi bật (`border-bottom: 2px solid #000000;`).
+2. **Menu liên kết (`About`, `Bands`, `Contact`)**: Định dạng danh sách dạng hàng ngang với `display: inline-block;`, khoảng cách `margin-right: 25px;` và đường viền phân tách.
+3. **Phân biệt màu sắc & khoảng cách các tiêu đề**:
+   - `h2`: Màu đen (`#000000`), kích thước 20px, có viền gạch chân nhẹ (`border-bottom: 1px solid #d0d0d0;`).
+   - `h3`: Màu xám đậm (`#333333`), kích thước 15px, viết hoa tinh tế (`text-transform: uppercase;`).
+4. **Đoạn văn & Liên kết**:
+   - Đoạn văn `p`: Màu xám (`#444444`), cỡ chữ 14px, giãn dòng thoáng `line-height: 1.6`.
+   - Liên kết `a`: Màu nâu đỏ (`#440000`), hiệu ứng `hover: underline`.
+5. **Danh sách thành viên & Lịch diễn Tour Dates**:
+   - Danh sách thành viên: Dấu tròn (`list-style-type: disc;`) với thụt lề `padding-left: 20px;`.
+   - Danh sách lịch diễn: Dạng thẻ card có đường viền viền trái nổi bật (`border-left: 4px solid #440000;`), `padding: 12px 16px;`, nền trắng trên khung nền nhạt.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Xây dựng bố cục với Mô hình hộp CSS
-├── style.css                # File CSS định dạng cho 3 thẻ card (content-box vs border-box)
-├── box_model_layout.html    # Bản sao lưu trữ độc lập cho bài Xây dựng bố cục Box Model
-├── box_model_layout.css     # Bản sao CSS độc lập cho bài Xây dựng bố cục Box Model
+├── index.html               # Bài thực hành hiện tại: Model 2 (Open Source Records - CSS Box Model)
+├── open_source_records.html # File lưu trữ độc lập cho bài Model 2
+├── box_model_layout.html    # Bài thực hành: Xây dựng bố cục với Mô hình hộp CSS (content-box vs border-box)
+├── box_model_layout.css     # File CSS định dạng cho 3 thẻ card (content-box vs border-box)
 ├── box_sizing_flex.html     # Bài thực hành: CSS box-shadow, box-sizing, border-radius và Flexbox
 ├── box_shadow_radius.html   # Bài thực hành: CSS box-shadow và border-radius (inset shadow)
 ├── box_model.html           # Bài thực hành: CSS Box Model (width, padding, border, margin)

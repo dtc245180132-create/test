@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký thành công - TechSpace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+    <div class="auth-card success-card" style="margin: 20px;">
+        <div class="success-icon-wrapper">
+            <div class="success-icon-circle">
+                <svg class="checkmark" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+        </div>
+
+        <h2>Đăng ký thành công! 🎉</h2>
+        <p class="success-desc">
+            Chào mừng bạn <strong>Nguyễn Văn A</strong> đã gia nhập hệ sinh thái TechSpace!
+        </p>
+
+        <div class="success-info-box">
+            <p>📧 Một email xác thực tài khoản đã được gửi tới:</p>
+            <div class="user-email-badge">user.example@email.com</div>
+            <small>Vui lòng kiểm tra hộp thư đến (hoặc thư mục Quảng cáo/Spam) để kích hoạt tài khoản trong vòng 24 giờ.</small>
+        </div>
+
+        <div class="action-buttons">
+            <a href="https://mail.google.com" target="_blank" class="btn-primary-action">
+                Mở Hòm Thư Email Ngay
+            </a>
+            <a href="index.html" class="btn-secondary-action" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                ← Quay lại trang đăng ký
+            </a>
+        </div>
+
+        <div class="help-text">
+            Chưa nhận được email? <a href="#" onclick="alert('Đã gửi lại email xác thực thành công!'); return false;">Gửi lại email</a> hoặc <a href="#">Trung tâm trợ giúp</a>.
+        </div>
+    </div>
+</body>
+</html>

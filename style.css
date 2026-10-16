@@ -1,3 +1,6 @@
+/* ===================================================
+   RESET & CẤU TRÚC CHUNG
+   =================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,362 +9,669 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #0b0f19;
-    color: #e2e8f0;
-    line-height: 1.6;
-    padding: 30px 20px;
-}
-
-.page-wrapper {
-    max-width: 1050px;
-    margin: 0 auto;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #334155;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ===================================================
-   MAIN HEADER
+   TOP NAVIGATION BAR (CHUYỂN TAB TEST TRỰC QUAN)
    =================================================== */
-.main-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 80%);
-    border-radius: 16px;
-    margin-bottom: 30px;
-    border: 1px solid #1e293b;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.top-nav-bar {
+    background-color: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid #334155;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
-.brand-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff0000 0%, #ff6b00 100%);
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 15px;
+.nav-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.main-header h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-}
-
-.subtitle {
+.nav-brand {
+    color: #f8fafc;
+    font-weight: 700;
     font-size: 16px;
-    color: #94a3b8;
-    max-width: 680px;
-    margin: 0 auto 25px auto;
 }
 
-.header-actions .btn {
+.nav-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab-btn {
+    background-color: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    border-color: #38bdf8;
+}
+
+.tab-btn.active {
+    background-color: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.5);
+}
+
+/* ===================================================
+   MAIN WRAPPER & VIEW MANAGEMENT
+   =================================================== */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.view-panel {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.view-panel.active-view {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   AUTH CARD (CARD ĐĂNG KÝ)
+   =================================================== */
+.auth-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 480px;
+    padding: 36px 32px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.brand-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0284c7;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.auth-header h2 {
+    font-size: 24px;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* ===================================================
+   SOCIAL SIGN-IN BUTTONS (JAKOB'S LAW)
+   =================================================== */
+.social-auth-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-social:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* ===================================================
+   FORM GROUPS & INLINE VALIDATION
+   =================================================== */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.required {
+    color: #ef4444;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 16px;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.7;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 42px 12px 42px;
+    font-size: 15px;
+    color: #0f172a;
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    background-color: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.15);
+}
+
+/* Trạng thái lỗi (Error state) */
+.form-group.has-error input {
+    border-color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.form-group.has-error input:focus {
+    box-shadow: 0 0 0 3.5px rgba(239, 68, 68, 0.15);
+}
+
+/* Trạng thái hợp lệ (Valid state) */
+.form-group.is-valid input {
+    border-color: #10b981;
+}
+
+.status-icon {
+    position: absolute;
+    right: 14px;
+    font-size: 15px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+.error-msg {
+    display: none;
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.form-group.has-error .error-msg,
+.terms-group.has-error .error-msg {
+    display: block;
+}
+
+/* ===================================================
+   PASSWORD STRENGTH BAR (FEEDBACK THỊ GIÁC)
+   =================================================== */
+.password-strength-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #e2e8f0;
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.strength-meter {
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-meter.weak {
+    width: 33%;
+    background-color: #ef4444;
+}
+
+.strength-meter.medium {
+    width: 66%;
+    background-color: #f59e0b;
+}
+
+.strength-meter.strong {
+    width: 100%;
+    background-color: #10b981;
+}
+
+.strength-label {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+/* ===================================================
+   TERMS & CONDITIONS CHECKBOX
+   =================================================== */
+.terms-group {
+    margin: 18px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #475569;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #0284c7;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-label a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================
+   SUBMIT BUTTON (FITTS' LAW: 50px CHIỀU CAO, FULL-WIDTH)
+   =================================================== */
+.btn-submit {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.link-login {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.link-login:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================
+   TRANG 2: SUCCESS CARD
+   =================================================== */
+.success-card {
+    text-align: center;
+    padding: 48px 32px;
+}
+
+.success-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.success-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ecfdf5;
+    border: 2px solid #a7f3d0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+}
+
+.success-card h2 {
+    font-size: 26px;
+    color: #0f172a;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.success-desc {
+    font-size: 15px;
+    color: #475569;
+    margin-bottom: 24px;
+}
+
+.success-info-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.user-email-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+    background-color: #e0f2fe;
+    color: #0369a1;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin: 10px 0;
+    border: 1px solid #bae6fd;
+}
+
+.success-info-box small {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-primary-action {
+    display: block;
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    padding: 12px 26px;
-    border-radius: 30px;
-    font-size: 15px;
-    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.header-actions .btn:hover {
+.btn-primary-action:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+}
+
+.btn-secondary-action {
+    width: 100%;
+    height: 44px;
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary-action:hover {
+    background-color: #e2e8f0;
+}
+
+.help-text {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.help-text a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 /* ===================================================
-   CARD SECTIONS
+   TRANG 3: BÁO CÁO PHÂN TÍCH UI/UX & WIREFRAME
    =================================================== */
-.card-section {
-    background-color: #131b2e;
-    border-radius: 14px;
-    padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid #1e293b;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+.report-container {
+    max-width: 900px;
+    width: 100%;
 }
 
-.section-title {
-    font-size: 22px;
+.report-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.report-header h2 {
+    font-size: 28px;
     color: #ffffff;
     margin-bottom: 8px;
 }
 
-.section-subtitle {
-    font-size: 14px;
+.report-header p {
     color: #94a3b8;
-    margin-bottom: 20px;
+    font-size: 15px;
 }
 
-.section-header-flex {
+.report-card {
+    background-color: #1e293b;
+    border-radius: 12px;
+    padding: 26px;
+    margin-bottom: 24px;
+    border: 1px solid #334155;
+    color: #ffffff;
+}
+
+.report-card h3 {
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: #38bdf8;
+}
+
+.flow-diagram {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
 }
 
-.badge {
-    background-color: #065f46;
-    color: #34d399;
+.flow-step {
+    flex: 1;
+    min-width: 160px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.flow-step.highlight {
+    border-color: #10b981;
+    background-color: #064e3b;
+}
+
+.step-badge {
+    display: inline-block;
+    background-color: #0284c7;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.flow-step h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #f8fafc;
+}
+
+.flow-step p {
     font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+.flow-arrow {
+    font-size: 22px;
+    color: #64748b;
     font-weight: bold;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid #059669;
 }
 
-/* ===================================================
-   7 COLOR RULES GRID
-   =================================================== */
-.rules-grid {
+.report-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
 }
 
-.rule-card {
-    background-color: #1a243a;
+.report-item {
+    background-color: #1e293b;
+    border: 1px solid #334155;
     border-radius: 10px;
     padding: 20px;
-    border: 1px solid #27354f;
-    transition: transform 0.2s, border-color 0.2s;
+    color: #e2e8f0;
 }
 
-.rule-card:hover {
-    transform: translateY(-3px);
-    border-color: #38bdf8;
-}
-
-.rule-icon {
+.item-icon {
     font-size: 26px;
     margin-bottom: 10px;
 }
 
-.rule-card h3 {
+.report-item h4 {
     font-size: 16px;
     color: #38bdf8;
     margin-bottom: 8px;
 }
 
-.rule-card p {
+.report-item p {
     font-size: 13px;
     color: #94a3b8;
-    line-height: 1.5;
-}
-
-/* ===================================================
-   COLOR SWATCHES (5-COLOR PALETTE)
-   =================================================== */
-.palette-display {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.color-swatch-card {
-    height: 240px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 16px;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.color-swatch-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.swatch-content {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.light-text {
-    color: #ffffff;
-}
-
-.dark-text {
-    color: #0f172a;
-}
-
-.role-tag {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.85;
-}
-
-.swatch-content h4 {
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.code-box {
-    margin-top: 6px;
-    display: flex;
-    flex-direction: column;
-}
-
-.hex-code {
-    font-family: monospace;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.rgb-code {
-    font-family: monospace;
-    font-size: 11px;
-    opacity: 0.8;
-}
-
-/* ===================================================
-   CREATE FROM IMAGE (EXTRACT THEME)
-   =================================================== */
-.image-extract-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.image-preview-wrapper {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    max-height: 380px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-.source-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Pins mô phỏng các điểm lấy mẫu của Adobe Color */
-.pin {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 3px solid #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    transform: translate(-50%, -50%);
-    animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.15); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-}
-
-.pin-1 { top: 25%; left: 20%; background-color: #1E3A8A; }
-.pin-2 { top: 40%; left: 45%; background-color: #3B82F6; }
-.pin-3 { top: 70%; left: 35%; background-color: #10B981; }
-.pin-4 { top: 30%; left: 75%; background-color: #F59E0B; }
-.pin-5 { top: 60%; left: 80%; background-color: #EF4444; }
-
-.extracted-palette h3 {
-    font-size: 16px;
-    color: #e2e8f0;
-    margin-bottom: 12px;
-}
-
-.extracted-swatches {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.mini-swatch {
-    border-radius: 8px;
-    padding: 16px 10px;
-    text-align: center;
-    color: #ffffff;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.mini-swatch span {
-    font-family: monospace;
-    font-size: 14px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.mini-swatch small {
-    font-size: 11px;
-    font-weight: normal;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-/* ===================================================
-   GUIDE STEPS
-   =================================================== */
-.steps-list {
-    padding-left: 20px;
-    color: #94a3b8;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.steps-list strong {
-    color: #ffffff;
-}
-
-.steps-list a {
-    color: #38bdf8;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.steps-list a:hover {
-    text-decoration: underline;
-}
-
-.steps-list code {
-    background-color: #1e293b;
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #f59e0b;
-    font-family: monospace;
+    line-height: 1.6;
 }
 
 /* ===================================================
    RESPONSIVE DESIGN
    =================================================== */
-@media (max-width: 768px) {
-    .palette-display {
-        grid-template-columns: 1fr;
+@media (max-width: 640px) {
+    .auth-card {
+        padding: 28px 20px;
     }
-    .color-swatch-card {
-        height: 120px;
+    .flow-arrow {
+        display: none;
     }
-    .extracted-swatches {
-        grid-template-columns: repeat(2, 1fr);
+    .flow-step {
+        width: 100%;
     }
 }

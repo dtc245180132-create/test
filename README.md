@@ -1,51 +1,65 @@
-# Bài thực hành: Khám phá & Ứng dụng Adobe Color
+# Dự án UI/UX: Thiết Kế Giao Diện Trang Đăng Ký Người Dùng (Registration & Success Flow)
 
-Dự án thực hành tìm hiểu bộ công cụ phối màu trực quan **Adobe Color** (https://color.adobe.com/) theo chuẩn nguyên lý bánh xe màu sắc (Color Wheel), tạo bộ màu theo các quy tắc phối màu và trích xuất màu từ hình ảnh ("Create from image").
-
----
-
-## 🎨 1. Các quy tắc phối màu trên Adobe Color (Color Harmony Rules)
-1. **Analogous (Tương đồng)**: Bộ các màu nằm liền kề nhau trên Color Wheel, tạo cảm giác tự nhiên, êm dịu.
-2. **Monochromatic (Đơn sắc)**: Sử dụng các sắc độ đậm nhạt khác nhau của cùng một màu chính.
-3. **Triad (Tam giác đều)**: Bộ 3 màu phân bố thành tam giác góc 120° trên Color Wheel, cân bằng và sống động.
-4. **Complementary (Bổ túc trực tiếp)**: Hai màu đối nghịch nhau 180°, tạo điểm nhấn tương phản mạnh mẽ.
-5. **Compound (Bổ túc xen kẽ)**: Kết hợp màu chính với 2 màu liền kề của màu đối diện, phong phú và mềm mại hơn.
-6. **Shades (Sắc độ)**: Pha trộn thêm sắc độ sáng tối từ một màu gốc.
-7. **Custom (Tùy chỉnh)**: Người dùng tự do tùy biến vị trí các điểm màu trên bánh xe.
+Dự án thực hành chuyên sâu các nguyên tắc cơ bản và nâng cao của **UI/UX (User Interface / User Experience)**, tập trung vào tính khả dụng (Usability), tính dễ hiểu (Clarity) và thiết kế lấy người dùng làm trung tâm (User-Centered Design).
 
 ---
 
-## ✨ 2. Bộ màu mẫu đã tạo & Mã màu HEX (Ocean & Sunset - Complementary)
-| Vai trò trong giao diện | Tên màu | Mã HEX | Mã RGB |
-| :--- | :--- | :--- | :--- |
-| **Nền tối / Văn bản** | Deep Navy | `#0F172A` | `rgb(15, 23, 42)` |
-| **Màu chủ đạo (Primary)** | Ocean Blue | `#0284C7` | `rgb(2, 132, 199)` |
-| **Màu phụ trợ (Secondary)**| Sky Cyan | `#38BDF8` | `rgb(56, 189, 248)` |
-| **Điểm nhấn (Accent / CTA)**| Vibrant Orange | `#F97316` | `rgb(249, 115, 22)` |
-| **Nền phụ / Badge** | Warm Peach | `#FED7AA` | `rgb(254, 215, 170)` |
+## 🎯 1. Nghiên cứu trải nghiệm người dùng (UX Research)
+- **Tham khảo các mẫu chuẩn ngành (Google, Spotify, Facebook, Twitter/X)**:
+  - Tối giản số lượng trường thông tin nhập liệu, chỉ giữ lại những trường cốt lõi nhất.
+  - Cung cấp nút đăng ký nhanh qua mạng xã hội (Social Login) để giảm ma sát nhận thức.
+  - Dòng chảy thị giác tự nhiên từ trên xuống dưới (Z-pattern / F-pattern).
+  - Phản hồi trạng thái nhập liệu tức thì (Inline Validation) thay vì chờ bấm submit mới báo lỗi.
 
 ---
 
-## 🖼️ 3. Bộ màu trích xuất từ hình ảnh (`background.jpg`)
-Sử dụng tính năng **Create from Image** (Extract Theme) trên ảnh thiên nhiên:
-- `#1E3A8A`: Đêm thẳm
-- `#3B82F6`: Xanh lam
-- `#10B981`: Xanh ngọc
-- `#F59E0B`: Ánh hoàng hôn
-- `#EF4444`: Đỏ rực
+## 🎨 2. Các nguyên tắc UI/UX cốt lõi được áp dụng
+
+| Nguyên tắc / Định luật | Ứng dụng cụ thể trong thiết kế | Lợi ích trải nghiệm người dùng |
+| :--- | :--- | :--- |
+| **Định luật Fitts (Fitts' Law)** | Nút CTA *"Đăng Ký Tài Khoản"* cao `50px`, độ rộng full-width `100%`, đặt ở cuối form. | Giảm thời gian di chuyển chuột/ngón tay, dễ bấm trúng trên cả Mobile & Desktop. |
+| **Định luật Hick (Hick's Law)** | Giới hạn chính xác 4 trường: Họ tên, Email, Mật khẩu, Xác nhận mật khẩu. | Giảm tải nhận thức, giúp người dùng ra quyết định nhanh hơn, tăng tỷ lệ hoàn tất form. |
+| **Định luật Jakob (Jakob's Law)** | Đặt nút đăng ký bằng Google & Facebook ở đầu form theo mô thức quen thuộc. | Tận dụng thói quen có sẵn của người dùng từ các nền tảng lớn trên thế giới. |
+| **Visual Feedback & Error Prevention** | Thanh đo độ mạnh mật khẩu (Yếu/Trung bình/Mạnh), nút ẩn/hiện mật khẩu (Eye toggle), viền đỏ/xanh thời gian thực. | Giúp người dùng biết ngay mật khẩu có an toàn hay không và tự sửa lỗi trước khi gửi form. |
+| **Khả năng tiếp cận (Accessibility - a11y)** | Nhãn `<label>` rõ ràng, độ tương phản văn bản đạt chuẩn WCAG AA, focus ring nổi bật khi dùng phím `Tab`. | Hỗ trợ thân thiện cho mọi đối tượng người dùng, bao gồm người dùng chỉ dùng bàn phím. |
+| **Responsive (Mobile-First)** | Container co giãn tối đa `480px`, font chữ tối thiểu `16px` trên mobile chống zoom Safari. | Hiển thị hoàn hảo, không bị tràn hay gãy layout trên smartphone, tablet và PC. |
+
+---
+
+## 📑 3. Luồng người dùng (User Flow) qua 2 trang
+
+```
+[BƯỚC 1: TRANG 1 - FORM ĐĂNG KÝ]
+   ├── Người dùng nhập Họ và tên (tối thiểu 3 ký tự)
+   ├── Nhập Email hợp lệ (kiểm tra định dạng Regex thời gian thực)
+   ├── Nhập Mật khẩu (thanh đo màu Yếu -> Trung bình -> Rất mạnh hiển thị)
+   ├── Nhập Xác nhận mật khẩu (kiểm tra trùng khớp)
+   ├── Checkbox đồng ý Điều khoản & Chính sách bảo mật
+   └── Nhấn nút lớn "Đăng Ký Tài Khoản" (Fitts' Law)
+              │
+              ▼ (Validation hợp lệ)
+[BƯỚC 2: TRANG 2 - XÁC NHẬN THÀNH CÔNG]
+   ├── Biểu tượng Checkmark xanh lá chúc mừng
+   ├── Hiển thị cá nhân hóa Tên người dùng và Email đã đăng ký
+   ├── Hướng dẫn kiểm tra hộp thư đến (Inbox / Spam) để kích hoạt trong 24h
+   ├── Nút CTA "Mở Hòm Thư Email Ngay"
+   └── Nút "Tạo thêm tài khoản khác" để quay lại form ban đầu
+```
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Giao diện tổng quan Adobe Color & Bộ màu đã tạo
-├── style.css                   # File CSS định dạng cho bảng màu, thẻ quy tắc và trích xuất ảnh
-├── adobe_color_palette.html    # Bản sao độc lập lưu trữ bài Adobe Color
+├── index.html                  # Giao diện chính: Chuyển đổi linh hoạt giữa Trang 1, Trang 2 và Báo cáo UI/UX
+├── style.css                   # File CSS thiết kế hiện đại, gradient, responsive, validation styles
+├── script.js                   # Xử lý logic validation thời gian thực, đo độ mạnh mật khẩu, ẩn/hiện pass, chuyển view
+├── success.html                # Trang độc lập: Xác nhận đăng ký thành công (Trang 2)
+├── uiux_registration.html      # Bản sao độc lập tích hợp đầy đủ HTML, CSS, JS cho dự án UI/UX
+├── adobe_color_palette.html    # Bài thực hành: Khám phá & Ứng dụng Adobe Color (Color Harmony, Extract Theme)
 ├── grid_row_gap.html           # Bài thực hành: Thuộc tính grid-row-gap (length, %, global values)
 ├── grid_column_start.html      # Bài thực hành: Thuộc tính grid-column-start (auto, span n, column-line)
 ├── grid_template_columns.html  # Bài thực hành: Thuộc tính grid-template-columns (1fr 1fr 1fr & 100px 200px 1fr)
 ├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
-├── script.js                   # File JavaScript điều khiển toggle active cho navbar
 ├── float_overflow_layout.html  # Bài thực hành: Bố cục trang với Float và Overflow
 ├── display_layout.html         # Bài thực hành: Bố cục trang web với thuộc tính Display (block, inline-block)
 ├── html5_layout.html           # Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
@@ -103,6 +117,8 @@ Sử dụng tính năng **Create from Image** (Extract Theme) trên ảnh thiên
 
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
-- **File bài nộp trực tiếp**:
-  - `index.html`: Giao diện ứng dụng Adobe Color và bảng mã màu chi tiết
-  - `style.css`: Quy tắc định dạng CSS cho thẻ màu và trích xuất hình ảnh
+- **Trang trực tiếp**:
+  - `index.html`: Giao diện tương tác đăng ký & xác nhận thành công & báo cáo UI/UX
+  - `success.html`: Trang độc lập xác nhận đăng ký thành công
+  - `style.css`: Bộ quy tắc CSS thiết kế giao diện
+  - `script.js`: Xử lý tương tác, validation và chuyển đổi trang

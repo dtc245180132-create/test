@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Nhúng CSS vào trang web</title>
+    
+    <!-- PHẦN 3: EXTERNAL STYLE (Liên kết file CSS bên ngoài) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PHẦN 2: INTERNAL STYLE (CSS viết trong thẻ style ở head) -->
+    <style>
+        .internal-heading {
+            color: #059669; /* Màu xanh lá đậm */
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .internal-text {
+            color: #d97706; /* Màu cam hổ phách */
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Luyện tập nhúng CSS vào trang web</h1>
+
+        <!-- PHẦN 1: INLINE STYLE -->
+        <div class="section-box">
+            <h2 style="color: #e11d48; font-size: 22px; margin-bottom: 8px;">Phần 1: Tiêu đề sử dụng Inline Style</h2>
+            <p style="color: #2563eb; font-size: 16px; line-height: 1.6;">Đoạn văn này được thay đổi màu sắc trực tiếp thông qua thuộc tính style nội tuyến (inline-style).</p>
+        </div>
+
+        <!-- PHẦN 2: INTERNAL STYLE -->
+        <div class="section-box">
+            <h2 class="internal-heading">Phần 2: Tiêu đề sử dụng Internal Style</h2>
+            <p class="internal-text">Đoạn văn này được thay đổi màu sắc thông qua thẻ &lt;style&gt; nội bộ nằm trong phần &lt;head&gt; (internal-style).</p>
+        </div>
+
+        <!-- PHẦN 3: EXTERNAL STYLE -->
+        <div class="section-box">
+            <h2 class="external-heading">Phần 3: Tiêu đề sử dụng External Style</h2>
+            <p class="external-text">Đoạn văn này được thay đổi màu sắc thông qua tệp tin CSS độc lập bên ngoài style.css (external-style).</p>
+        </div>
+    </div>
+</body>
+</html>

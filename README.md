@@ -18,10 +18,12 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành: Trang web cá nhân (header, avatar, profile, hobbies, goals, footer)
-├── style.css                # File CSS cho trang web cá nhân
+├── index.html               # Bài thực hành: Nhúng CSS vào trang web (Inline, Internal, External)
+├── style.css                # File External CSS cho Phần 3
+├── css_embedding.html       # Bản sao độc lập bài thực hành nhúng CSS
+├── personal_page.html       # Bài thực hành: Trang web cá nhân (header, avatar, profile, hobbies, goals, footer)
+├── personal_style.css       # File CSS cho trang web cá nhân
 ├── avatar.jpg               # Ảnh đại diện cho trang web cá nhân
-├── personal_page.html       # Bản sao độc lập bài thực hành trang web cá nhân
 ├── table_styling.html       # Bài thực hành: Định kiểu bảng trong CSS (border, collapse, width, height, align, padding, color)
 ├── list_styling.html        # Bài thực hành: Định kiểu cho danh sách HTML bằng CSS (8 mục)
 ├── list_style.css           # File CSS định kiểu cho danh sách (list-style, position, image, color)

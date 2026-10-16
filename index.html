@@ -3,102 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Định kiểu cho danh sách HTML bằng CSS</title>
-    <!-- Bước 1: Liên kết file CSS với HTML -->
-    <link rel="stylesheet" href="style.css">
+    <title>Định kiểu cho Bảng trong CSS (CSS Tables)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8fafc;
+            color: #333333;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        p.desc {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        /* 1. Chiều rộng 100% & gộp đường viền liền kề (border-collapse: collapse) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            margin-top: 15px;
+        }
+
+        /* 2. Thiết lập đường viền 1px solid black cho table, th và td */
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        /* 3. Chiều cao 50px, căn trái (text-align: left), màu nền #333, chữ trắng và padding 15px cho th */
+        th {
+            height: 50px;
+            text-align: left;
+            background-color: #333333;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        /* 4. Padding 15px, căn chỉnh dọc (vertical-align: middle), màu nền #f2f2f2 và màu chữ #333 cho td */
+        td {
+            padding: 15px;
+            background-color: #f2f2f2;
+            color: #333333;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        /* Hiệu ứng tương tác hover qua các hàng */
+        tr:hover td {
+            background-color: #e6e6e6;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Thực hành: Định kiểu cho danh sách HTML bằng CSS</h1>
+    <h1>Định kiểu bảng trong CSS (CSS Tables)</h1>
+    <p class="desc">Thực hành áp dụng đầy đủ các thuộc tính: border, border-collapse, width, height, text-align, vertical-align, padding và màu sắc.</p>
 
-        <!-- Mục 2: Thay đổi kiểu đánh dấu danh sách không có thứ tự -->
-        <section class="exercise-section">
-            <h2>2. Thay đổi kiểu đánh dấu danh sách (list-style-type: square)</h2>
-            <ul class="list-square">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Git</li>
-            </ul>
-        </section>
-
-        <!-- Mục 3: Thay đổi kiểu đánh dấu danh sách có thứ tự -->
-        <section class="exercise-section">
-            <h2>3. Danh sách có thứ tự số La Mã (list-style-type: upper-roman)</h2>
-            <ol class="list-roman">
-                <li>Học HTML</li>
-                <li>Học CSS</li>
-                <li>Học JavaScript</li>
-                <li>Học Git</li>
-            </ol>
-        </section>
-
-        <!-- Mục 4: Sử dụng hình ảnh làm dấu đánh dấu -->
-        <section class="exercise-section">
-            <h2>4. Dấu đánh dấu bằng hình ảnh (list-style-image)</h2>
-            <ul class="list-image">
-                <li>Visual Studio Code</li>
-                <li>Google Chrome</li>
-                <li>GitHub</li>
-                <li>Git</li>
-            </ul>
-        </section>
-
-        <!-- Mục 5: Thay đổi vị trí dấu đánh dấu -->
-        <section class="exercise-section">
-            <h2>5. Thay đổi vị trí dấu đánh dấu (list-style-position)</h2>
-            <div class="comparison-grid">
-                <div class="box">
-                    <h3>Vị trí outside (mặc định)</h3>
-                    <ul class="list-pos-outside">
-                        <li>Mục thứ nhất với dấu đánh dấu nằm bên ngoài khối nội dung</li>
-                        <li>Mục thứ hai minh họa vị trí outside</li>
-                        <li>Mục thứ ba hiển thị rõ đường canh lề</li>
-                    </ul>
-                </div>
-                <div class="box">
-                    <h3>Vị trí inside</h3>
-                    <ul class="list-pos-inside">
-                        <li>Mục thứ nhất với dấu đánh dấu nằm thụt vào bên trong khối nội dung</li>
-                        <li>Mục thứ hai minh họa vị trí inside</li>
-                        <li>Mục thứ ba hiển thị rõ đường canh lề</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mục 6: Sử dụng thuộc tính rút gọn list-style -->
-        <section class="exercise-section">
-            <h2>6. Thuộc tính rút gọn (list-style)</h2>
-            <ul class="list-shorthand">
-                <li>Kết hợp kiểu đánh dấu, vị trí và hình ảnh</li>
-                <li>Cú pháp rút gọn: list-style: square inside;</li>
-                <li>Giúp mã nguồn ngắn gọn, tối ưu hơn</li>
-            </ul>
-        </section>
-
-        <!-- Mục 7: Tạo kiểu danh sách với màu sắc và khoảng cách -->
-        <section class="exercise-section">
-            <h2>7. Danh sách với màu sắc, padding và margin</h2>
-            <ul class="list-styled-color">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-            </ul>
-        </section>
-
-        <!-- Mục 8: Bài tập tổng hợp -->
-        <section class="exercise-section highlight-section">
-            <h2>8. Bài tập tổng hợp: Lộ trình học lập trình Web</h2>
-            <ul class="list-roadmap">
-                <li>HTML - Xây dựng cấu trúc trang web</li>
-                <li>CSS - Định dạng giao diện và bố cục</li>
-                <li>JavaScript - Tạo tính tương tác động</li>
-                <li>Git - Quản lý phiên bản mã nguồn</li>
-                <li>GitHub - Lưu trữ và làm việc nhóm trực tuyến</li>
-            </ul>
-        </section>
-    </div>
+    <!-- Bảng danh sách học viên theo đúng bài học -->
+    <table>
+        <tr>
+            <th>Họ tên</th>
+            <th>Tuổi</th>
+            <th>Lớp</th>
+        </tr>
+        <tr>
+            <td>Nguyễn Văn A</td>
+            <td>20</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Trần Thị B</td>
+            <td>21</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Lê Văn C</td>
+            <td>22</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Phạm Thị D</td>
+            <td>20</td>
+            <td>Web</td>
+        </tr>
+    </table>
 </body>
 </html>

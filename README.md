@@ -18,9 +18,10 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành: Định kiểu cho danh sách HTML bằng CSS (8 mục)
+├── index.html               # Bài thực hành: Định kiểu bảng trong CSS (border, collapse, width, height, align, padding, color)
+├── table_styling.html       # Bản sao độc lập bài thực hành định kiểu bảng CSS
+├── list_styling.html        # Bài thực hành: Định kiểu cho danh sách HTML bằng CSS (8 mục)
 ├── style.css                # File CSS định kiểu cho danh sách (list-style, position, image, color)
-├── list_styling.html        # Bản sao độc lập bài thực hành định kiểu danh sách
 ├── bullet.png               # Icon hình ảnh đánh dấu cho list-style-image
 ├── meeting_schedule.html    # Bài tập: Lịch họp công ty (gộp ô với rowspan và colspan)
 ├── product_list.html        # Bài tập: Bảng danh sách sản phẩm (table, tr, th, td)

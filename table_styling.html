@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Định kiểu cho Bảng trong CSS (CSS Tables)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8fafc;
+            color: #333333;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        p.desc {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        /* 1. Chiều rộng 100% & gộp đường viền liền kề (border-collapse: collapse) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            margin-top: 15px;
+        }
+
+        /* 2. Thiết lập đường viền 1px solid black cho table, th và td */
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        /* 3. Chiều cao 50px, căn trái (text-align: left), màu nền #333, chữ trắng và padding 15px cho th */
+        th {
+            height: 50px;
+            text-align: left;
+            background-color: #333333;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        /* 4. Padding 15px, căn chỉnh dọc (vertical-align: middle), màu nền #f2f2f2 và màu chữ #333 cho td */
+        td {
+            padding: 15px;
+            background-color: #f2f2f2;
+            color: #333333;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        /* Hiệu ứng tương tác hover qua các hàng */
+        tr:hover td {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Định kiểu bảng trong CSS (CSS Tables)</h1>
+    <p class="desc">Thực hành áp dụng đầy đủ các thuộc tính: border, border-collapse, width, height, text-align, vertical-align, padding và màu sắc.</p>
+
+    <!-- Bảng danh sách học viên theo đúng bài học -->
+    <table>
+        <tr>
+            <th>Họ tên</th>
+            <th>Tuổi</th>
+            <th>Lớp</th>
+        </tr>
+        <tr>
+            <td>Nguyễn Văn A</td>
+            <td>20</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Trần Thị B</td>
+            <td>21</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Lê Văn C</td>
+            <td>22</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>Phạm Thị D</td>
+            <td>20</td>
+            <td>Web</td>
+        </tr>
+    </table>
+</body>
+</html>

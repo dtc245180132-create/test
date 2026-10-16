@@ -1,74 +1,56 @@
-/* Thiết lập định dạng cơ bản cho toàn bộ trang */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     margin: 0;
     padding: 20px;
     background-color: #f8fafc;
+    color: #333;
 }
 
-/* Tiêu đề chính h1: mặc định display: block */
 h1 {
-    display: block;
     color: #1e293b;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Thanh điều hướng nav chứa danh sách liên kết */
-nav {
-    display: block;
+.container {
+    width: 100%;
+    overflow: hidden; /* Ngăn chặn hiện tượng sụp đổ chiều cao (clearfix) do các phần tử con dùng float */
     margin-bottom: 25px;
-    padding: 12px 0;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Định dạng các liên kết nav a: inline-block để tùy chỉnh padding, margin và nằm trên cùng một hàng */
-nav a {
-    display: inline-block;
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-nav a:hover {
-    background-color: #0284c7;
-    color: #ffffff;
-}
-
-/* Khối section chứa 3 cột */
-section {
-    margin-top: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Các cột hộp .box: display inline-block, độ rộng 30%, box-sizing border-box */
-.box {
-    display: inline-block;
-    width: 30%;
+.left-column {
+    width: 50%;
+    float: left;
+    background-color: lightgray;
     padding: 20px;
-    background-color: lightblue;
-    margin: 10px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    color: #0c4a6e;
-    vertical-align: top;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    min-height: 100px;
 }
 
-/* Phần chân trang footer */
-footer {
-    display: block;
-    margin-top: 30px;
-    color: #777;
-    font-size: 14px;
+.right-column {
+    width: 50%;
+    float: right;
+    background-color: lightgreen;
+    padding: 20px;
+    font-weight: 500;
+    min-height: 100px;
+}
+
+.overflow-box {
+    width: 300px;
+    height: 100px;
+    background-color: lightcoral;
+    padding: 10px;
+    overflow: auto; /* Tự động xuất hiện thanh cuộn khi nội dung vượt quá kích thước 300px x 100px */
+    margin: 0 auto;
+    border-radius: 6px;
+    color: #ffffff;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

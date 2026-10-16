@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bố cục với Float và Overflow</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8fafc;
+            color: #333;
+        }
+
+        h1 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            overflow: hidden; /* Ngăn chặn sụp đổ chiều cao do float */
+            margin-bottom: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .left-column {
+            width: 50%;
+            float: left;
+            background-color: lightgray;
+            padding: 20px;
+            font-weight: 500;
+            min-height: 100px;
+        }
+
+        .right-column {
+            width: 50%;
+            float: right;
+            background-color: lightgreen;
+            padding: 20px;
+            font-weight: 500;
+            min-height: 100px;
+        }
+
+        .overflow-box {
+            width: 300px;
+            height: 100px;
+            background-color: lightcoral;
+            padding: 10px;
+            overflow: auto; /* Hiển thị thanh cuộn khi nội dung tràn */
+            margin: 0 auto;
+            border-radius: 6px;
+            color: #ffffff;
+            line-height: 1.5;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Bố cục trang với float và overflow</h1>
+    <div class="container">
+        <div class="left-column">Nội dung bên trái (Float: Left - Chiếm 50% chiều rộng)</div>
+        <div class="right-column">Nội dung bên phải (Float: Right - Chiếm 50% chiều rộng)</div>
+    </div>
+    <div class="overflow-box">
+        Đây là nội dung rất dài mà chúng ta kiểm tra overflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    </div>
+</body>
+</html>

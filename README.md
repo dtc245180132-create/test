@@ -18,9 +18,10 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── halong_bay.html # Bài tập thực hành: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
-├── index.html      # Cấu trúc HTML của trang web cá nhân
-├── style.css       # Toàn bộ mã định dạng CSS với chú thích chi tiết
-└── README.md       # Hướng dẫn và thông tin bài nộp
+├── text_formatting.html # Bài tập thực hành: Định dạng văn bản và thuộc tính CSS nội tuyến
+├── halong_bay.html      # Bài tập thực hành: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
+├── index.html           # Cấu trúc HTML của trang web cá nhân
+├── style.css            # Toàn bộ mã định dạng CSS với chú thích chi tiết
+└── README.md            # Hướng dẫn và thông tin bài nộp
 ```
 

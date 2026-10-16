@@ -1,0 +1,133 @@
+/* ========================================================
+   BÀI TẬP: LUYỆN TẬP CÁC BỘ CHỌN CSS (CSS SELECTORS)
+   ======================================================== */
+
+/* --- 1. ELEMENT SELECTOR (Bộ chọn phần tử) --- */
+/* Đổi màu nền của toàn bộ trang web và cài đặt font chữ */
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+button {
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* --- 2. ID SELECTOR (Bộ chọn định danh ID) --- */
+/* Căn giữa tiêu đề h1 và tạo màu sắc nổi bật */
+#main-title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+#bio-desc {
+    line-height: 1.8;
+    color: #4a5568;
+    text-align: justify;
+}
+
+#btn-action {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.35);
+    transition: all 0.3s ease;
+}
+
+/* --- 3. CLASS SELECTOR (Bộ chọn lớp) --- */
+.container {
+    background-color: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    padding: 35px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.description {
+    background-color: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+}
+
+.hobby-item {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+/* Định dạng danh sách với các màu sắc khác nhau */
+.item-reading {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-left: 5px solid #f59e0b;
+}
+
+.item-coding {
+    background-color: #e0e7ff;
+    color: #3730a3;
+    border-left: 5px solid #6366f1;
+}
+
+.item-music {
+    background-color: #dcfce7;
+    color: #166534;
+    border-left: 5px solid #22c55e;
+}
+
+/* --- 4. GROUPING SELECTOR (Bộ chọn nhóm) --- */
+/* Nhóm các tiêu đề để áp dụng font-weight và viền dưới */
+h1, .sub-title {
+    font-weight: 700;
+}
+
+h2, h3 {
+    color: #1e293b;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+/* --- 5. PSEUDO-CLASSES (Bộ chọn lớp giả) --- */
+/* Hiệu ứng hover cho nút bấm */
+#btn-action:hover {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.45);
+}
+
+/* Hiệu ứng khi nhấn giữ nút bấm */
+#btn-action:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 114, 255, 0.3);
+}
+
+/* Hiệu ứng hover cho các mục trong danh sách */
+.hobby-item:hover {
+    transform: translateX(6px);
+}

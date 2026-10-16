@@ -18,12 +18,13 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html           # Bài tập: Thẻ tiêu đề (h1, h2) và các đoạn văn (p)
-├── lists.html           # Bài tập: Các loại thẻ danh sách (ul, ol, li, nested list)
-├── text_formatting.html # Bài tập: Định dạng văn bản và thuộc tính CSS nội tuyến
-├── halong_bay.html      # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
-├── css_selectors.html   # Bài tập: Luyện tập các bộ chọn CSS (Selectors)
-├── style.css            # Toàn bộ mã định dạng CSS cho bài tập bộ chọn
-└── README.md            # Hướng dẫn và thông tin bài nộp
+├── index.html               # Bài tập: Danh sách món ăn (ul) và các bước du lịch (ol)
+├── headings_paragraphs.html # Bài tập: Thẻ tiêu đề (h1, h2) và các đoạn văn (p)
+├── lists.html               # Bài tập: Các loại thẻ danh sách (ul, ol, li, nested list)
+├── text_formatting.html     # Bài tập: Định dạng văn bản và thuộc tính CSS nội tuyến
+├── halong_bay.html          # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
+├── css_selectors.html       # Bài tập: Luyện tập các bộ chọn CSS (Selectors)
+├── style.css                # Toàn bộ mã định dạng CSS cho bài tập bộ chọn
+└── README.md                # Hướng dẫn và thông tin bài nộp
 ```
 

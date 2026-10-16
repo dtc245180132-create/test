@@ -1,19 +1,26 @@
-# Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)
+# Bài tập: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)
 
-Dự án thực hành sử dụng thuộc tính `position: sticky` trong CSS để tạo thanh điều hướng tự động bám dính ở đầu màn hình khi người dùng cuộn trang.
+Dự án thực hành kết hợp thuộc tính `position: fixed` với kỹ thuật bố cục hiện đại **Flexbox** để tạo ra một giao diện trang chủ hoàn chỉnh, chuyên nghiệp.
 
-## 🎯 Mục tiêu & Phân tích các thuộc tính
-1. **`position: sticky`**: Cho phép phần tử hoạt động như `position: relative` trong luồng tài liệu thông thường cho đến khi cuộn tới vị trí ngưỡng đã định, sau đó nó sẽ "dính" lại như `position: fixed`.
-2. **`top: 0`**: Xác định vị trí neo khi người dùng cuộn đến đỉnh khung nhìn (viewport).
-3. **`z-index: 1000`**: Đảm bảo thanh điều hướng luôn nổi phía trên các phần nội dung của trang khi cuộn.
-4. **`display: flex` & `justify-content: center`**: Căn giữa danh sách các mục điều hướng (`Trang chủ`, `Giới thiệu`, `Dịch vụ`, `Liên hệ`).
-5. **Hiệu ứng cuộn (`height: 100vh`)**: Mỗi khối `section` có chiều cao bằng 100% chiều cao màn hình, màu nền phân biệt để dễ dàng quan sát hiệu ứng sticky hoạt động.
+## 🎯 Mục tiêu & Các thuộc tính CSS quan trọng
+1. **Header cố định (`position: fixed`)**:
+   - `top: 0; left: 0; width: 100%;`: Neo chặt thanh header ở đầu khung nhìn màn hình.
+   - `z-index: 1000;`: Đảm bảo header luôn nổi trên tất cả các khối nội dung khi người dùng cuộn trang.
+   - `box-sizing: border-box;`: Đảm bảo padding không làm tràn chiều ngang trang web.
+   - `display: flex; justify-content: space-between; align-items: center;`: Căn đều tiêu đề và thanh điều hướng hai bên.
+2. **Điều chỉnh luồng tài liệu (`body { padding-top: 70px; }`)**:
+   - Khắc phục hiện tượng header fixed thoát khỏi luồng tài liệu (document flow), tránh che khuất nội dung đầu trang.
+3. **Bố cục 3 cột bằng Flexbox (`.page-container`)**:
+   - `display: flex; gap: 20px;`: Sắp xếp 3 khối theo hàng ngang với khoảng cách đều nhau.
+   - `.left-sidebar`, `.right-sidebar`: Cố định độ rộng `width: 200px;` kèm `flex-shrink: 0;` để không bị co bóp.
+   - `.main-content`: Sử dụng `flex-grow: 1;` để co giãn chiếm toàn bộ không gian còn lại ở giữa.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Sticky Navigation
-├── style.css                # File CSS định dạng cho Sticky Navigation
-├── sticky_navigation.html   # File lưu trữ độc lập cho bài Sticky Navigation
+├── index.html               # Bài thực hành hiện tại: Trang Chủ Giản Lược (Fixed Header + Flexbox)
+├── style.css                # File CSS định dạng cho bài Trang Chủ Giản Lược
+├── simplified_homepage.html # File lưu trữ độc lập cho bài Trang Chủ Giản Lược
+├── sticky_navigation.html   # Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)
 ├── dropdown_menu.html       # Bài thực hành: Tạo Menu ngang Dropdown bằng HTML và CSS
 ├── fixed_menu.html          # Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)
 ├── open_source_records.html # Bài thực hành: Model 2 (Open Source Records - CSS Box Model)

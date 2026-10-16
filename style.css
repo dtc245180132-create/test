@@ -1,61 +1,155 @@
 /* ========================================================
-   BÀI THỰC HÀNH: SỬ DỤNG POSITION: STICKY TRONG CSS
+   BÀI TẬP: XÂY DỰNG BỐ CỤC TRANG CHỦ GIẢN LƯỢC
+   (Fixed Header + Flexbox Sidebar & Main Content)
    ======================================================== */
 
-/* Định dạng chung */
+/* Thiết lập cơ bản */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
-/* Thanh điều hướng */
-.sticky-menu {
-    position: sticky;
-    top: 0;
+/* Header cố định */
+.main-header {
+    position: fixed; /* Đặt header cố định */
+    top: 0;          /* Gắn vào cạnh trên của viewport */
+    left: 0;         /* Gắn vào cạnh trái của viewport */
+    width: 100%;     /* Chiếm toàn bộ chiều rộng */
+    box-sizing: border-box; /* Đảm bảo không bị tràn ngang do padding */
     background-color: #333;
     color: white;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1000;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;   /* Dùng Flexbox để căn chỉnh nội dung bên trong */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;   /* Đảm bảo header nằm trên các phần tử khác */
 }
 
-.sticky-menu ul {
-    list-style: none;
-    padding: 0;
+.main-header h1 {
     margin: 0;
+    font-size: 24px;
+}
+
+.main-header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;
 }
 
-.sticky-menu ul li {
-    margin: 0 15px;
+.main-header nav ul li {
+    margin-left: 20px;
 }
 
-.sticky-menu ul li a {
+.main-header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    transition: background-color 0.2s ease;
+    font-weight: bold;
+    transition: color 0.2s ease;
 }
 
-.sticky-menu ul li a:hover {
-    background-color: #575757;
+.main-header nav ul li a:hover {
+    color: #38bdf8;
+}
+
+/* Điều chỉnh luồng tài liệu sau header cố định */
+/* Vì header đã thoát khỏi luồng tài liệu, nội dung chính sẽ bị header che mất. */
+/* Chúng ta thêm một padding-top cho body bằng chiều cao của header để đẩy nội dung xuống. */
+body {
+    padding-top: 70px;
+}
+
+/* Container cho bố cục chính (sidebar + nội dung) */
+.page-container {
+    display: flex;                 /* Kích hoạt Flexbox */
+    justify-content: space-between; /* Đặt khoảng trống giữa các phần tử con */
+    margin: 20px;                  /* Tạo khoảng cách xung quanh container */
+    gap: 20px;                     /* Khoảng cách giữa các cột */
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 15px;
     border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-shrink: 0;                /* Ngăn sidebar bị co lại khi không đủ chỗ */
 }
 
-/* Nội dung trang web */
-section {
-    padding: 100px 20px;
-    height: 100vh;
-    box-sizing: border-box;
+.left-sidebar {
+    width: 200px;                  /* Chiều rộng cố định cho sidebar trái */
 }
 
-#home { background-color: #f4f4f4; }
-#about { background-color: #ddd; }
-#services { background-color: #bbb; }
-#contact { background-color: #999; }
+.right-sidebar {
+    width: 200px;                  /* Chiều rộng cố định cho sidebar phải */
+}
+
+.main-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-grow: 1;                  /* Cho phép nội dung chính chiếm hết không gian còn lại */
+}
+
+/* Các kiểu dáng phụ cho sidebar */
+.sidebar h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Đảm bảo trang có đủ chiều cao để cuộn */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 1500px;            /* Đặt chiều cao tối thiểu để có thể cuộn trang */
+    padding-top: 70px;
+}
+
+.main-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-grow: 1;                  /* Cho phép nội dung chính chiếm hết không gian còn lại */
+}
+
+/* Các kiểu dáng phụ cho sidebar */
+.sidebar h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Đảm bảo trang có đủ chiều cao để cuộn */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 1500px;            /* Đặt chiều cao tối thiểu để có thể cuộn trang */
+    padding-top: 70px;
+}
+

@@ -18,7 +18,8 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập: Thẻ liên kết (a), target="_blank", mailto:
+├── index.html               # Bài tập: CSS nội tuyến (style) định dạng văn bản, màu sắc, font, căn giữa
+├── favorite_links.html      # Bài tập: Thẻ liên kết (a), target="_blank", mailto:
 ├── about.html               # Bài tập: File liên kết nội bộ trong cùng thư mục
 ├── favorite_food_travel.html# Bài tập: Danh sách món ăn (ul) và các bước du lịch (ol)
 ├── headings_paragraphs.html # Bài tập: Thẻ tiêu đề (h1, h2) và các đoạn văn (p)

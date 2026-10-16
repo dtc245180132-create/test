@@ -1,65 +1,67 @@
-# Dự án UI/UX: Thiết Kế Giao Diện Trang Đăng Ký Người Dùng (Registration & Success Flow)
+# Bài thực hành: Luyện tập thao tác Clone dự án có sẵn từ GitHub
 
-Dự án thực hành chuyên sâu các nguyên tắc cơ bản và nâng cao của **UI/UX (User Interface / User Experience)**, tập trung vào tính khả dụng (Usability), tính dễ hiểu (Clarity) và thiết kế lấy người dùng làm trung tâm (User-Centered Design).
-
----
-
-## 🎯 1. Nghiên cứu trải nghiệm người dùng (UX Research)
-- **Tham khảo các mẫu chuẩn ngành (Google, Spotify, Facebook, Twitter/X)**:
-  - Tối giản số lượng trường thông tin nhập liệu, chỉ giữ lại những trường cốt lõi nhất.
-  - Cung cấp nút đăng ký nhanh qua mạng xã hội (Social Login) để giảm ma sát nhận thức.
-  - Dòng chảy thị giác tự nhiên từ trên xuống dưới (Z-pattern / F-pattern).
-  - Phản hồi trạng thái nhập liệu tức thì (Inline Validation) thay vì chờ bấm submit mới báo lỗi.
+Dự án thực hành thao tác cơ bản và quan trọng nhất khi làm việc với hệ thống quản lý phiên bản Git: **sao chép (clone) một Repository có sẵn từ GitHub về máy tính cá nhân**.
 
 ---
 
-## 🎨 2. Các nguyên tắc UI/UX cốt lõi được áp dụng
+## 🎯 1. Các bước thực hành đã thực hiện
 
-| Nguyên tắc / Định luật | Ứng dụng cụ thể trong thiết kế | Lợi ích trải nghiệm người dùng |
+1. **Truy cập Repository nguồn**: [https://github.com/codegym-vn/wf-hello](https://github.com/codegym-vn/wf-hello)
+2. **Lấy đường dẫn sao chép**: `https://github.com/codegym-vn/wf-hello.git`
+3. **Thực thi lệnh clone trên Terminal**:
+   ```bash
+   git clone https://github.com/codegym-vn/wf-hello.git
+   ```
+4. **Kiểm tra các tệp tin trong thư mục `wf-hello`**:
+   - `hello.txt` (64 bytes): Nội dung `"Hello the world. This file was fetched from a Git repository."`
+   - `README.md` (151 bytes): Tài liệu giới thiệu mã nguồn của CodeGym.
+   - Thư mục ẩn `.git/`: Chứa toàn bộ lịch sử commit và siêu dữ liệu của kho lưu trữ.
+
+---
+
+## 📖 2. Cú pháp và Ý nghĩa của câu lệnh `git clone`
+
+### Cú pháp:
+```bash
+git clone <repository_url> [tên_thư_mục_tùy_chọn]
+```
+
+### Ý nghĩa cốt lõi:
+1. **Tạo bản sao cục bộ hoàn chỉnh**: Sao chép 100% mã nguồn, toàn bộ nhánh (`branches`), thẻ (`tags`) và toàn bộ cây lịch sử commit từ remote server về máy tính.
+2. **Tự động cấu hình Remote `origin`**: Git tự động gán nhãn `origin` trỏ về URL ban đầu, giúp lập trình viên có thể thực hiện ngay các lệnh `git pull` và `git push` mà không cần lệnh `git remote add`.
+3. **Tự động khởi tạo và Checkout**: Khởi tạo thư mục làm việc, thiết lập kho dữ liệu `.git` ngầm và tự động checkout ra nhánh mặc định (`main` hoặc `master`).
+
+### Các tùy chọn nâng cao thường dùng:
+- `git clone <url> my-custom-name`: Clone và đổi tên thư mục thành `my-custom-name`.
+- `git clone -b <branch_name> <url>`: Chỉ checkout trực tiếp một nhánh cụ thể.
+- `git clone --depth 1 <url>`: **Shallow Clone** - Chỉ lấy commit mới nhất (bỏ qua lịch sử cũ), giúp tải dự án dung lượng lớn siêu tốc.
+
+---
+
+## 🔍 3. Phân biệt `git clone` với các lệnh thông dụng khác
+
+| Thao tác | Mục đích | Thời điểm sử dụng |
 | :--- | :--- | :--- |
-| **Định luật Fitts (Fitts' Law)** | Nút CTA *"Đăng Ký Tài Khoản"* cao `50px`, độ rộng full-width `100%`, đặt ở cuối form. | Giảm thời gian di chuyển chuột/ngón tay, dễ bấm trúng trên cả Mobile & Desktop. |
-| **Định luật Hick (Hick's Law)** | Giới hạn chính xác 4 trường: Họ tên, Email, Mật khẩu, Xác nhận mật khẩu. | Giảm tải nhận thức, giúp người dùng ra quyết định nhanh hơn, tăng tỷ lệ hoàn tất form. |
-| **Định luật Jakob (Jakob's Law)** | Đặt nút đăng ký bằng Google & Facebook ở đầu form theo mô thức quen thuộc. | Tận dụng thói quen có sẵn của người dùng từ các nền tảng lớn trên thế giới. |
-| **Visual Feedback & Error Prevention** | Thanh đo độ mạnh mật khẩu (Yếu/Trung bình/Mạnh), nút ẩn/hiện mật khẩu (Eye toggle), viền đỏ/xanh thời gian thực. | Giúp người dùng biết ngay mật khẩu có an toàn hay không và tự sửa lỗi trước khi gửi form. |
-| **Khả năng tiếp cận (Accessibility - a11y)** | Nhãn `<label>` rõ ràng, độ tương phản văn bản đạt chuẩn WCAG AA, focus ring nổi bật khi dùng phím `Tab`. | Hỗ trợ thân thiện cho mọi đối tượng người dùng, bao gồm người dùng chỉ dùng bàn phím. |
-| **Responsive (Mobile-First)** | Container co giãn tối đa `480px`, font chữ tối thiểu `16px` trên mobile chống zoom Safari. | Hiển thị hoàn hảo, không bị tràn hay gãy layout trên smartphone, tablet và PC. |
-
----
-
-## 📑 3. Luồng người dùng (User Flow) qua 2 trang
-
-```
-[BƯỚC 1: TRANG 1 - FORM ĐĂNG KÝ]
-   ├── Người dùng nhập Họ và tên (tối thiểu 3 ký tự)
-   ├── Nhập Email hợp lệ (kiểm tra định dạng Regex thời gian thực)
-   ├── Nhập Mật khẩu (thanh đo màu Yếu -> Trung bình -> Rất mạnh hiển thị)
-   ├── Nhập Xác nhận mật khẩu (kiểm tra trùng khớp)
-   ├── Checkbox đồng ý Điều khoản & Chính sách bảo mật
-   └── Nhấn nút lớn "Đăng Ký Tài Khoản" (Fitts' Law)
-              │
-              ▼ (Validation hợp lệ)
-[BƯỚC 2: TRANG 2 - XÁC NHẬN THÀNH CÔNG]
-   ├── Biểu tượng Checkmark xanh lá chúc mừng
-   ├── Hiển thị cá nhân hóa Tên người dùng và Email đã đăng ký
-   ├── Hướng dẫn kiểm tra hộp thư đến (Inbox / Spam) để kích hoạt trong 24h
-   ├── Nút CTA "Mở Hòm Thư Email Ngay"
-   └── Nút "Tạo thêm tài khoản khác" để quay lại form ban đầu
-```
+| **`git clone`** | Tải toàn bộ repository về máy chưa có mã nguồn | Bắt đầu tham gia dự án lần đầu tiên |
+| **`git pull`** | Kéo và gộp các commit mới từ server về repo đã có trên máy | Hàng ngày trước khi bắt đầu code |
+| **`git init`** | Khởi tạo repo Git mới từ thư mục cục bộ trống | Bắt đầu viết một dự án mới hoàn toàn |
+| **`Fork` (GitHub)**| Nhân bản repo của người khác vào tài khoản cá nhân trên GitHub | Đóng góp Open Source hoặc tùy biến riêng |
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Giao diện chính: Chuyển đổi linh hoạt giữa Trang 1, Trang 2 và Báo cáo UI/UX
-├── style.css                   # File CSS thiết kế hiện đại, gradient, responsive, validation styles
-├── script.js                   # Xử lý logic validation thời gian thực, đo độ mạnh mật khẩu, ẩn/hiện pass, chuyển view
+├── index.html                  # Giao diện trực quan mô phỏng Terminal và bài học Git Clone
+├── style.css                   # File CSS định dạng giao diện Terminal, bảng so sánh và thẻ kiến thức
+├── git_clone_practice.html     # Bản sao độc lập tích hợp đầy đủ HTML và CSS nội bộ
+├── uiux_registration.html      # Dự án UI/UX: Thiết Kế Giao Diện Trang Đăng Ký Người Dùng
 ├── success.html                # Trang độc lập: Xác nhận đăng ký thành công (Trang 2)
-├── uiux_registration.html      # Bản sao độc lập tích hợp đầy đủ HTML, CSS, JS cho dự án UI/UX
 ├── adobe_color_palette.html    # Bài thực hành: Khám phá & Ứng dụng Adobe Color (Color Harmony, Extract Theme)
 ├── grid_row_gap.html           # Bài thực hành: Thuộc tính grid-row-gap (length, %, global values)
 ├── grid_column_start.html      # Bài thực hành: Thuộc tính grid-column-start (auto, span n, column-line)
 ├── grid_template_columns.html  # Bài thực hành: Thuộc tính grid-template-columns (1fr 1fr 1fr & 100px 200px 1fr)
 ├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
+├── script.js                   # File JavaScript tương tác cho các dự án trước
 ├── float_overflow_layout.html  # Bài thực hành: Bố cục trang với Float và Overflow
 ├── display_layout.html         # Bài thực hành: Bố cục trang web với thuộc tính Display (block, inline-block)
 ├── html5_layout.html           # Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
@@ -110,6 +112,7 @@ Dự án thực hành chuyên sâu các nguyên tắc cơ bản và nâng cao c�
 ├── lists.html                  # Bài tập: Các loại thẻ danh sách (ul, ol, li, nested list)
 ├── text_formatting.html        # Bài tập: Định dạng văn bản và thuộc tính CSS nội tuyến
 ├── halong_bay.html             # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
+├── .gitignore                  # Bỏ qua các repository clone cục bộ (cloned_projects/)
 └── README.md                   # Hướng dẫn và thông tin bài nộp
 ```
 
@@ -118,7 +121,6 @@ Dự án thực hành chuyên sâu các nguyên tắc cơ bản và nâng cao c�
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **Trang trực tiếp**:
-  - `index.html`: Giao diện tương tác đăng ký & xác nhận thành công & báo cáo UI/UX
-  - `success.html`: Trang độc lập xác nhận đăng ký thành công
-  - `style.css`: Bộ quy tắc CSS thiết kế giao diện
-  - `script.js`: Xử lý tương tác, validation và chuyển đổi trang
+  - `index.html`: Giao diện trực quan mô phỏng Terminal và bài học Git Clone
+  - `git_clone_practice.html`: File lưu trữ độc lập bài học Git Clone
+  - `style.css`: Bộ quy tắc CSS giao diện Terminal

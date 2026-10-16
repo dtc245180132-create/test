@@ -9,669 +9,323 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    color: #334155;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===================================================
-   TOP NAVIGATION BAR (CHUYỂN TAB TEST TRỰC QUAN)
-   =================================================== */
-.top-nav-bar {
-    background-color: rgba(15, 23, 42, 0.95);
-    border-bottom: 1px solid #334155;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-
-.nav-container {
-    max-width: 1050px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.nav-brand {
-    color: #f8fafc;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.nav-tabs {
-    display: flex;
-    gap: 8px;
-}
-
-.tab-btn {
-    background-color: #1e293b;
-    color: #94a3b8;
-    border: 1px solid #334155;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.tab-btn:hover {
-    color: #ffffff;
-    border-color: #38bdf8;
-}
-
-.tab-btn.active {
-    background-color: #0284c7;
-    color: #ffffff;
-    border-color: #0284c7;
-    box-shadow: 0 0 12px rgba(2, 132, 199, 0.5);
-}
-
-/* ===================================================
-   MAIN WRAPPER & VIEW MANAGEMENT
-   =================================================== */
-.main-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 15px;
-}
-
-.view-panel {
-    display: none;
-    width: 100%;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.view-panel.active-view {
-    display: flex;
-    justify-content: center;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===================================================
-   AUTH CARD (CARD ĐĂNG KÝ)
-   =================================================== */
-.auth-card {
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 480px;
-    padding: 36px 32px;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.brand-logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: #0284c7;
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
-}
-
-.auth-header h2 {
-    font-size: 24px;
-    color: #0f172a;
-    font-weight: 800;
-    margin-bottom: 6px;
-}
-
-.auth-subtitle {
-    font-size: 14px;
-    color: #64748b;
-}
-
-/* ===================================================
-   SOCIAL SIGN-IN BUTTONS (JAKOB'S LAW)
-   =================================================== */
-.social-auth-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.btn-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #334155;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-social:hover {
-    background-color: #f1f5f9;
-    border-color: #94a3b8;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 20px 0;
-    color: #94a3b8;
-    font-size: 13px;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.divider span {
-    padding: 0 10px;
-}
-
-/* ===================================================
-   FORM GROUPS & INLINE VALIDATION
-   =================================================== */
-.form-group {
-    margin-bottom: 18px;
-}
-
-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 6px;
-}
-
-.required {
-    color: #ef4444;
-}
-
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input-icon {
-    position: absolute;
-    left: 14px;
-    font-size: 16px;
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.7;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px 42px 12px 42px;
-    font-size: 15px;
-    color: #0f172a;
-    background-color: #f8fafc;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.2s ease;
-}
-
-input:focus {
-    background-color: #ffffff;
-    border-color: #0284c7;
-    box-shadow: 0 0 0 3.5px rgba(2, 132, 199, 0.15);
-}
-
-/* Trạng thái lỗi (Error state) */
-.form-group.has-error input {
-    border-color: #ef4444;
-    background-color: #fef2f2;
-}
-
-.form-group.has-error input:focus {
-    box-shadow: 0 0 0 3.5px rgba(239, 68, 68, 0.15);
-}
-
-/* Trạng thái hợp lệ (Valid state) */
-.form-group.is-valid input {
-    border-color: #10b981;
-}
-
-.status-icon {
-    position: absolute;
-    right: 14px;
-    font-size: 15px;
-}
-
-.toggle-password {
-    position: absolute;
-    right: 12px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 4px;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-}
-
-.toggle-password:hover {
-    opacity: 1;
-}
-
-.error-msg {
-    display: none;
-    font-size: 12px;
-    color: #ef4444;
-    margin-top: 5px;
-    font-weight: 500;
-}
-
-.form-group.has-error .error-msg,
-.terms-group.has-error .error-msg {
-    display: block;
-}
-
-/* ===================================================
-   PASSWORD STRENGTH BAR (FEEDBACK THỊ GIÁC)
-   =================================================== */
-.password-strength-bar {
-    width: 100%;
-    height: 4px;
-    background-color: #e2e8f0;
-    border-radius: 2px;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-.strength-meter {
-    height: 100%;
-    width: 0%;
-    border-radius: 2px;
-    transition: width 0.3s ease, background-color 0.3s ease;
-}
-
-.strength-meter.weak {
-    width: 33%;
-    background-color: #ef4444;
-}
-
-.strength-meter.medium {
-    width: 66%;
-    background-color: #f59e0b;
-}
-
-.strength-meter.strong {
-    width: 100%;
-    background-color: #10b981;
-}
-
-.strength-label {
-    font-size: 11px;
-    color: #64748b;
-    margin-top: 4px;
-    font-weight: 600;
-}
-
-/* ===================================================
-   TERMS & CONDITIONS CHECKBOX
-   =================================================== */
-.terms-group {
-    margin: 18px 0;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 13px;
-    color: #475569;
-    cursor: pointer;
-    line-height: 1.4;
-}
-
-.checkbox-label input[type="checkbox"] {
-    margin-top: 2px;
-    cursor: pointer;
-    accent-color: #0284c7;
-    width: 16px;
-    height: 16px;
-}
-
-.checkbox-label a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.checkbox-label a:hover {
-    text-decoration: underline;
-}
-
-/* ===================================================
-   SUBMIT BUTTON (FITTS' LAW: 50px CHIỀU CAO, FULL-WIDTH)
-   =================================================== */
-.btn-submit {
-    width: 100%;
-    height: 50px;
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
-    transition: all 0.2s ease;
-}
-
-.btn-submit:hover {
-    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.5);
-    transform: translateY(-1px);
-}
-
-.btn-submit:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
-}
-
-.auth-footer {
-    text-align: center;
-    margin-top: 22px;
-    font-size: 14px;
-    color: #64748b;
-}
-
-.link-login {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.link-login:hover {
-    text-decoration: underline;
-}
-
-/* ===================================================
-   TRANG 2: SUCCESS CARD
-   =================================================== */
-.success-card {
-    text-align: center;
-    padding: 48px 32px;
-}
-
-.success-icon-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.success-icon-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #ecfdf5;
-    border: 2px solid #a7f3d0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
-}
-
-.success-card h2 {
-    font-size: 26px;
-    color: #0f172a;
-    font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.success-desc {
-    font-size: 15px;
-    color: #475569;
-    margin-bottom: 24px;
-}
-
-.success-info-box {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 28px;
-    text-align: center;
-}
-
-.user-email-badge {
-    display: inline-block;
-    background-color: #e0f2fe;
-    color: #0369a1;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin: 10px 0;
-    border: 1px solid #bae6fd;
-}
-
-.success-info-box small {
-    display: block;
-    color: #64748b;
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-.action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.btn-primary-action {
-    display: block;
-    width: 100%;
-    height: 48px;
-    line-height: 48px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.btn-primary-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
-}
-
-.btn-secondary-action {
-    width: 100%;
-    height: 44px;
-    background-color: #f1f5f9;
-    color: #334155;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-secondary-action:hover {
-    background-color: #e2e8f0;
-}
-
-.help-text {
-    font-size: 13px;
-    color: #64748b;
-}
-
-.help-text a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* ===================================================
-   TRANG 3: BÁO CÁO PHÂN TÍCH UI/UX & WIREFRAME
-   =================================================== */
-.report-container {
-    max-width: 900px;
-    width: 100%;
-}
-
-.report-header {
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.report-header h2 {
-    font-size: 28px;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.report-header p {
-    color: #94a3b8;
-    font-size: 15px;
-}
-
-.report-card {
-    background-color: #1e293b;
-    border-radius: 12px;
-    padding: 26px;
-    margin-bottom: 24px;
-    border: 1px solid #334155;
-    color: #ffffff;
-}
-
-.report-card h3 {
-    font-size: 18px;
-    margin-bottom: 18px;
-    color: #38bdf8;
-}
-
-.flow-diagram {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.flow-step {
-    flex: 1;
-    min-width: 160px;
-    background-color: #0f172a;
-    border: 1px solid #334155;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-}
-
-.flow-step.highlight {
-    border-color: #10b981;
-    background-color: #064e3b;
-}
-
-.step-badge {
-    display: inline-block;
-    background-color: #0284c7;
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-bottom: 8px;
-}
-
-.flow-step h4 {
-    font-size: 14px;
-    margin-bottom: 6px;
-    color: #f8fafc;
-}
-
-.flow-step p {
-    font-size: 12px;
-    color: #94a3b8;
-    line-height: 1.4;
-}
-
-.flow-arrow {
-    font-size: 22px;
-    color: #64748b;
-    font-weight: bold;
-}
-
-.report-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-}
-
-.report-item {
-    background-color: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 10px;
-    padding: 20px;
+    background: linear-gradient(135deg, #0b0f19 0%, #1e293b 50%, #0b0f19 100%);
     color: #e2e8f0;
+    line-height: 1.6;
+    padding: 30px 20px;
+    min-height: 100vh;
 }
 
-.item-icon {
-    font-size: 26px;
+.page-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* ===================================================
+   HEADER
+   =================================================== */
+.main-header {
+    text-align: center;
+    padding: 36px 20px;
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 80%);
+    border-radius: 16px;
+    margin-bottom: 25px;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.brand-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f05032 0%, #ff7e5f 100%);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.main-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
-.report-item h4 {
+.subtitle {
+    font-size: 15px;
+    color: #94a3b8;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* ===================================================
+   CARD SECTIONS
+   =================================================== */
+.card-section {
+    background-color: #131b2e;
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 25px;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.section-title {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title code {
+    background-color: #1e293b;
+    color: #38bdf8;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* ===================================================
+   TERMINAL WINDOW (MÔ PHỎNG CLI)
+   =================================================== */
+.terminal-window {
+    background-color: #0c1017;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #30363d;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+}
+
+.terminal-header {
+    background-color: #161b22;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.btn-term {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-term.close { background-color: #ff5f56; }
+.btn-term.minimize { background-color: #ffbd2e; }
+.btn-term.maximize { background-color: #27c93f; }
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    color: #8b949e;
+    margin-right: 40px;
+}
+
+.terminal-body {
+    padding: 18px 20px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.term-line {
+    margin-bottom: 4px;
+}
+
+.prompt {
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+.cmd {
+    color: #f0883e;
+    font-weight: bold;
+}
+
+.term-output {
+    color: #8b949e;
+    margin-left: 10px;
+}
+
+.highlight-file {
+    color: #7ee787;
+    font-weight: bold;
+}
+
+.text-success {
+    color: #56d364;
+    background-color: #16241b;
+    padding: 8px 12px;
+    border-left: 3px solid #2ea043;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+/* ===================================================
+   SYNTAX BOX
+   =================================================== */
+.syntax-box {
+    background-color: #1e293b;
+    border-left: 4px solid #f05032;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.syntax-label {
+    font-weight: bold;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.syntax-box code {
+    font-family: monospace;
+    font-size: 16px;
+    color: #38bdf8;
+    background-color: #0f172a;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ===================================================
+   EXPLANATION GRID
+   =================================================== */
+.explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.explain-card {
+    background-color: #1a243a;
+    border: 1px solid #27354f;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.explain-card:hover {
+    transform: translateY(-2px);
+    border-color: #38bdf8;
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.explain-card h3 {
     font-size: 16px;
     color: #38bdf8;
     margin-bottom: 8px;
 }
 
-.report-item p {
+.explain-card p {
     font-size: 13px;
     color: #94a3b8;
-    line-height: 1.6;
+    line-height: 1.5;
+}
+
+.explain-card code {
+    background-color: #0f172a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #f59e0b;
 }
 
 /* ===================================================
-   RESPONSIVE DESIGN
+   COMPARISON TABLE
    =================================================== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.compare-table th {
+    background-color: #1e293b;
+    color: #38bdf8;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #334155;
+}
+
+.compare-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #27354f;
+    color: #cbd5e1;
+}
+
+.compare-table tr:hover {
+    background-color: #1a243a;
+}
+
+.compare-table code {
+    background-color: #0f172a;
+    color: #f59e0b;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ===================================================
+   RESULT BOX
+   =================================================== */
+.result-box .project-info p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.result-box a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.result-box a:hover {
+    text-decoration: underline;
+}
+
+.file-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.file-badge {
+    background-color: #1e293b;
+    border: 1px solid #3b82f6;
+    color: #93c5fd;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
 @media (max-width: 640px) {
-    .auth-card {
-        padding: 28px 20px;
-    }
-    .flow-arrow {
-        display: none;
-    }
-    .flow-step {
-        width: 100%;
+    .card-section {
+        padding: 20px 16px;
     }
 }

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành Git Clone - Sao chép Repository từ GitHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #0b0f19 0%, #1e293b 50%, #0b0f19 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .main-header {
+            text-align: center;
+            padding: 36px 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 80%);
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f05032 0%, #ff7e5f 100%);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .main-header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #94a3b8;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .card-section {
+            background-color: #131b2e;
+            border-radius: 14px;
+            padding: 26px 28px;
+            margin-bottom: 25px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title code {
+            background-color: #1e293b;
+            color: #38bdf8;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .terminal-window {
+            background-color: #0c1017;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+        }
+
+        .terminal-header {
+            background-color: #161b22;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        .btn-term {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .btn-term.close { background-color: #ff5f56; }
+        .btn-term.minimize { background-color: #ffbd2e; }
+        .btn-term.maximize { background-color: #27c93f; }
+
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: #8b949e;
+            margin-right: 40px;
+        }
+
+        .terminal-body {
+            padding: 18px 20px;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        .term-line {
+            margin-bottom: 4px;
+        }
+
+        .prompt {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .cmd {
+            color: #f0883e;
+            font-weight: bold;
+        }
+
+        .term-output {
+            color: #8b949e;
+            margin-left: 10px;
+        }
+
+        .highlight-file {
+            color: #7ee787;
+            font-weight: bold;
+        }
+
+        .text-success {
+            color: #56d364;
+            background-color: #16241b;
+            padding: 8px 12px;
+            border-left: 3px solid #2ea043;
+            border-radius: 4px;
+            margin-top: 4px;
+            margin-left: 10px;
+        }
+
+        .syntax-box {
+            background-color: #1e293b;
+            border-left: 4px solid #f05032;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .syntax-label {
+            font-weight: bold;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .syntax-box code {
+            font-family: monospace;
+            font-size: 16px;
+            color: #38bdf8;
+            background-color: #0f172a;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .explain-card {
+            background-color: #1a243a;
+            border: 1px solid #27354f;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .explain-card:hover {
+            transform: translateY(-2px);
+            border-color: #38bdf8;
+        }
+
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .explain-card h3 {
+            font-size: 16px;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .explain-card p {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .explain-card code {
+            background-color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #f59e0b;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+        }
+
+        .compare-table th {
+            background-color: #1e293b;
+            color: #38bdf8;
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid #334155;
+        }
+
+        .compare-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #27354f;
+            color: #cbd5e1;
+        }
+
+        .compare-table tr:hover {
+            background-color: #1a243a;
+        }
+
+        .compare-table code {
+            background-color: #0f172a;
+            color: #f59e0b;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .result-box .project-info p {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+        }
+
+        .result-box a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .result-box a:hover {
+            text-decoration: underline;
+        }
+
+        .file-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .file-badge {
+            background-color: #1e293b;
+            border: 1px solid #3b82f6;
+            color: #93c5fd;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 640px) {
+            .card-section {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <div class="brand-badge">Git & GitHub Essentials</div>
+            <h1>Luyện Tập Thao Tác Git Clone Dự Án Có Sẵn</h1>
+            <p class="subtitle">
+                Tìm hiểu cú pháp, ý nghĩa cốt lõi và thực hành sao chép một kho mã nguồn (Repository) từ GitHub về máy tính cá nhân.
+            </p>
+        </header>
+
+        <section class="card-section">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn-term close"></span>
+                        <span class="btn-term minimize"></span>
+                        <span class="btn-term maximize"></span>
+                    </div>
+                    <div class="terminal-title">Windows PowerShell - git clone</div>
+                </div>
+                <div class="terminal-body">
+                    <p class="term-line"><span class="prompt">PS D:\test&gt;</span> <span class="cmd">git clone https://github.com/codegym-vn/wf-hello.git</span></p>
+                    <p class="term-output">Cloning into 'wf-hello'...</p>
+                    <p class="term-output">remote: Enumerating objects: 6, done.</p>
+                    <p class="term-output">remote: Counting objects: 100% (6/6), done.</p>
+                    <p class="term-output">remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0</p>
+                    <p class="term-output">Receiving objects: 100% (6/6), done.</p>
+                    <br>
+                    <p class="term-line"><span class="prompt">PS D:\test&gt;</span> <span class="cmd">cd wf-hello ; Get-ChildItem</span></p>
+                    <p class="term-output">Directory: D:\test\wf-hello</p>
+                    <p class="term-output">Mode                 LastWriteTime         Length Name</p>
+                    <p class="term-output">----                 -------------         ------ ----</p>
+                    <p class="term-output highlight-file">-a----        10/16/2026   5:55 PM             64 hello.txt</p>
+                    <p class="term-output highlight-file">-a----        10/16/2026   5:55 PM            151 README.md</p>
+                    <br>
+                    <p class="term-line"><span class="prompt">PS D:\test\wf-hello&gt;</span> <span class="cmd">Get-Content hello.txt</span></p>
+                    <p class="term-output text-success">Hello the world.<br>This file was fetched from a Git repository.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2 class="section-title">📖 Cú pháp & Ý nghĩa của câu lệnh <code>git clone</code></h2>
+            
+            <div class="syntax-box">
+                <span class="syntax-label">Cú pháp chuẩn:</span>
+                <code>git clone &lt;repository_url&gt; [tên_thư_mục_mới]</code>
+            </div>
+
+            <div class="explanation-grid">
+                <div class="explain-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Ý nghĩa cốt lõi</h3>
+                    <p>
+                        <code>git clone</code> dùng để tạo một bản sao cục bộ (local copy) giống hệt 100% với một repository từ xa (remote repository). Lệnh này không chỉ tải về các tệp tin hiện tại mà còn sao chép toàn bộ lịch sử commit, các nhánh (branches) và thẻ (tags).
+                    </p>
+                </div>
+
+                <div class="explain-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Tự động thiết lập Remote</h3>
+                    <p>
+                        Git tự động thiết lập một remote connection mang tên <strong><code>origin</code></strong> trỏ về URL ban đầu, cho phép người dùng ngay lập tức sử dụng các lệnh <code>git pull</code> và <code>git push</code> mà không cần cấu hình thủ công.
+                    </p>
+                </div>
+
+                <div class="explain-card">
+                    <div class="card-icon">📂</div>
+                    <h3>Tạo thư mục & Checkout</h3>
+                    <p>
+                        Tự động khởi tạo thư mục mới chứa dự án, khởi tạo kho lưu trữ <code>.git</code> bên trong và tự động checkout nhánh mặc định (như <code>main</code> hoặc <code>master</code>) để sẵn sàng làm việc.
+                    </p>
+                </div>
+
+                <div class="explain-card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Tùy chọn nâng cao thường dùng</h3>
+                    <p>
+                        • <code>git clone &lt;url&gt; my-folder</code>: Đổi tên thư mục khi tải về.<br>
+                        • <code>git clone -b &lt;branch&gt; &lt;url&gt;</code>: Clone trực tiếp một nhánh cụ thể.<br>
+                        • <code>git clone --depth 1 &lt;url&gt;</code>: Clone nông (chỉ lấy commit gần nhất, giúp tải siêu nhanh).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2 class="section-title">🔍 Phân biệt <code>git clone</code> với các thao tác khác</h2>
+            <div class="table-responsive">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Lệnh / Thao tác</th>
+                            <th>Mục đích</th>
+                            <th>Thời điểm sử dụng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><code>git clone</code></strong></td>
+                            <td>Tải trọn vẹn cả dự án + lịch sử từ máy chủ về máy chưa có mã nguồn</td>
+                            <td>Bắt đầu tham gia dự án lần đầu tiên</td>
+                        </tr>
+                        <tr>
+                            <td><strong><code>git pull</code></strong></td>
+                            <td>Cập nhật những thay đổi mới nhất từ remote về repo đã có sẵn trên máy</td>
+                            <td>Hàng ngày trước khi bắt đầu viết code</td>
+                        </tr>
+                        <tr>
+                            <td><strong><code>git init</code></strong></td>
+                            <td>Khởi tạo một repo Git mới hoàn toàn từ một thư mục trống cục bộ</td>
+                            <td>Bắt đầu một dự án mới tinh trên máy cá nhân</td>
+                        </tr>
+                        <tr>
+                            <td><strong><code>Fork (GitHub)</code></strong></td>
+                            <td>Nhân bản repo của người khác vào tài khoản GitHub cá nhân của mình</td>
+                            <td>Đóng góp mã nguồn mở (Open Source) hoặc tùy biến riêng</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card-section result-box">
+            <h2 class="section-title">✅ Kết quả thực hành Clone: <code>wf-hello</code></h2>
+            <div class="project-info">
+                <p><strong>URL nguồn:</strong> <a href="https://github.com/codegym-vn/wf-hello" target="_blank">https://github.com/codegym-vn/wf-hello</a></p>
+                <p><strong>Thư mục đích:</strong> <code>wf-hello/</code></p>
+                <div class="file-badges">
+                    <span class="file-badge">📄 hello.txt (64 bytes)</span>
+                    <span class="file-badge">📝 README.md (151 bytes)</span>
+                    <span class="file-badge">📁 .git (kho lưu trữ ngầm)</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

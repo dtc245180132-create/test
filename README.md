@@ -1,27 +1,26 @@
-# Bài tập: Luyện tập sử dụng các bộ chọn CSS (CSS Selectors)
+# Bài tập: Sử dụng màu nền (background-color) và ảnh nền (background-image) trong CSS
 
-Dự án thực hành sử dụng các loại bộ chọn CSS phổ biến để định dạng trang web cá nhân cơ bản.
+Dự án thực hành sử dụng thuộc tính `background-color` và `background-image` để thiết kế giao diện trang web hiện đại.
 
 ## 🎯 Mục tiêu
-Luyện tập sử dụng các bộ chọn CSS:
-- **Element selector** (Bộ chọn phần tử: `body`, `ul`, `button`)
-- **ID selector** (Bộ chọn định danh ID: `#main-title`, `#bio-desc`, `#btn-action`)
-- **Class selector** (Bộ chọn lớp: `.container`, `.description`, `.hobby-item`, `.item-reading`, ...)
-- **Grouping selector** (Bộ chọn nhóm: `h1, .sub-title`, `h2, h3`)
-- **Pseudo-classes** (Bộ chọn lớp giả: `#btn-action:hover`, `#btn-action:active`, `.hobby-item:hover`)
+- **Thiết lập màu nền (`background-color`)**: Áp dụng màu nền đồng nhất, tinh tế cho toàn bộ trang web thông qua thẻ `body`.
+- **Thêm ảnh nền (`background-image`)**: Sử dụng ảnh nền cho khối `<div>` chứa nội dung quan trọng (`background-image: url('background.jpg')`), kết hợp `background-size: cover`, `background-position: center`.
+- **Căn giữa nội dung**: Căn giữa toàn bộ nội dung văn bản bên trong khối `<div>` (`text-align: center`).
 
 ## 📋 Các phần tử trên trang
-- Tiêu đề `<h1>`: "Trang web của tôi" (được căn giữa qua CSS).
-- Đoạn văn `<p>`: Mô tả ngắn gọn về bản thân.
-- Danh sách `<ul>`: Liệt kê 3 sở thích với màu sắc và viền phong phú.
-- Nút bấm `<button>`: "Nhấn vào đây" với hiệu ứng hover chuyển màu và đổ bóng nổi bật.
+1. **Tiêu đề `<h1>`**: `"Chào mừng đến với trang web của tôi"` được căn giữa rõ ràng.
+2. **Đoạn văn `<p>`**: Giới thiệu và mô tả mục đích của trang web.
+3. **Khối `<div>` quan trọng**: Khối banner nổi bật có ảnh nền chất lượng cao, chứa tiêu đề phụ `<h2>`, thông điệp quan trọng và nút liên kết hành động.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập: Luyện tập các bộ chọn CSS (class, id, element, grouping, pseudo-classes)
-├── style.css                # File CSS định dạng cho bài tập bộ chọn (nền, căn giữa h1, màu danh sách, hover nút)
-├── css_selectors.html       # Bản sao lưu trữ bài tập các bộ chọn CSS
-├── selectors_style.css      # Bản sao lưu trữ CSS cho bài tập bộ chọn
+├── index.html               # Bài tập hiện tại: Sử dụng background-color và background-image
+├── style.css                # File CSS định dạng cho bài tập màu nền & ảnh nền
+├── background.jpg           # Ảnh nền chất lượng cao dùng cho khối div quan trọng
+├── background_styling.html  # Bản sao lưu trữ độc lập cho bài tập Màu nền & Ảnh nền
+├── background_style.css     # Bản sao CSS độc lập cho bài tập Màu nền & Ảnh nền
+├── css_selectors.html       # Bản sao lưu trữ bài tập các bộ chọn CSS (class, id, element, grouping, pseudo-classes)
+├── selectors_style.css      # File CSS cho bài tập các bộ chọn CSS
 ├── css_embedding.html       # Bài thực hành: Nhúng CSS vào trang web (Inline, Internal, External)
 ├── personal_page.html       # Bài thực hành: Trang web cá nhân (header, avatar, profile, hobbies, goals, footer)
 ├── personal_style.css       # File CSS cho trang web cá nhân
@@ -52,4 +51,3 @@ Luyện tập sử dụng các bộ chọn CSS:
 ├── halong_bay.html          # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
 └── README.md                # Hướng dẫn và thông tin bài nộp
 ```
-

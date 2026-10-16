@@ -1,133 +1,94 @@
 /* ========================================================
-   BÀI TẬP: LUYỆN TẬP CÁC BỘ CHỌN CSS (CSS SELECTORS)
+   BÀI TẬP: SỬ DỤNG MÀU NỀN VÀ ẢNH NỀN TRONG CSS
    ======================================================== */
 
-/* --- 1. ELEMENT SELECTOR (Bộ chọn phần tử) --- */
-/* Đổi màu nền của toàn bộ trang web và cài đặt font chữ */
+/* 1. Thiết lập màu nền (background-color) cho trang web */
 body {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    background-color: #eef2f7;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
+    padding: 50px 20px;
+    color: #333333;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
+/* Khung chứa giới hạn chiều rộng trang */
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-button {
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-/* --- 2. ID SELECTOR (Bộ chọn định danh ID) --- */
-/* Căn giữa tiêu đề h1 và tạo màu sắc nổi bật */
-#main-title {
-    text-align: center;
-    color: #2c3e50;
+/* Tiêu đề h1 */
+h1 {
+    color: #1e293b;
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* Đoạn văn p mô tả trang web */
+.intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* 2. Khối <div> chứa nội dung quan trọng:
+      - Thêm ảnh nền (background-image)
+      - Căn giữa nội dung trong khối <div> */
+.important-box {
+    /* Thêm ảnh nền (background-image) */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Căn giữa nội dung trong khối <div> */
+    text-align: center;
+
+    /* Định dạng thẩm mỹ cho khối div */
+    color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiêu đề h2 trong khối quan trọng */
+.important-box h2 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     letter-spacing: 1px;
 }
 
-#bio-desc {
-    line-height: 1.8;
-    color: #4a5568;
-    text-align: justify;
+/* Đoạn văn p trong khối quan trọng */
+.important-box p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 25px auto;
+    color: #f1f5f9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-#btn-action {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+/* Nút liên kết xem chi tiết */
+.btn-detail {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #f59e0b;
     color: #ffffff;
+    text-decoration: none;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.35);
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
     transition: all 0.3s ease;
 }
 
-/* --- 3. CLASS SELECTOR (Bộ chọn lớp) --- */
-.container {
-    background-color: #ffffff;
-    max-width: 600px;
-    width: 100%;
-    padding: 35px 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.description {
-    background-color: #f8fafc;
-    border-left: 4px solid #3b82f6;
-    padding: 12px 18px;
-    border-radius: 0 8px 8px 0;
-}
-
-.hobby-item {
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: transform 0.2s ease;
-}
-
-/* Định dạng danh sách với các màu sắc khác nhau */
-.item-reading {
-    background-color: #fef3c7;
-    color: #92400e;
-    border-left: 5px solid #f59e0b;
-}
-
-.item-coding {
-    background-color: #e0e7ff;
-    color: #3730a3;
-    border-left: 5px solid #6366f1;
-}
-
-.item-music {
-    background-color: #dcfce7;
-    color: #166534;
-    border-left: 5px solid #22c55e;
-}
-
-/* --- 4. GROUPING SELECTOR (Bộ chọn nhóm) --- */
-/* Nhóm các tiêu đề để áp dụng font-weight và viền dưới */
-h1, .sub-title {
-    font-weight: 700;
-}
-
-h2, h3 {
-    color: #1e293b;
-    margin-top: 25px;
-    margin-bottom: 12px;
-}
-
-/* --- 5. PSEUDO-CLASSES (Bộ chọn lớp giả) --- */
-/* Hiệu ứng hover cho nút bấm */
-#btn-action:hover {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.45);
-}
-
-/* Hiệu ứng khi nhấn giữ nút bấm */
-#btn-action:active {
-    transform: translateY(1px);
-    box-shadow: 0 3px 10px rgba(0, 114, 255, 0.3);
-}
-
-/* Hiệu ứng hover cho các mục trong danh sách */
-.hobby-item:hover {
-    transform: translateX(6px);
+.btn-detail:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.5);
 }

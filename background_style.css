@@ -1,0 +1,94 @@
+/* ========================================================
+   BÀI TẬP: SỬ DỤNG MÀU NỀN VÀ ẢNH NỀN TRONG CSS
+   ======================================================== */
+
+/* 1. Thiết lập màu nền (background-color) cho trang web */
+body {
+    background-color: #eef2f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 50px 20px;
+    color: #333333;
+}
+
+/* Khung chứa giới hạn chiều rộng trang */
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Tiêu đề h1 */
+h1 {
+    color: #1e293b;
+    font-size: 32px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* Đoạn văn p mô tả trang web */
+.intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* 2. Khối <div> chứa nội dung quan trọng:
+      - Thêm ảnh nền (background-image)
+      - Căn giữa nội dung trong khối <div> */
+.important-box {
+    /* Thêm ảnh nền (background-image) */
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Căn giữa nội dung trong khối <div> */
+    text-align: center;
+
+    /* Định dạng thẩm mỹ cho khối div */
+    color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiêu đề h2 trong khối quan trọng */
+.important-box h2 {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+}
+
+/* Đoạn văn p trong khối quan trọng */
+.important-box p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 25px auto;
+    color: #f1f5f9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Nút liên kết xem chi tiết */
+.btn-detail {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #f59e0b;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.5);
+}

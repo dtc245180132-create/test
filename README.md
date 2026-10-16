@@ -18,8 +18,9 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập: Form survey khách hàng (Market Research Survey theo mẫu Wufoo)
-├── survey.html              # Bản sao độc lập bài tập Market Research Survey (Wufoo)
+├── index.html               # Bài tập: Bảng danh sách sản phẩm (table, tr, th, td)
+├── product_list.html        # Bản sao bài tập bảng danh sách sản phẩm
+├── survey.html              # Bài tập: Form survey khách hàng (Market Research Survey theo mẫu Wufoo)
 ├── registration_form.html   # Bài tập: Form đăng ký người dùng gửi POST lên server CodeGym
 ├── forms_codegym.html       # Bài thực hành: Tổng hợp đầy đủ 2 form (Phần 1 & Phần 2) CodeGym
 ├── form_part1.html          # Bài thực hành: Phần 1 - Form thông tin cá nhân (yourname, email, hobby)

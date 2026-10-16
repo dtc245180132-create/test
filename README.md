@@ -1,24 +1,21 @@
-# Bài tập: Hoàn thiện CSS Box Model - Model 2 (Open Source Records)
+# Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)
 
-Dự án thực hành hoàn thiện bố cục và kiểu dáng trang web ban nhạc "Open Source Records" bằng CSS Box Model (`margin`, `padding`, `border`, `width`).
+Dự án thực hành tạo thanh menu điều hướng cố định trên cùng (`position: fixed`) giúp nâng cao trải nghiệm người dùng khi cuộn trang.
 
-## 🎯 Mục tiêu & Các thuộc tính CSS Box Model áp dụng
-1. **Tiêu đề `h1`**: Đặt trên cùng với đường viền kẻ chân phân cách nổi bật (`border-bottom: 2px solid #000000;`).
-2. **Menu liên kết (`About`, `Bands`, `Contact`)**: Định dạng danh sách dạng hàng ngang với `display: inline-block;`, khoảng cách `margin-right: 25px;` và đường viền phân tách.
-3. **Phân biệt màu sắc & khoảng cách các tiêu đề**:
-   - `h2`: Màu đen (`#000000`), kích thước 20px, có viền gạch chân nhẹ (`border-bottom: 1px solid #d0d0d0;`).
-   - `h3`: Màu xám đậm (`#333333`), kích thước 15px, viết hoa tinh tế (`text-transform: uppercase;`).
-4. **Đoạn văn & Liên kết**:
-   - Đoạn văn `p`: Màu xám (`#444444`), cỡ chữ 14px, giãn dòng thoáng `line-height: 1.6`.
-   - Liên kết `a`: Màu nâu đỏ (`#440000`), hiệu ứng `hover: underline`.
-5. **Danh sách thành viên & Lịch diễn Tour Dates**:
-   - Danh sách thành viên: Dấu tròn (`list-style-type: disc;`) với thụt lề `padding-left: 20px;`.
-   - Danh sách lịch diễn: Dạng thẻ card có đường viền viền trái nổi bật (`border-left: 4px solid #440000;`), `padding: 12px 16px;`, nền trắng trên khung nền nhạt.
+## 🎯 Mục tiêu & Các thuộc tính CSS quan trọng
+1. **`position: fixed`**: Giữ phần tử menu cố định tại một vị trí xác định trên khung nhìn (viewport), không bị cuộn theo nội dung trang web.
+2. **`top: 0`**: Neo thanh menu dính sát mép trên cùng của màn hình trình duyệt.
+3. **`width: 100%`**: Kéo dài thanh menu tràn đều toàn bộ bề ngang cửa sổ trình duyệt.
+4. **`overflow: hidden`**: Ẩn các phần tử tràn và giải quyết vấn đề float của các liên kết con `<a>`.
+5. **`margin-top` trên `.main`**: Tạo khoảng cách phía trên phần nội dung để không bị thanh menu cố định che khuất.
+6. **`height: 1500px`**: Tạo chiều cao trang lớn để xuất hiện thanh cuộn (scrollbar) giúp quan sát rõ hiệu ứng menu cố định.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Model 2 (Open Source Records - CSS Box Model)
-├── open_source_records.html # File lưu trữ độc lập cho bài Model 2
+├── index.html               # Bài thực hành hiện tại: Hướng dẫn tạo Fixed Menu
+├── style.css                # File CSS định dạng cho Fixed Menu và nội dung trang
+├── fixed_menu.html          # File lưu trữ độc lập cho bài Fixed Menu
+├── open_source_records.html # Bài thực hành: Model 2 (Open Source Records - CSS Box Model)
 ├── box_model_layout.html    # Bài thực hành: Xây dựng bố cục với Mô hình hộp CSS (content-box vs border-box)
 ├── box_model_layout.css     # File CSS định dạng cho 3 thẻ card (content-box vs border-box)
 ├── box_sizing_flex.html     # Bài thực hành: CSS box-shadow, box-sizing, border-radius và Flexbox

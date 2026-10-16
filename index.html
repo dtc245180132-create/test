@@ -3,29 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar</title>
+    <title>Thuộc tính grid-template-columns trong CSS Grid</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">MyWebsite</div>
-        <ul class="nav-links">
-            <li><a href="#">Trang chủ</a></li>
-            <li><a href="#">Giới thiệu</a></li>
-            <li><a href="#">Dịch vụ</a></li>
-            <li><a href="#">Liên hệ</a></li>
-        </ul>
-        <div class="menu-icon">☰</div>
-    </nav>
+    <div class="page-wrapper">
+        <header>
+            <h1>Thuộc tính <code>grid-template-columns</code> trong CSS</h1>
+            <p class="subtitle">Luyện tập thiết lập số lượng cột và kích thước các cột trong lưới CSS Grid</p>
+        </header>
 
-    <main style="max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center;">
-        <h1 style="color: #1e293b; margin-bottom: 16px;">Thanh điều hướng Responsive Navbar</h1>
-        <p style="color: #475569; font-size: 16px; line-height: 1.6;">
-            Thanh điều hướng được xây dựng bằng <strong>HTML</strong>, <strong>CSS Flexbox</strong>, <strong>Media Queries</strong> và <strong>JavaScript</strong>.<br>
-            • Trên Desktop (&gt; 768px): Hiển thị đầy đủ menu ngang.<br>
-            • Trên Mobile (&le; 768px): Tự động ẩn menu ngang và hiển thị biểu tượng hamburger (☰). Khi click vào biểu tượng ☰ sẽ mở hoặc đóng danh sách menu dạng dropdown.
-        </p>
-    </main>
+        <!-- VÍ DỤ 1: Tạo 3 cột có kích thước bằng nhau -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 1: Tạo 3 cột có kích thước bằng nhau</h2>
+                <code>grid-template-columns: 1fr 1fr 1fr; gap: 10px;</code>
+            </div>
+            <p class="desc">
+                Sử dụng 3 giá trị <code>1fr</code> chia đều không gian Grid thành 3 phần bằng nhau. 
+                Gồm 6 ô nội dung tự động sắp xếp thành 2 hàng, mỗi hàng 3 cột.
+            </p>
+            <div class="grid-container example-1">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
+                <div>Ô 5</div>
+                <div>Ô 6</div>
+            </div>
+        </section>
+
+        <!-- VÍ DỤ 2: Tạo các cột có kích thước khác nhau -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 2: Tạo các cột có kích thước khác nhau</h2>
+                <code>grid-template-columns: 100px 200px 1fr; gap: 10px;</code>
+            </div>
+            <p class="desc">
+                Cột 1 có chiều rộng cố định <code>100px</code>, Cột 2 có chiều rộng cố định <code>200px</code>, 
+                Cột 3 sử dụng phần không gian còn lại với <code>1fr</code>.
+            </p>
+            <div class="grid-container example-2">
+                <div>Cột 1</div>
+                <div>Cột 2</div>
+                <div>Cột 3</div>
+                <div>Cột 1</div>
+                <div>Cột 2</div>
+                <div>Cột 3</div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

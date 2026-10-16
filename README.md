@@ -1,27 +1,58 @@
-# Bài thực hành: Thanh điều hướng Responsive Navbar
+# Bài thực hành: Thuộc tính `grid-template-columns` trong CSS Grid
 
-Dự án thực hành sử dụng **HTML**, **CSS (Flexbox, Media Queries)** và **JavaScript** để xây dựng thanh điều hướng (navbar) có khả năng tương thích hiển thị linh hoạt (responsive) trên cả máy tính để bàn (desktop) và thiết bị di động (mobile).
+Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-template-columns` trong CSS Grid để quy định số lượng cột và kích thước cụ thể của từng cột trong bố cục lưới.
 
-## 🎯 Mục tiêu bài học
-1. **Desktop Menu (Màn hình > 768px)**:
-   - Sử dụng CSS Flexbox (`display: flex; justify-content: space-between; align-items: center;`) để căn chỉnh logo ở bên trái và danh sách menu nằm ngang ở bên phải.
-   - Biểu tượng menu hamburger (`.menu-icon`) được ẩn (`display: none;`).
-2. **Mobile Menu (Màn hình ≤ 768px)**:
-   - Sử dụng Media Query `@media (max-width: 768px)` để tự động ẩn thanh menu ngang (`display: none;`) và hiển thị biểu tượng ☰ (`display: block;`).
-   - Danh sách menu chuyển sang dạng cột (`flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%;`).
-3. **Tương tác JavaScript**:
-   - Lắng nghe sự kiện click trên biểu tượng `.menu-icon`.
-   - Dùng `navLinks.classList.toggle("active")` để thêm/bỏ class `active`.
-   - Khi có class `active`, menu sẽ hiển thị (`display: flex;`).
+---
+
+## 🎯 Chi tiết các ví dụ
+
+### 1. Ví dụ 1: Tạo 3 cột có kích thước bằng nhau
+- **Mã CSS**:
+  ```css
+  .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+  }
+  .grid-container div {
+      background-color: lightblue;
+      padding: 20px;
+      text-align: center;
+  }
+  ```
+- **Giải thích**:
+  - `1fr`: Đại diện cho một phần phân số không gian còn trống của container Grid.
+  - Cung cấp 3 giá trị `1fr 1fr 1fr` tạo ra 3 cột có bề rộng chia đều bằng nhau.
+  - Khi có 6 phần tử con (`Ô 1` đến `Ô 6`), CSS Grid tự động phân bố thành 2 hàng, mỗi hàng 3 cột.
+
+### 2. Ví dụ 2: Tạo các cột có kích thước khác nhau
+- **Mã CSS**:
+  ```css
+  .grid-container {
+      display: grid;
+      grid-template-columns: 100px 200px 1fr;
+      gap: 10px;
+  }
+  .grid-container div {
+      background-color: lightgreen;
+      padding: 20px;
+      text-align: center;
+  }
+  ```
+- **Giải thích**:
+  - `100px`: Cột thứ nhất có kích thước cố định là 100 pixel.
+  - `200px`: Cột thứ hai có kích thước cố định là 200 pixel.
+  - `1fr`: Cột thứ ba linh hoạt co giãn chiếm toàn bộ phần diện tích còn lại của lưới.
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Cấu trúc HTML thanh điều hướng Responsive Navbar
-├── style.css                   # File CSS định dạng Flexbox, màu sắc, media query 768px
-├── script.js                   # Mã JavaScript lắng nghe click mở/đóng menu trên mobile (.active toggle)
-├── responsive_navbar.html      # Bản sao độc lập tích hợp đầy đủ HTML, CSS, JS cho Responsive Navbar
+├── index.html                  # Bài thực hành hiện tại: Cả 2 ví dụ grid-template-columns trong CSS Grid
+├── style.css                   # File CSS định dạng cho cả 2 ví dụ Grid (1fr 1fr 1fr & 100px 200px 1fr)
+├── grid_template_columns.html  # Bản sao độc lập tích hợp đầy đủ HTML và CSS nội bộ
+├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
+├── script.js                   # File JavaScript điều khiển toggle active cho navbar
 ├── float_overflow_layout.html  # Bài thực hành: Bố cục trang với Float và Overflow
 ├── display_layout.html         # Bài thực hành: Bố cục trang web với thuộc tính Display (block, inline-block)
 ├── html5_layout.html           # Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
@@ -80,6 +111,5 @@ Dự án thực hành sử dụng **HTML**, **CSS (Flexbox, Media Queries)** và
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **File bài nộp trực tiếp**:
-  - `index.html`: Cấu trúc HTML thanh điều hướng `<nav class="navbar">`
-  - `style.css`: Quy tắc Flexbox và Media Query `@media (max-width: 768px)`
-  - `script.js`: Xử lý click mở/đóng menu trên mobile qua `classList.toggle("active")`
+  - `index.html`: Cấu trúc HTML trực quan gồm cả Ví dụ 1 và Ví dụ 2
+  - `style.css`: Quy tắc định dạng lưới CSS Grid `grid-template-columns: 1fr 1fr 1fr` và `grid-template-columns: 100px 200px 1fr`

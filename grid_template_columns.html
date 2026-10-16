@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuộc tính grid-template-columns trong CSS Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 26px;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        header h1 code {
+            background-color: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #2563eb;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #64748b;
+        }
+
+        .example-section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            color: #1e293b;
+        }
+
+        .section-header code {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: #d97706;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 18px;
+        }
+
+        .desc code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0284c7;
+            font-weight: 600;
+        }
+
+        /* ===================================================
+           VÍ DỤ 1: Tạo 3 cột có kích thước bằng nhau
+           grid-template-columns: 1fr 1fr 1fr;
+           =================================================== */
+        .example-1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .example-1 div {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #0c4a6e;
+            border-radius: 6px;
+            border: 1px solid #7dd3fc;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .example-1 div:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===================================================
+           VÍ DỤ 2: Tạo các cột có kích thước khác nhau
+           grid-template-columns: 100px 200px 1fr;
+           =================================================== */
+        .example-2 {
+            display: grid;
+            grid-template-columns: 100px 200px 1fr;
+            gap: 10px;
+        }
+
+        .example-2 div {
+            background-color: lightgreen;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #14532d;
+            border-radius: 6px;
+            border: 1px solid #86efac;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .example-2 div:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Thuộc tính <code>grid-template-columns</code> trong CSS</h1>
+            <p class="subtitle">Luyện tập thiết lập số lượng cột và kích thước các cột trong lưới CSS Grid</p>
+        </header>
+
+        <!-- VÍ DỤ 1: Tạo 3 cột có kích thước bằng nhau -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 1: Tạo 3 cột có kích thước bằng nhau</h2>
+                <code>grid-template-columns: 1fr 1fr 1fr; gap: 10px;</code>
+            </div>
+            <p class="desc">
+                Sử dụng 3 giá trị <code>1fr</code> chia đều không gian Grid thành 3 phần bằng nhau. 
+                Gồm 6 ô nội dung tự động sắp xếp thành 2 hàng, mỗi hàng 3 cột.
+            </p>
+            <div class="grid-container example-1">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
+                <div>Ô 5</div>
+                <div>Ô 6</div>
+            </div>
+        </section>
+
+        <!-- VÍ DỤ 2: Tạo các cột có kích thước khác nhau -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 2: Tạo các cột có kích thước khác nhau</h2>
+                <code>grid-template-columns: 100px 200px 1fr; gap: 10px;</code>
+            </div>
+            <p class="desc">
+                Cột 1 có chiều rộng cố định <code>100px</code>, Cột 2 có chiều rộng cố định <code>200px</code>, 
+                Cột 3 sử dụng phần không gian còn lại với <code>1fr</code>.
+            </p>
+            <div class="grid-container example-2">
+                <div>Cột 1</div>
+                <div>Cột 2</div>
+                <div>Cột 3</div>
+                <div>Cột 1</div>
+                <div>Cột 2</div>
+                <div>Cột 3</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

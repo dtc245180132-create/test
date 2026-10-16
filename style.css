@@ -1,56 +1,82 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
     background-color: #f8fafc;
-    color: #333;
 }
 
-h1 {
-    color: #1e293b;
-    margin-bottom: 20px;
-    text-align: center;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+    color: white;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.container {
-    width: 100%;
-    overflow: hidden; /* Ngăn chặn hiện tượng sụp đổ chiều cao (clearfix) do các phần tử con dùng float */
-    margin-bottom: 25px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.left-column {
-    width: 50%;
-    float: left;
-    background-color: lightgray;
-    padding: 20px;
-    font-weight: 500;
-    min-height: 100px;
+.nav-links {
+    list-style: none;
+    display: flex;
 }
 
-.right-column {
-    width: 50%;
-    float: right;
-    background-color: lightgreen;
-    padding: 20px;
-    font-weight: 500;
-    min-height: 100px;
+.nav-links li {
+    margin: 0 15px;
 }
 
-.overflow-box {
-    width: 300px;
-    height: 100px;
-    background-color: lightcoral;
-    padding: 10px;
-    overflow: auto; /* Tự động xuất hiện thanh cuộn khi nội dung vượt quá kích thước 300px x 100px */
-    margin: 0 auto;
-    border-radius: 6px;
-    color: #ffffff;
-    line-height: 1.5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ✅ Responsive cho Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 12px;
+        border-top: 1px solid #444;
+    }
+
+    .menu-icon {
+        display: block;
+    }
 }

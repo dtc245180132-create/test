@@ -1,20 +1,28 @@
-# Bài thực hành: Bố cục trang web với Float và Overflow
+# Bài thực hành: Thanh điều hướng Responsive Navbar
 
-Dự án thực hành kết hợp các thuộc tính `float`, `clear` và `overflow` trong CSS để tạo bố cục đa cột và xử lý nội dung văn bản dài có thanh cuộn mà không bị tràn (overflow).
+Dự án thực hành sử dụng **HTML**, **CSS (Flexbox, Media Queries)** và **JavaScript** để xây dựng thanh điều hướng (navbar) có khả năng tương thích hiển thị linh hoạt (responsive) trên cả máy tính để bàn (desktop) và thiết bị di động (mobile).
 
 ## 🎯 Mục tiêu bài học
-1. **`float: left` & `float: right`**: Căn chỉnh hai cột nội dung (mỗi cột chiếm 50% chiều rộng) nằm cạnh nhau theo dòng chảy trang.
-2. **`overflow: hidden` trên `.container`**: Tạo một **Block Formatting Context (BFC)** hoạt động như một cơ chế clearfix tự động, ngăn hiện tượng sụp đổ chiều cao (*collapsing parent container*) khi tất cả các phần tử con bên trong đều sử dụng `float`.
-3. **`overflow: auto` trên `.overflow-box`**: Kiểm soát khối có kích thước cố định (`300px` x `100px`), tự động kích hoạt thanh cuộn dọc (scrollbar) khi nội dung văn bản vượt quá dung lượng chứa, giữ cho giao diện trang luôn gọn gàng và không bị vỡ bố cục.
-4. **`box-sizing: border-box`**: Đảm bảo `padding` được tính vào tổng chiều rộng `50%` của hai cột, tránh việc tràn hàng ngang.
+1. **Desktop Menu (Màn hình > 768px)**:
+   - Sử dụng CSS Flexbox (`display: flex; justify-content: space-between; align-items: center;`) để căn chỉnh logo ở bên trái và danh sách menu nằm ngang ở bên phải.
+   - Biểu tượng menu hamburger (`.menu-icon`) được ẩn (`display: none;`).
+2. **Mobile Menu (Màn hình ≤ 768px)**:
+   - Sử dụng Media Query `@media (max-width: 768px)` để tự động ẩn thanh menu ngang (`display: none;`) và hiển thị biểu tượng ☰ (`display: block;`).
+   - Danh sách menu chuyển sang dạng cột (`flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%;`).
+3. **Tương tác JavaScript**:
+   - Lắng nghe sự kiện click trên biểu tượng `.menu-icon`.
+   - Dùng `navLinks.classList.toggle("active")` để thêm/bỏ class `active`.
+   - Khi có class `active`, menu sẽ hiển thị (`display: flex;`).
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Bố cục trang với Float và Overflow
-├── style.css                   # File CSS định dạng cho float, clearfix overflow và scrollbox
-├── float_overflow_layout.html  # Bản sao độc lập cho bài Bố cục với Float và Overflow
+├── index.html                  # Bài thực hành hiện tại: Cấu trúc HTML thanh điều hướng Responsive Navbar
+├── style.css                   # File CSS định dạng Flexbox, màu sắc, media query 768px
+├── script.js                   # Mã JavaScript lắng nghe click mở/đóng menu trên mobile (.active toggle)
+├── responsive_navbar.html      # Bản sao độc lập tích hợp đầy đủ HTML, CSS, JS cho Responsive Navbar
+├── float_overflow_layout.html  # Bài thực hành: Bố cục trang với Float và Overflow
 ├── display_layout.html         # Bài thực hành: Bố cục trang web với thuộc tính Display (block, inline-block)
 ├── html5_layout.html           # Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
 ├── basic_layout_div.html       # Bài thực hành: Tạo bố cục cơ bản bằng thẻ DIV và CSS (#main, #head, #left, #content, #right, #footer)
@@ -72,5 +80,6 @@ Dự án thực hành kết hợp các thuộc tính `float`, `clear` và `overf
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **File bài nộp trực tiếp**:
-  - `index.html`: Cấu trúc HTML với `<h1>`, `.container` (`.left-column` & `.right-column`), `.overflow-box`
-  - `style.css`: Quy tắc định dạng CSS với `float: left`, `float: right`, `overflow: hidden`, `overflow: auto`
+  - `index.html`: Cấu trúc HTML thanh điều hướng `<nav class="navbar">`
+  - `style.css`: Quy tắc Flexbox và Media Query `@media (max-width: 768px)`
+  - `script.js`: Xử lý click mở/đóng menu trên mobile qua `classList.toggle("active")`

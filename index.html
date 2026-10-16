@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục với Float và Overflow</title>
+    <title>Responsive Navbar</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Bố cục trang với float và overflow</h1>
-    <div class="container">
-        <div class="left-column">Nội dung bên trái (Float: Left - Chiếm 50% chiều rộng)</div>
-        <div class="right-column">Nội dung bên phải (Float: Right - Chiếm 50% chiều rộng)</div>
-    </div>
-    <div class="overflow-box">
-        Đây là nội dung rất dài mà chúng ta kiểm tra overflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    </div>
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+        <div class="menu-icon">☰</div>
+    </nav>
+
+    <main style="max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center;">
+        <h1 style="color: #1e293b; margin-bottom: 16px;">Thanh điều hướng Responsive Navbar</h1>
+        <p style="color: #475569; font-size: 16px; line-height: 1.6;">
+            Thanh điều hướng được xây dựng bằng <strong>HTML</strong>, <strong>CSS Flexbox</strong>, <strong>Media Queries</strong> và <strong>JavaScript</strong>.<br>
+            • Trên Desktop (&gt; 768px): Hiển thị đầy đủ menu ngang.<br>
+            • Trên Mobile (&le; 768px): Tự động ẩn menu ngang và hiển thị biểu tượng hamburger (☰). Khi click vào biểu tượng ☰ sẽ mở hoặc đóng danh sách menu dạng dropdown.
+        </p>
+    </main>
 </body>
 </html>

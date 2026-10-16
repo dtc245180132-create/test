@@ -3,81 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuộc tính grid-column-start trong CSS Grid</title>
+    <title>Thuộc tính grid-row-gap trong CSS Grid</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="page-wrapper">
         <header>
-            <h1>Thuộc tính <code>grid-column-start</code> trong CSS Grid</h1>
-            <p class="subtitle">Xác định vị trí đường kẻ cột (column line) nơi phần tử Grid Item bắt đầu</p>
+            <h1>Thuộc tính <code>grid-row-gap</code> trong CSS Grid</h1>
+            <p class="subtitle">Xác định kích thước khoảng cách giữa các hàng (Grid Rows)</p>
         </header>
 
-        <!-- SƠ ĐỒ ĐƯỜNG KẺ CỘT (COLUMN LINES) -->
-        <div class="diagram-card">
-            <h3>📌 Minh họa các đường kẻ cột trong lưới 4 cột (4 columns = 5 column lines):</h3>
-            <div class="column-lines-ruler">
-                <span>| Đường 1</span>
-                <span>| Đường 2</span>
-                <span>| Đường 3</span>
-                <span>| Đường 4</span>
-                <span class="last">| Đường 5</span>
-            </div>
-            <div class="grid-columns-preview">
-                <div>Cột 1</div>
-                <div>Cột 2</div>
-                <div>Cột 3</div>
-                <div>Cột 4</div>
-            </div>
+        <!-- LƯU Ý CSS HIỆN ĐẠI -->
+        <div class="note-box">
+            💡 <strong>Lưu ý:</strong> Trong chuẩn CSS hiện đại (CSS Box Alignment Module Level 3), thuộc tính <code>row-gap</code> được khuyến nghị sử dụng thay thế cho <code>grid-row-gap</code> (cả hai đều có cùng chức năng tạo khoảng cách hàng).
         </div>
 
-        <!-- VÍ DỤ 1: auto -->
+        <!-- VÍ DỤ 1: Length (px) -->
         <section class="example-section">
             <div class="section-header">
-                <h2>Ví dụ 1: Giá trị <code>auto</code> (Mặc định)</h2>
-                <code>grid-column-start: auto;</code>
+                <h2>Ví dụ 1: Giá trị độ dài cố định (Length)</h2>
+                <code>grid-row-gap: 20px;</code>
             </div>
             <p class="desc">
-                Giá trị <code>auto</code> đặt phần tử theo luồng sắp xếp tự nhiên của CSS Grid (lưới 3 cột <code>100px 100px 100px</code>).
+                Thiết lập khoảng cách cố định giữa các hàng là <code>20px</code>. Lưới có 2 cột (<code>repeat(2, 1fr)</code>) và 4 ô.
             </p>
-            <div class="grid-container example-auto">
-                <div class="item1 highlight">1 (auto)</div>
-                <div>2</div>
-                <div>3</div>
+            <div class="grid-container example-length">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
             </div>
         </section>
 
-        <!-- VÍ DỤ 2: span n -->
+        <!-- VÍ DỤ 2: Percentage (%) -->
         <section class="example-section">
             <div class="section-header">
-                <h2>Ví dụ 2: Giá trị <code>span n</code> (Kéo dài qua n cột)</h2>
-                <code>grid-column-start: span 2;</code>
+                <h2>Ví dụ 2: Giá trị phần trăm (Percentage %)</h2>
+                <code>grid-row-gap: 5%; height: 350px;</code>
             </div>
             <p class="desc">
-                Phần tử <strong>Item 1</strong> kéo dài qua <code>2 cột</code> trong lưới 4 cột (<code>repeat(4, 1fr)</code>).
+                Khoảng cách giữa các hàng được tính bằng <code>5%</code> chiều cao của khung chứa lưới (chiều cao container <code>350px</code>).
             </p>
-            <div class="grid-container example-span">
-                <div class="item1 highlight">Item 1 (span 2)</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
+            <div class="grid-container example-percentage">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
             </div>
         </section>
 
-        <!-- VÍ DỤ 3: column-line -->
+        <!-- VÍ DỤ 3: Global values (initial & inherit) -->
         <section class="example-section">
             <div class="section-header">
-                <h2>Ví dụ 3: Giá trị <code>column-line</code> (Đường kẻ cụ thể)</h2>
-                <code>grid-column-start: 2;</code>
+                <h2>Ví dụ 3: Các giá trị toàn cục (Global Values)</h2>
+                <code>initial | inherit | unset</code>
             </div>
             <p class="desc">
-                Phần tử <strong>Item 1</strong> bắt đầu tại <strong>đường kẻ cột số 2</strong> (để trống Cột 1 phía trước) trong lưới 4 cột (<code>repeat(4, 1fr)</code>).
+                • <code>initial</code>: Trả khoảng cách hàng về giá trị mặc định của trình duyệt (<code>0px</code>).<br>
+                • <code>inherit</code>: Kế thừa khoảng cách hàng <code>30px</code> từ phần tử cha.
             </p>
-            <div class="grid-container example-line">
-                <div class="item1 highlight">Item 1 (start: 2)</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
+            
+            <div class="global-demo-wrapper">
+                <div class="sub-demo">
+                    <h3>1. Giá trị <code>initial</code> (Không có khoảng cách hàng):</h3>
+                    <div class="grid-container example-initial">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                    </div>
+                </div>
+
+                <div class="parent-container sub-demo">
+                    <h3>2. Giá trị <code>inherit</code> (Kế thừa 30px từ cha):</h3>
+                    <div class="grid-container example-inherit">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>

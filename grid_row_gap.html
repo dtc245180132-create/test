@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuộc tính grid-row-gap trong CSS Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 26px;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        header h1 code {
+            background-color: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #2563eb;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #64748b;
+        }
+
+        .note-box {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #1e40af;
+        }
+
+        .note-box code {
+            background-color: #dbeafe;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .example-section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            color: #1e293b;
+        }
+
+        .section-header code {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: #d97706;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 18px;
+        }
+
+        .desc code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0284c7;
+            font-weight: 600;
+        }
+
+        /* ===================================================
+           VÍ DỤ 1: grid-row-gap: 20px (Length)
+           =================================================== */
+        .example-length {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 20px;
+            row-gap: 20px;
+        }
+
+        .example-length div {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #0c4a6e;
+            border-radius: 6px;
+            border: 1px solid #7dd3fc;
+        }
+
+        /* ===================================================
+           VÍ DỤ 2: grid-row-gap: 5% (Percentage)
+           =================================================== */
+        .example-percentage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 5%;
+            row-gap: 5%;
+            height: 350px;
+            border: 2px dashed #86efac;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f0fdf4;
+        }
+
+        .example-percentage div {
+            background-color: lightgreen;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #14532d;
+            border-radius: 6px;
+            border: 1px solid #86efac;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===================================================
+           VÍ DỤ 3: Global values (initial & inherit)
+           =================================================== */
+        .global-demo-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .sub-demo h3 {
+            font-size: 14px;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .sub-demo h3 code {
+            color: #d97706;
+        }
+
+        .example-initial {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: initial;
+            row-gap: initial;
+        }
+
+        .example-initial div {
+            background-color: #e2e8f0;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+
+        .parent-container {
+            grid-row-gap: 30px;
+            row-gap: 30px;
+        }
+
+        .example-inherit {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: inherit;
+            row-gap: inherit;
+        }
+
+        .example-inherit div {
+            background-color: #fed7aa;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #7c2d12;
+            border-radius: 6px;
+            border: 1px solid #fdba74;
+        }
+
+        @media (max-width: 640px) {
+            .global-demo-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Thuộc tính <code>grid-row-gap</code> trong CSS Grid</h1>
+            <p class="subtitle">Xác định kích thước khoảng cách giữa các hàng (Grid Rows)</p>
+        </header>
+
+        <!-- LƯU Ý CSS HIỆN ĐẠI -->
+        <div class="note-box">
+            💡 <strong>Lưu ý:</strong> Trong chuẩn CSS hiện đại (CSS Box Alignment Module Level 3), thuộc tính <code>row-gap</code> được khuyến nghị sử dụng thay thế cho <code>grid-row-gap</code> (cả hai đều có cùng chức năng tạo khoảng cách hàng).
+        </div>
+
+        <!-- VÍ DỤ 1: Length (px) -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 1: Giá trị độ dài cố định (Length)</h2>
+                <code>grid-row-gap: 20px;</code>
+            </div>
+            <p class="desc">
+                Thiết lập khoảng cách cố định giữa các hàng là <code>20px</code>. Lưới có 2 cột (<code>repeat(2, 1fr)</code>) và 4 ô.
+            </p>
+            <div class="grid-container example-length">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
+            </div>
+        </section>
+
+        <!-- VÍ DỤ 2: Percentage (%) -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 2: Giá trị phần trăm (Percentage %)</h2>
+                <code>grid-row-gap: 5%; height: 350px;</code>
+            </div>
+            <p class="desc">
+                Khoảng cách giữa các hàng được tính bằng <code>5%</code> chiều cao của khung chứa lưới (chiều cao container <code>350px</code>).
+            </p>
+            <div class="grid-container example-percentage">
+                <div>Ô 1</div>
+                <div>Ô 2</div>
+                <div>Ô 3</div>
+                <div>Ô 4</div>
+            </div>
+        </section>
+
+        <!-- VÍ DỤ 3: Global values (initial & inherit) -->
+        <section class="example-section">
+            <div class="section-header">
+                <h2>Ví dụ 3: Các giá trị toàn cục (Global Values)</h2>
+                <code>initial | inherit | unset</code>
+            </div>
+            <p class="desc">
+                • <code>initial</code>: Trả khoảng cách hàng về giá trị mặc định của trình duyệt (<code>0px</code>).<br>
+                • <code>inherit</code>: Kế thừa khoảng cách hàng <code>30px</code> từ phần tử cha.
+            </p>
+            
+            <div class="global-demo-wrapper">
+                <div class="sub-demo">
+                    <h3>1. Giá trị <code>initial</code> (Không có khoảng cách hàng):</h3>
+                    <div class="grid-container example-initial">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                    </div>
+                </div>
+
+                <div class="parent-container sub-demo">
+                    <h3>2. Giá trị <code>inherit</code> (Kế thừa 30px từ cha):</h3>
+                    <div class="grid-container example-inherit">
+                        <div>Ô 1</div>
+                        <div>Ô 2</div>
+                        <div>Ô 3</div>
+                        <div>Ô 4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

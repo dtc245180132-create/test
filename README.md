@@ -1,6 +1,6 @@
-# Bài thực hành: Thuộc tính `grid-column-start` trong CSS Grid
+# Bài thực hành: Thuộc tính `grid-row-gap` (và `row-gap`) trong CSS Grid
 
-Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-column-start` trong CSS Grid để quy định đường kẻ cột (column line) nơi phần tử Grid Item bắt đầu.
+Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-row-gap` trong CSS Grid để quy định kích thước khoảng cách giữa các hàng (`grid rows`).
 
 ---
 
@@ -8,67 +8,67 @@ Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-column-star
 
 ### Cú pháp:
 ```css
-grid-column-start: auto | span n | column-line;
+grid-row-gap: length | percentage | global-values;
+/* Lưu ý: Trong CSS hiện đại, thuộc tính row-gap được khuyến nghị sử dụng thay thế */
 ```
 
-### 1. Giá trị `auto` (Mặc định)
+### 1. Giá trị độ dài cố định (`length`: px, cm, em, rem)
 - **Mã nguồn**:
   ```css
   .grid-container {
       display: grid;
-      grid-template-columns: 100px 100px 100px;
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 20px;
   }
-  .item1 {
-      grid-column-start: auto;
+  .grid-container div {
+      background-color: lightblue;
+      padding: 20px;
+      text-align: center;
   }
   ```
-- **Giải thích**: `auto` đặt Grid Item theo luồng sắp xếp thông thường, không can thiệp vào vị trí tự nhiên của phần tử trong lưới.
+- **Giải thích**: Khoảng cách chiều dọc giữa các hàng của lưới được cố định là `20px`.
 
-### 2. Giá trị `span n` (Kéo dài qua n cột)
+### 2. Giá trị phần trăm (`percentage`: %)
 - **Mã nguồn**:
   ```css
   .grid-container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 5%;
+      height: 400px;
   }
-  .item1 {
-      grid-column-start: span 2;
+  .grid-container div {
+      background-color: lightgreen;
+      padding: 20px;
+      text-align: center;
   }
   ```
-- **Giải thích**: `Item 1` được mở rộng để chiếm trọn vẹn 2 cột trong hàng lưới.
+- **Giải thích**: Khoảng cách hàng được tính toán bằng `5%` chiều cao của khối cha (`400px * 5% = 20px`).
 
-### 3. Giá trị `column-line` (Vị trí đường kẻ cột cụ thể)
+### 3. Các giá trị toàn cục (`global-values`: initial, inherit, unset)
 - **Mã nguồn**:
   ```css
+  /* initial: trả về mặc định của trình duyệt (0px) */
   .grid-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-row-gap: initial;
   }
-  .item1 {
-      grid-column-start: 2;
+  /* inherit: kế thừa khoảng cách từ phần tử cha */
+  .grid-container {
+      grid-row-gap: inherit;
   }
   ```
 - **Giải thích**:
-  - Với lưới gồm 4 cột, có tất cả 5 đường kẻ cột (`column lines`):
-    ```
-    |  Cột 1  |  Cột 2  |  Cột 3  |  Cột 4  |
-    1         2         3         4         5
-    ↑         ↑         ↑         ↑         ↑
-    Đường     Đường     Đường     Đường     Đường
-    kẻ 1      kẻ 2      kẻ 3      kẻ 4      kẻ 5
-    ```
-  - Khi thiết lập `grid-column-start: 2;`, `Item 1` sẽ bắt đầu từ đường kẻ số 2 (bỏ trống Cột 1 phía trước).
+  - `initial`: Thiết lập lại về giá trị mặc định (`0px` - các hàng dính liền nhau).
+  - `inherit`: Kế thừa giá trị khoảng cách hàng do phần tử cha quy định.
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Cả 3 ví dụ grid-column-start (auto, span n, column-line)
-├── style.css                   # File CSS định dạng cho 3 ví dụ và thước đo column lines
-├── grid_column_start.html      # Bản sao độc lập lưu trữ bài grid-column-start
+├── index.html                  # Bài thực hành hiện tại: Cả 3 ví dụ grid-row-gap (length, %, global values)
+├── style.css                   # File CSS định dạng cho 3 ví dụ grid-row-gap và row-gap
+├── grid_row_gap.html           # Bản sao độc lập lưu trữ bài grid-row-gap
+├── grid_column_start.html      # Bài thực hành: Thuộc tính grid-column-start (auto, span n, column-line)
 ├── grid_template_columns.html  # Bài thực hành: Thuộc tính grid-template-columns (1fr 1fr 1fr & 100px 200px 1fr)
 ├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
 ├── script.js                   # File JavaScript điều khiển toggle active cho navbar
@@ -130,5 +130,5 @@ grid-column-start: auto | span n | column-line;
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **File bài nộp trực tiếp**:
-  - `index.html`: Cấu trúc HTML gồm cả 3 ví dụ về `grid-column-start` và thước đo đường kẻ cột
-  - `style.css`: Quy tắc định dạng CSS cho `auto`, `span 2` và `column-line: 2`
+  - `index.html`: Cấu trúc HTML gồm cả 3 ví dụ về khoảng cách hàng trong Grid
+  - `style.css`: Quy tắc định dạng CSS cho `grid-row-gap: 20px`, `grid-row-gap: 5%`, `initial` và `inherit`

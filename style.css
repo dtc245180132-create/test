@@ -19,7 +19,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 header h1 {
@@ -41,54 +41,24 @@ header h1 code {
     color: #64748b;
 }
 
-/* Thẻ sơ đồ đường kẻ cột */
-.diagram-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
+.note-box {
+    background-color: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 14px 18px;
+    border-radius: 6px;
     margin-bottom: 25px;
-    border: 1px dashed #3b82f6;
-    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.05);
-}
-
-.diagram-card h3 {
-    font-size: 15px;
+    font-size: 14px;
     color: #1e40af;
-    margin-bottom: 15px;
 }
 
-.column-lines-ruler {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: bold;
-    color: #d97706;
-    margin-bottom: 6px;
-    padding: 0 5px;
-}
-
-.column-lines-ruler .last {
-    text-align: right;
-}
-
-.grid-columns-preview {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.grid-columns-preview div {
-    background-color: #e2e8f0;
-    border: 1px solid #cbd5e1;
-    padding: 8px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
-    color: #475569;
+.note-box code {
+    background-color: #dbeafe;
+    padding: 2px 6px;
     border-radius: 4px;
+    font-weight: bold;
+    color: #1d4ed8;
 }
 
-/* Các section ví dụ */
 .example-section {
     background-color: #ffffff;
     border-radius: 10px;
@@ -138,63 +108,113 @@ header h1 code {
     font-weight: 600;
 }
 
-/* Định dạng cơ bản cho các ô Grid chung */
-.grid-container div {
-    background-color: #cbd5e1;
+/* ===================================================
+   VÍ DỤ 1: grid-row-gap: 20px (Length)
+   =================================================== */
+.example-length {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 20px;
+    row-gap: 20px;
+}
+
+.example-length div {
+    background-color: lightblue;
     padding: 20px;
     text-align: center;
     font-weight: bold;
-    color: #1e293b;
+    color: #0c4a6e;
     border-radius: 6px;
-    border: 1px solid #94a3b8;
-    transition: transform 0.2s;
-}
-
-.grid-container div.highlight {
-    background-color: #38bdf8;
-    color: #082f49;
-    border: 2px solid #0284c7;
-    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+    border: 1px solid #7dd3fc;
 }
 
 /* ===================================================
-   VÍ DỤ 1: grid-column-start: auto
-   Lưới 100px 100px 100px
+   VÍ DỤ 2: grid-row-gap: 5% (Percentage)
    =================================================== */
-.example-auto {
+.example-percentage {
     display: grid;
-    grid-template-columns: 100px 100px 100px;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 5%;
+    row-gap: 5%;
+    height: 350px;
+    border: 2px dashed #86efac;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0fdf4;
 }
 
-.example-auto .item1 {
-    grid-column-start: auto;
+.example-percentage div {
+    background-color: lightgreen;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #14532d;
+    border-radius: 6px;
+    border: 1px solid #86efac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ===================================================
-   VÍ DỤ 2: grid-column-start: span 2
-   Lưới repeat(4, 1fr)
+   VÍ DỤ 3: Global values (initial & inherit)
    =================================================== */
-.example-span {
+.global-demo-wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.example-span .item1 {
-    grid-column-start: span 2;
+.sub-demo h3 {
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 10px;
 }
 
-/* ===================================================
-   VÍ DỤ 3: grid-column-start: 2 (column-line)
-   Lưới repeat(4, 1fr)
-   =================================================== */
-.example-line {
+.sub-demo h3 code {
+    color: #d97706;
+}
+
+.example-initial {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: initial;
+    row-gap: initial;
 }
 
-.example-line .item1 {
-    grid-column-start: 2;
+.example-initial div {
+    background-color: #e2e8f0;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.parent-container {
+    grid-row-gap: 30px;
+    row-gap: 30px;
+}
+
+.example-inherit {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: inherit;
+    row-gap: inherit;
+}
+
+.example-inherit div {
+    background-color: #fed7aa;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #7c2d12;
+    border-radius: 6px;
+    border: 1px solid #fdba74;
+}
+
+@media (max-width: 640px) {
+    .global-demo-wrapper {
+        grid-template-columns: 1fr;
+    }
 }

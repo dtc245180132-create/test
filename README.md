@@ -1,22 +1,18 @@
-# Bài tập: Thực hành CSS Box Model
+# Bài tập: Thực hành CSS box-shadow và border-radius
 
-Dự án thực hành tìm hiểu và ứng dụng mô hình hộp (**Box Model**) trong CSS.
+Dự án thực hành sử dụng các thuộc tính CSS `box-shadow` và `border-radius` để tạo hiệu ứng bóng đổ bên trong và bo góc cho phần tử.
 
-## 🎯 Mục tiêu & Công thức tính Box Model
-Xác định kích thước của phần tử `<div>` dựa trên 4 thành phần của Box Model:
-- **Content width**: `200px`
-- **Padding** (khoảng đệm bên trong): `35px` mỗi bên (trái, phải, trên, dưới)
-- **Border** (đường viền nét đứt màu indianred): `20px` mỗi bên
-- **Margin** (khoảng cách bên ngoài): `25px` mỗi bên
-- **Background-color**: `lightseagreen`
-
-$$\text{Tổng chiều rộng} = \text{width} + (\text{left} + \text{right})\text{padding} + (\text{left} + \text{right})\text{border} + (\text{left} + \text{right})\text{margin}$$
-$$= 200 + (35 + 35) + (20 + 20) + (25 + 25) = 360\text{px}$$
+## 🎯 Mục tiêu
+- **`box-shadow: inset`**: Tạo hiệu ứng bóng đổ phía bên trong phần tử (`inset 0 0 22px indianred` và `inset 0 0 22px seagreen`).
+- **`border-radius`**: Bo góc tròn phần tử (`50%` tạo hình tròn cho div ngoài, `3%` bo góc nhẹ cho div lồng bên trong).
+- **`padding`**: Tạo khoảng cách bên trong để mở rộng kích thước hiển thị cho hiệu ứng bóng đổ.
+- Quan sát sự kết hợp trực quan giữa 2 thẻ `<div>` lồng nhau.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: CSS Box Model
-├── box_model.html           # File lưu trữ độc lập cho bài CSS Box Model
+├── index.html               # Bài thực hành hiện tại: CSS box-shadow và border-radius
+├── box_shadow_radius.html   # File lưu trữ độc lập cho bài box-shadow & border-radius
+├── box_model.html           # Bài thực hành: CSS Box Model (width, padding, border, margin)
 ├── background_styling.html  # Bài thực hành: Sử dụng màu nền (background-color) và ảnh nền (background-image)
 ├── background_style.css     # File CSS định dạng cho bài màu nền & ảnh nền
 ├── background.jpg           # Ảnh nền chất lượng cao dùng cho khối div quan trọng

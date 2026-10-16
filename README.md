@@ -1,17 +1,19 @@
-# Bài tập: Thực hành CSS box-shadow và border-radius
+# Bài tập: Thực hành CSS box-shadow, box-sizing, border-radius và Flexbox
 
-Dự án thực hành sử dụng các thuộc tính CSS `box-shadow` và `border-radius` để tạo hiệu ứng bóng đổ bên trong và bo góc cho phần tử.
+Dự án thực hành tìm hiểu cách các thuộc tính CSS `box-shadow`, `box-sizing: border-box`, `border-radius`, `display: flex`, `width`, `height`, `padding` và `margin` ảnh hưởng đến kích thước và bố cục phần tử.
 
-## 🎯 Mục tiêu
-- **`box-shadow: inset`**: Tạo hiệu ứng bóng đổ phía bên trong phần tử (`inset 0 0 22px indianred` và `inset 0 0 22px seagreen`).
-- **`border-radius`**: Bo góc tròn phần tử (`50%` tạo hình tròn cho div ngoài, `3%` bo góc nhẹ cho div lồng bên trong).
-- **`padding`**: Tạo khoảng cách bên trong để mở rộng kích thước hiển thị cho hiệu ứng bóng đổ.
-- Quan sát sự kết hợp trực quan giữa 2 thẻ `<div>` lồng nhau.
+## 🎯 Mục tiêu & Phân tích các thuộc tính
+- **`display: flex`**: Sắp xếp 2 phần tử con `.d1` và `.d2` nằm ngang cạnh nhau bên trong khung `#demo`.
+- **`float: left`**: Căn khung `#demo` sang phía bên trái.
+- **`box-sizing: border-box`**: Giúp phần tử giữ nguyên kích thước đã khai báo (`width: 150px`, `height: 80px`), padding `30px` trong `.d2` không làm phần tử bị phình to ra ngoài.
+- **`box-shadow: 0 0 0 4px ...`**: Tạo đường viền đặc 4px không chiếm diện tích box model (`mediumslateblue` cho `.d1` và `darkred` cho `.d2`).
+- **`border-radius: 36%`**: Bo tròn góc tạo hình bầu dục thẩm mỹ cho các hộp con.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: CSS box-shadow và border-radius
-├── box_shadow_radius.html   # File lưu trữ độc lập cho bài box-shadow & border-radius
+├── index.html               # Bài thực hành hiện tại: CSS box-shadow, box-sizing, border-radius và Flexbox
+├── box_sizing_flex.html     # File lưu trữ độc lập cho bài box-sizing & flexbox
+├── box_shadow_radius.html   # Bài thực hành: CSS box-shadow và border-radius (inset shadow)
 ├── box_model.html           # Bài thực hành: CSS Box Model (width, padding, border, margin)
 ├── background_styling.html  # Bài thực hành: Sử dụng màu nền (background-color) và ảnh nền (background-image)
 ├── background_style.css     # File CSS định dạng cho bài màu nền & ảnh nền

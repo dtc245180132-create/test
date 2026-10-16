@@ -1,37 +1,20 @@
-# Dự án: Website Phim Hoạt Hình Thiếu Nhi (KidsToon TV)
+# Bài thực hành: Quản lý Overflow trong CSS (Nội dung bị tràn)
 
-Dự án website chuyên biệt về phim hoạt hình chọn lọc, an toàn cho trẻ em được xây dựng bằng **HTML5 (`<div>`, `<video>`, `<iframe>`)** kết hợp **CSS Layout Hiện Đại (Fixed Header, Flexbox & Responsive Design)**.
+Dự án thực hành sử dụng thuộc tính `overflow: auto` để kiểm soát các nội dung bị tràn và tự động hiển thị thanh cuộn (scrollbar) khi kích thước nội dung vượt quá kích thước của phần tử chứa.
 
-## 🎯 Tiêu chuẩn & Tính năng đáp ứng đầy đủ đề bài
-
-### 1. Mức cơ bản:
-- **Header**: Logo nhận diện bên trái (`KidsToon TV`), thanh tìm kiếm phim theo tên và bộ lọc sắp xếp (Mới cập nhật / Nhiều lượt xem nhất).
-- **Head-link**: Thanh liên kết danh mục trang phong phú (*Trang chủ*, *Doraemon*, *Tom & Jerry*, *Shin*, *Pokémon*, *Cổ tích*, *Yêu thích*).
-- **Content (2 cột)**:
-  - **Left Content (Menu Playlist)**: Danh sách các tập phim hoạt hình có sẵn với ảnh thumbnail, thời lượng, số lượt xem, nhãn thuyết minh.
-  - **Right Content (Video Player)**: Khu vực phát video chính, mặc định hiển thị video đầu tiên (*Chú Thỏ Thông Minh - Big Buck Bunny*), kèm tiêu đề, mô tả và các nhãn tiêu chuẩn.
-- **Footer**: Hiển thị thông tin bản quyền, tiêu chuẩn nội dung sạch và thông tin liên hệ.
-
-### 2. Mức trung bình:
-- **Loại bỏ gạch chân**: Áp dụng `text-decoration: none;` cho tất cả các thẻ liên kết `<a>`.
-- **Hiệu ứng hover tương tác**: Rê chuột vào liên kết sẽ **bôi đậm** (`font-weight: bold;`) và **đổi màu chữ** sang vàng tươi `#ffea00`.
-- **Header cố định**: `position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;` giữ thanh điều hướng luôn nổi cố định khi người dùng cuộn xem nội dung.
-
-### 3. Mức nâng cao:
-- **Thẻ `<video>` & `<iframe>` YouTube**:
-  - Hỗ trợ phát video trực tiếp qua thẻ `<video controls poster="...">` với nguồn video Full HD.
-  - Hỗ trợ nhúng video YouTube chất lượng cao an toàn qua thẻ `<iframe>`.
-  - Có tab chuyển đổi trực tiếp giữa 2 chế độ phát và JavaScript hỗ trợ click đổi phim ngay lập tức trên playlist.
-- **Responsive Design (Đa thiết bị)**:
-  - **PC / Màn hình lớn**: Bố cục 2 cột cân đối, thanh cuộn playlist tiện lợi.
-  - **Tablet**: Co giãn kích thước cột và padding linh hoạt.
-  - **Mobile / Điện thoại**: Tự động đảo thứ tự đưa khung phát video lên đầu trang (`flex-direction: column-reverse;`) để bé có thể xem ngay, danh sách phim xếp gọn bên dưới; thanh tìm kiếm và header co giãn tự nhiên.
+## 🎯 Mục tiêu & Phân tích thuộc tính
+1. **`width: 300px; height: 100px;`**: Cố định kích thước khung chứa hộp.
+2. **`overflow: auto;`**:
+   - Nếu nội dung vừa vặn bên trong khung, không có thanh cuộn nào xuất hiện.
+   - Khi nội dung quá dài vượt quá chiều cao `100px`, trình duyệt tự động kích hoạt thanh cuộn dọc (vertical scrollbar) để người dùng có thể cuộn xem toàn bộ nội dung mà không làm vỡ bố cục giao diện.
+3. **`background-color: lightgray; padding: 10px;`**: Phân biệt rõ ranh giới của khối nội dung.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Website Phim Hoạt Hình Thiếu Nhi hoàn chỉnh (HTML5 + Video + Iframe)
-├── style.css                # Toàn bộ CSS định dạng giao diện, fixed header, hover effect và responsive
-├── cartoon_website.html     # Bản sao lưu trữ độc lập cho Website Phim Hoạt Hình
+├── index.html               # Bài thực hành hiện tại: Quản lý Overflow trong CSS
+├── style.css                # File CSS định dạng cho khối overflow-box
+├── overflow_management.html # File lưu trữ độc lập cho bài Quản lý Overflow
+├── cartoon_website.html     # Dự án: Website Phim Hoạt Hình Thiếu Nhi (HTML5, Video, Iframe, Responsive)
 ├── simplified_homepage.html # Bài thực hành: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)
 ├── sticky_navigation.html   # Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)
 ├── dropdown_menu.html       # Bài thực hành: Tạo Menu ngang Dropdown bằng HTML và CSS

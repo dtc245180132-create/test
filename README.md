@@ -1,21 +1,22 @@
-# Bài thực hành: Tạo bố cục cơ bản bằng thẻ DIV và CSS
+# Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
 
-Dự án thực hành dàn trang (Layout) hoàn chỉnh cho website bằng thẻ `<div>` và các bộ chọn CSS theo chuẩn bài học CodeGym.
+Dự án thực hành sử dụng các thẻ ngữ nghĩa (**Semantic Elements**) của HTML5 (`<header>`, `<nav>`, `<section>`, `<article>`, `<aside>`, `<footer>`) để tạo layout chuẩn SEO, dễ bảo trì và hiện đại thay thế cho cách dùng thẻ `<div>` truyền thống.
 
-## 🎯 Mục tiêu & Ý nghĩa các phân vùng (ID Selectors)
-1. **`#main`**: Khung bao bọc toàn bộ nội dung của trang (`width: 1000px; margin: 0 auto;`), căn giữa màn hình.
-2. **`#head`**: Phân vùng đầu trang (`height: 100px; border: 1px solid #CDCDCD; margin-bottom: 5px;`), chứa logo thương hiệu và biểu ngữ banner.
-3. **`#head-link`**: Phân vùng chứa các liên kết đầu trang (`height: 35px; line-height: 35px; clear: both;`), liên kết tới các mục Home, Students, Courses,...
-4. **`#left`**: Phân vùng nội dung bên trái (`width: 150px; min-height: 450px; float: left; background-color: #004C00;`), chứa menu danh mục điều hướng.
-5. **`#content`**: Phân vùng nội dung chính ở giữa (`width: 600px; min-height: 450px; float: left; margin: 0 5px;`), chứa tin nổi bật, slide ảnh và các bài viết tin tức.
-6. **`#right`**: Phân vùng thông tin bên phải (`width: 234px; min-height: 450px; float: right;`), chứa lịch sự kiện, biểu đồ tiến độ học tập và bản đồ địa chỉ.
-7. **`#footer`**: Phân vùng cuối trang (`clear: both; min-height: 60px;`), chứa thông tin bản quyền và các liên kết hỗ trợ.
+## 🎯 Ý nghĩa & Vai trò của các thẻ HTML5 Semantic
+1. **`<header>`**: Phần đầu trang hoặc tiêu đề giới thiệu của website, chứa logo thương hiệu và thông điệp chào mừng banner.
+2. **`<nav>`**: Vùng điều hướng chứa các liên kết chính của trang web (*Trang chủ*, *Học viên*, *Khóa học*, *Về chúng tôi*, *Tin tức*, *Liên hệ*).
+3. **`<aside>` (Trái)**: Thanh bên trái chứa danh mục các khóa học điều hướng nhanh.
+4. **`<section>`**: Khu vực chứa phần nội dung trọng tâm của trang, nhóm các khối thông tin có chung chủ đề.
+5. **`<article>`**: Các bài viết độc lập, hoàn chỉnh nằm bên trong `<section>` (*Tin tức nổi bật*, *Xu hướng công nghệ*, *Lộ trình nghề nghiệp*).
+6. **`<aside>` (Phải)**: Thanh bên phải chứa các widget thông tin bổ trợ như lịch khai giảng, thống kê và địa chỉ.
+7. **`<footer>`**: Phần chân trang chứa thông tin bản quyền và liên hệ.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Tạo bố cục cơ bản bằng thẻ DIV và CSS
-├── style.css                # File CSS định nghĩa các selector (#main, #head, #head-link, #left, #content, #right, #footer)
-├── basic_layout_div.html    # File lưu trữ độc lập cho bài Tạo bố cục cơ bản bằng thẻ DIV
+├── index.html               # Bài thực hành hiện tại: Tạo bố cục trang web bằng các thẻ HTML5
+├── style.css                # File CSS định dạng cho các thẻ HTML5 (header, nav, section, article, aside, footer)
+├── html5_layout.html        # File lưu trữ độc lập cho bài Bố cục HTML5
+├── basic_layout_div.html    # Bài thực hành: Tạo bố cục cơ bản bằng thẻ DIV và CSS (#main, #head, #left, #content, #right, #footer)
 ├── float_layout.html        # Bài thực hành: Tạo bố cục 2 cột bằng Float và Clear trong CSS
 ├── overflow_management.html # Bài thực hành: Quản lý Overflow trong CSS (overflow: auto)
 ├── cartoon_website.html     # Dự án: Website Phim Hoạt Hình Thiếu Nhi (HTML5, Video, Iframe, Responsive)

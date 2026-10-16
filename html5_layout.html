@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bố cục trang web bằng thẻ ngữ nghĩa HTML5</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            font-size: 13px;
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.6;
+            padding: 20px 0;
+        }
+
+        #main {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        header#head {
+            height: 110px;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            border-bottom: 3px solid #38bdf8;
+        }
+
+        header#head .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        header#head .banner p {
+            font-size: 14px;
+            font-style: italic;
+            color: #bae6fd;
+        }
+
+        nav#head-link {
+            height: 42px;
+            background-color: #0284c7;
+            border-bottom: 1px solid #0369a1;
+        }
+
+        nav#head-link ul {
+            list-style: none;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        nav#head-link ul li {
+            margin-right: 5px;
+        }
+
+        nav#head-link ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            display: block;
+        }
+
+        nav#head-link ul li a:hover {
+            background-color: #0369a1;
+            color: #fef08a;
+        }
+
+        .container-body {
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            align-items: stretch;
+        }
+
+        aside#left {
+            width: 200px;
+            flex-shrink: 0;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        aside#left h3 {
+            font-size: 14px;
+            color: #0f172a;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        aside#left ul {
+            list-style: none;
+        }
+
+        aside#left ul li {
+            margin-bottom: 6px;
+        }
+
+        aside#left ul li a {
+            color: #334155;
+            text-decoration: none;
+            display: block;
+            padding: 7px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 12.5px;
+        }
+
+        aside#left ul li a:hover {
+            background-color: #e0f2fe;
+            color: #0284c7;
+            padding-left: 14px;
+            font-weight: 600;
+        }
+
+        section#content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        article {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 18px 20px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        article:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        article.featured-post {
+            border-left: 4px solid #ef4444;
+            background-color: #fef2f2;
+        }
+
+        article.featured-post h2 {
+            font-size: 18px;
+            color: #991b1b;
+            margin-bottom: 6px;
+        }
+
+        article.news-post h3 {
+            font-size: 16px;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .post-meta {
+            font-size: 11.5px;
+            color: #64748b;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        article p {
+            color: #475569;
+            font-size: 13.5px;
+            line-height: 1.7;
+        }
+
+        aside#right {
+            width: 230px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .widget {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 14px;
+        }
+
+        .widget h3 {
+            font-size: 13.5px;
+            color: #0f172a;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            padding: 5px 0;
+            color: #475569;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 12.5px;
+        }
+
+        .widget-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stat-box {
+            background-color: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            padding: 10px;
+            border-radius: 4px;
+            color: #065f46;
+        }
+
+        .stat-box p {
+            margin-bottom: 4px;
+        }
+
+        footer#footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 18px 20px;
+            border-top: 1px solid #334155;
+            font-size: 12.5px;
+        }
+
+        footer#footer p {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <header id="head">
+            <div class="logo">
+                <h1>CodeGym Academy</h1>
+            </div>
+            <div class="banner">
+                <p>Nền tảng đào tạo Lập trình viên hiện đại theo chuẩn quốc tế</p>
+            </div>
+        </header>
+
+        <nav id="head-link">
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#students">Học viên</a></li>
+                <li><a href="#courses">Khóa học</a></li>
+                <li><a href="#about">Về chúng tôi</a></li>
+                <li><a href="#news">Tin tức</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+
+        <div class="container-body">
+            <aside id="left">
+                <h3>DANH MỤC KHÓA HỌC</h3>
+                <ul>
+                    <li><a href="#">Lập trình Web Frontend</a></li>
+                    <li><a href="#">Lập trình Web Backend</a></li>
+                    <li><a href="#">Full-stack Web Developer</a></li>
+                    <li><a href="#">Khóa học Java Chuyên sâu</a></li>
+                    <li><a href="#">Khóa học Python AI & Data</a></li>
+                    <li><a href="#">Kinh nghiệm phỏng vấn</a></li>
+                    <li><a href="#">Cơ hội việc làm IT</a></li>
+                </ul>
+            </aside>
+
+            <section id="content">
+                <article class="featured-post">
+                    <h2>🔥 Tin Nổi Bật: Khai Giảng Khóa Học Lập Trình HTML5 & CSS3</h2>
+                    <p class="post-meta">Đăng ngày: 16/10/2026 • Tác giả: Ban Đào Tạo CodeGym</p>
+                    <p>Khóa học trang bị cho học viên toàn bộ kiến thức nền tảng và nâng cao về cấu trúc tài liệu ngữ nghĩa HTML5 (Semantic Tags), cách tổ chức layout chuẩn SEO và tối ưu hóa trải nghiệm người dùng trên đa nền tảng.</p>
+                </article>
+
+                <article class="news-post">
+                    <h3>Xu Hướng Thiết Kế Web Hiện Đại Với Semantic HTML5</h3>
+                    <p class="post-meta">Chuyên mục: Kiến thức Lập trình</p>
+                    <p>Việc sử dụng các thẻ như &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt; và &lt;footer&gt; giúp tăng cường khả năng tiếp cận (Accessibility), hỗ trợ bot tìm kiếm thu thập dữ liệu chính xác và giúp mã nguồn dễ bảo trì hơn so với việc lạm dụng thẻ &lt;div&gt; truyền thống.</p>
+                </article>
+
+                <article class="news-post">
+                    <h3>Lộ Trình Trở Thành Lập Trình Viên Web Chuyên Nghiệp</h3>
+                    <p class="post-meta">Chuyên mục: Hướng nghiệp</p>
+                    <p>Bắt đầu từ HTML, CSS cơ bản, nâng cao với Responsive Design, JavaScript hiện đại và làm chủ các thư viện/framework phổ biến như React, Node.js để tự tin ứng tuyển vào các công ty công nghệ hàng đầu.</p>
+                </article>
+            </section>
+
+            <aside id="right">
+                <div class="widget">
+                    <h3>📅 Lịch Khai Giảng</h3>
+                    <ul class="widget-list">
+                        <li><strong>18/10:</strong> Khóa Front-end Foundation</li>
+                        <li><strong>25/10:</strong> Khóa ReactJS Chuyên nghiệp</li>
+                        <li><strong>01/11:</strong> Khóa Java Full-stack</li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>📊 Thống Kê Học Tập</h3>
+                    <div class="stat-box">
+                        <p>Tỷ lệ tốt nghiệp có việc: <strong>98.5%</strong></p>
+                        <p>Số học viên đang học: <strong>1,200+</strong></p>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>📍 Trụ Sở Đào Tạo</h3>
+                    <p>Tòa nhà CodeGym, 23 Láng Hạ, Ba Đình, Hà Nội</p>
+                    <p>Hotline: 0978 345 678</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer id="footer">
+            <p>© 2026 CodeGym Academy. Tất cả các quyền được bảo lưu.</p>
+            <p>Xây dựng bố cục trang web chuẩn ngữ nghĩa bằng HTML5 (header, nav, section, article, aside, footer).</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -18,8 +18,9 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập: Bảng đơn giản danh sách học sinh (table, tr, th, td)
-├── simple_table.html        # Bản sao bài tập bảng danh sách học sinh
+├── index.html               # Bài tập: Gộp ô trong bảng với rowspan và colspan (Thời khóa biểu)
+├── timetable.html           # Bản sao bài tập thời khóa biểu (rowspan, colspan)
+├── simple_table.html        # Bài tập: Bảng đơn giản danh sách học sinh (table, tr, th, td)
 ├── image_display.html       # Bài tập: Thẻ hiển thị hình ảnh (img) với thuộc tính alt
 ├── search_form.html         # Bài tập: Gửi dữ liệu từ form lên server (Google & Bing search với GET)
 ├── simpleform.html          # Bài tập: Tạo form Order với select, radio, textfield, button và font wufoo

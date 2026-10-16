@@ -1,73 +1,47 @@
-# Bài thực hành: Thuộc tính `grid-row-gap` (và `row-gap`) trong CSS Grid
+# Bài thực hành: Khám phá & Ứng dụng Adobe Color
 
-Dự án thực hành tìm hiểu và áp dụng thuộc tính `grid-row-gap` trong CSS Grid để quy định kích thước khoảng cách giữa các hàng (`grid rows`).
+Dự án thực hành tìm hiểu bộ công cụ phối màu trực quan **Adobe Color** (https://color.adobe.com/) theo chuẩn nguyên lý bánh xe màu sắc (Color Wheel), tạo bộ màu theo các quy tắc phối màu và trích xuất màu từ hình ảnh ("Create from image").
 
 ---
 
-## 🎯 Chi tiết các giá trị và ví dụ
+## 🎨 1. Các quy tắc phối màu trên Adobe Color (Color Harmony Rules)
+1. **Analogous (Tương đồng)**: Bộ các màu nằm liền kề nhau trên Color Wheel, tạo cảm giác tự nhiên, êm dịu.
+2. **Monochromatic (Đơn sắc)**: Sử dụng các sắc độ đậm nhạt khác nhau của cùng một màu chính.
+3. **Triad (Tam giác đều)**: Bộ 3 màu phân bố thành tam giác góc 120° trên Color Wheel, cân bằng và sống động.
+4. **Complementary (Bổ túc trực tiếp)**: Hai màu đối nghịch nhau 180°, tạo điểm nhấn tương phản mạnh mẽ.
+5. **Compound (Bổ túc xen kẽ)**: Kết hợp màu chính với 2 màu liền kề của màu đối diện, phong phú và mềm mại hơn.
+6. **Shades (Sắc độ)**: Pha trộn thêm sắc độ sáng tối từ một màu gốc.
+7. **Custom (Tùy chỉnh)**: Người dùng tự do tùy biến vị trí các điểm màu trên bánh xe.
 
-### Cú pháp:
-```css
-grid-row-gap: length | percentage | global-values;
-/* Lưu ý: Trong CSS hiện đại, thuộc tính row-gap được khuyến nghị sử dụng thay thế */
-```
+---
 
-### 1. Giá trị độ dài cố định (`length`: px, cm, em, rem)
-- **Mã nguồn**:
-  ```css
-  .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-row-gap: 20px;
-  }
-  .grid-container div {
-      background-color: lightblue;
-      padding: 20px;
-      text-align: center;
-  }
-  ```
-- **Giải thích**: Khoảng cách chiều dọc giữa các hàng của lưới được cố định là `20px`.
+## ✨ 2. Bộ màu mẫu đã tạo & Mã màu HEX (Ocean & Sunset - Complementary)
+| Vai trò trong giao diện | Tên màu | Mã HEX | Mã RGB |
+| :--- | :--- | :--- | :--- |
+| **Nền tối / Văn bản** | Deep Navy | `#0F172A` | `rgb(15, 23, 42)` |
+| **Màu chủ đạo (Primary)** | Ocean Blue | `#0284C7` | `rgb(2, 132, 199)` |
+| **Màu phụ trợ (Secondary)**| Sky Cyan | `#38BDF8` | `rgb(56, 189, 248)` |
+| **Điểm nhấn (Accent / CTA)**| Vibrant Orange | `#F97316` | `rgb(249, 115, 22)` |
+| **Nền phụ / Badge** | Warm Peach | `#FED7AA` | `rgb(254, 215, 170)` |
 
-### 2. Giá trị phần trăm (`percentage`: %)
-- **Mã nguồn**:
-  ```css
-  .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-row-gap: 5%;
-      height: 400px;
-  }
-  .grid-container div {
-      background-color: lightgreen;
-      padding: 20px;
-      text-align: center;
-  }
-  ```
-- **Giải thích**: Khoảng cách hàng được tính toán bằng `5%` chiều cao của khối cha (`400px * 5% = 20px`).
+---
 
-### 3. Các giá trị toàn cục (`global-values`: initial, inherit, unset)
-- **Mã nguồn**:
-  ```css
-  /* initial: trả về mặc định của trình duyệt (0px) */
-  .grid-container {
-      grid-row-gap: initial;
-  }
-  /* inherit: kế thừa khoảng cách từ phần tử cha */
-  .grid-container {
-      grid-row-gap: inherit;
-  }
-  ```
-- **Giải thích**:
-  - `initial`: Thiết lập lại về giá trị mặc định (`0px` - các hàng dính liền nhau).
-  - `inherit`: Kế thừa giá trị khoảng cách hàng do phần tử cha quy định.
+## 🖼️ 3. Bộ màu trích xuất từ hình ảnh (`background.jpg`)
+Sử dụng tính năng **Create from Image** (Extract Theme) trên ảnh thiên nhiên:
+- `#1E3A8A`: Đêm thẳm
+- `#3B82F6`: Xanh lam
+- `#10B981`: Xanh ngọc
+- `#F59E0B`: Ánh hoàng hôn
+- `#EF4444`: Đỏ rực
 
 ---
 
 ## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html                  # Bài thực hành hiện tại: Cả 3 ví dụ grid-row-gap (length, %, global values)
-├── style.css                   # File CSS định dạng cho 3 ví dụ grid-row-gap và row-gap
-├── grid_row_gap.html           # Bản sao độc lập lưu trữ bài grid-row-gap
+├── index.html                  # Bài thực hành hiện tại: Giao diện tổng quan Adobe Color & Bộ màu đã tạo
+├── style.css                   # File CSS định dạng cho bảng màu, thẻ quy tắc và trích xuất ảnh
+├── adobe_color_palette.html    # Bản sao độc lập lưu trữ bài Adobe Color
+├── grid_row_gap.html           # Bài thực hành: Thuộc tính grid-row-gap (length, %, global values)
 ├── grid_column_start.html      # Bài thực hành: Thuộc tính grid-column-start (auto, span n, column-line)
 ├── grid_template_columns.html  # Bài thực hành: Thuộc tính grid-template-columns (1fr 1fr 1fr & 100px 200px 1fr)
 ├── responsive_navbar.html      # Bài thực hành: Thanh điều hướng Responsive Navbar (Flexbox, Media Query, JS)
@@ -130,5 +104,5 @@ grid-row-gap: length | percentage | global-values;
 ## 🔗 Liên kết nộp bài GitHub
 - **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
 - **File bài nộp trực tiếp**:
-  - `index.html`: Cấu trúc HTML gồm cả 3 ví dụ về khoảng cách hàng trong Grid
-  - `style.css`: Quy tắc định dạng CSS cho `grid-row-gap: 20px`, `grid-row-gap: 5%`, `initial` và `inherit`
+  - `index.html`: Giao diện ứng dụng Adobe Color và bảng mã màu chi tiết
+  - `style.css`: Quy tắc định dạng CSS cho thẻ màu và trích xuất hình ảnh

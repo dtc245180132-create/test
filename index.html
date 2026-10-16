@@ -3,87 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuộc tính grid-row-gap trong CSS Grid</title>
+    <title>Tìm hiểu Adobe Color & Phối màu chuyên nghiệp</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="page-wrapper">
-        <header>
-            <h1>Thuộc tính <code>grid-row-gap</code> trong CSS Grid</h1>
-            <p class="subtitle">Xác định kích thước khoảng cách giữa các hàng (Grid Rows)</p>
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="brand-badge">Adobe Creative Cloud</div>
+            <h1>Khám phá & Ứng dụng Adobe Color</h1>
+            <p class="subtitle">
+                Công cụ phối màu trực quan chuẩn nguyên lý mỹ thuật (Color Wheel) giúp lựa chọn bộ màu hoàn hảo cho website.
+            </p>
+            <div class="header-actions">
+                <a href="https://color.adobe.com/" target="_blank" class="btn btn-primary">
+                    🌐 Mở Adobe Color Trực Tiếp (color.adobe.com)
+                </a>
+            </div>
         </header>
 
-        <!-- LƯU Ý CSS HIỆN ĐẠI -->
-        <div class="note-box">
-            💡 <strong>Lưu ý:</strong> Trong chuẩn CSS hiện đại (CSS Box Alignment Module Level 3), thuộc tính <code>row-gap</code> được khuyến nghị sử dụng thay thế cho <code>grid-row-gap</code> (cả hai đều có cùng chức năng tạo khoảng cách hàng).
-        </div>
-
-        <!-- VÍ DỤ 1: Length (px) -->
-        <section class="example-section">
-            <div class="section-header">
-                <h2>Ví dụ 1: Giá trị độ dài cố định (Length)</h2>
-                <code>grid-row-gap: 20px;</code>
-            </div>
-            <p class="desc">
-                Thiết lập khoảng cách cố định giữa các hàng là <code>20px</code>. Lưới có 2 cột (<code>repeat(2, 1fr)</code>) và 4 ô.
-            </p>
-            <div class="grid-container example-length">
-                <div>Ô 1</div>
-                <div>Ô 2</div>
-                <div>Ô 3</div>
-                <div>Ô 4</div>
+        <!-- PHẦN 1: 7 QUY TẮC PHỐI MÀU TRÊN COLOR WHEEL -->
+        <section class="card-section">
+            <h2 class="section-title">🎨 7 Quy tắc phối màu (Color Harmony Rules)</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon">🌈</div>
+                    <h3>Analogous (Tương đồng)</h3>
+                    <p>Bộ các màu nằm liền kề nhau trên vòng tròn màu. Mang lại cảm giác hài hòa, êm dịu và tự nhiên.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🌗</div>
+                    <h3>Monochromatic (Đơn sắc)</h3>
+                    <p>Sử dụng một dải màu duy nhất với các sắc thái (độ sáng/tối) khác nhau. Tạo phong cách tối giản, sang trọng.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🔺</div>
+                    <h3>Triad (Tam giác đều)</h3>
+                    <p>Bộ 3 màu phân bố đều thành góc 120° trên Color Wheel. Mang lại sự tương phản mạnh mẽ nhưng vẫn cân bằng.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">⚔️</div>
+                    <h3>Complementary (Bổ túc trực tiếp)</h3>
+                    <p>Gồm các màu đối diện 180° trên Color Wheel. Tạo điểm nhấn cực mạnh, thu hút sự chú ý ngay lập tức.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">⚡</div>
+                    <h3>Compound (Bổ túc xen kẽ)</h3>
+                    <p>Sử dụng màu chính và hai màu liền kề với màu đối diện. Cung cấp sự đa dạng màu sắc phong phú mà không quá gay gắt.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">🌑</div>
+                    <h3>Shades (Sắc độ)</h3>
+                    <p>Dựa trên một màu gốc và pha trộn thêm các tỷ lệ đen/xám khác nhau từ nhạt đến đậm.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon">⚙️</div>
+                    <h3>Custom (Tùy chỉnh)</h3>
+                    <p>Tự do di chuyển các điểm chọn trên Color Wheel để sáng tạo bảng màu độc bản theo ý thích.</p>
+                </div>
             </div>
         </section>
 
-        <!-- VÍ DỤ 2: Percentage (%) -->
-        <section class="example-section">
-            <div class="section-header">
-                <h2>Ví dụ 2: Giá trị phần trăm (Percentage %)</h2>
-                <code>grid-row-gap: 5%; height: 350px;</code>
+        <!-- PHẦN 2: BỘ MÀU ĐÃ TẠO THEO NGUYÊN TẮC BỔ TÚC (COMPLEMENTARY PALETTE) -->
+        <section class="card-section">
+            <div class="section-header-flex">
+                <div>
+                    <h2 class="section-title">✨ Bộ màu đã tạo: Ocean & Sunset (Complementary Rule)</h2>
+                    <p class="section-subtitle">Quy tắc Bổ túc: Kết hợp giữa sắc xanh đại dương (lạnh) và cam ánh kim hoàng hôn (nóng).</p>
+                </div>
+                <span class="badge">Đã lưu & Kiểm tra tương phản</span>
             </div>
-            <p class="desc">
-                Khoảng cách giữa các hàng được tính bằng <code>5%</code> chiều cao của khung chứa lưới (chiều cao container <code>350px</code>).
-            </p>
-            <div class="grid-container example-percentage">
-                <div>Ô 1</div>
-                <div>Ô 2</div>
-                <div>Ô 3</div>
-                <div>Ô 4</div>
+
+            <div class="palette-display">
+                <!-- Color 1 -->
+                <div class="color-swatch-card" style="background-color: #0F172A;">
+                    <div class="swatch-content light-text">
+                        <span class="role-tag">Nền tối / Văn bản</span>
+                        <h4>Deep Navy</h4>
+                        <div class="code-box">
+                            <span class="hex-code">#0F172A</span>
+                            <span class="rgb-code">rgb(15, 23, 42)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color 2 -->
+                <div class="color-swatch-card" style="background-color: #0284C7;">
+                    <div class="swatch-content light-text">
+                        <span class="role-tag">Màu chủ đạo (Primary)</span>
+                        <h4>Ocean Blue</h4>
+                        <div class="code-box">
+                            <span class="hex-code">#0284C7</span>
+                            <span class="rgb-code">rgb(2, 132, 199)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color 3 -->
+                <div class="color-swatch-card" style="background-color: #38BDF8;">
+                    <div class="swatch-content dark-text">
+                        <span class="role-tag">Màu phụ trợ (Secondary)</span>
+                        <h4>Sky Cyan</h4>
+                        <div class="code-box">
+                            <span class="hex-code">#38BDF8</span>
+                            <span class="rgb-code">rgb(56, 189, 248)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color 4 -->
+                <div class="color-swatch-card" style="background-color: #F97316;">
+                    <div class="swatch-content light-text">
+                        <span class="role-tag">Điểm nhấn (Accent / CTA)</span>
+                        <h4>Vibrant Orange</h4>
+                        <div class="code-box">
+                            <span class="hex-code">#F97316</span>
+                            <span class="rgb-code">rgb(249, 115, 22)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color 5 -->
+                <div class="color-swatch-card" style="background-color: #FED7AA;">
+                    <div class="swatch-content dark-text">
+                        <span class="role-tag">Nền phụ / Badge</span>
+                        <h4>Warm Peach</h4>
+                        <div class="code-box">
+                            <span class="hex-code">#FED7AA</span>
+                            <span class="rgb-code">rgb(254, 215, 170)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- VÍ DỤ 3: Global values (initial & inherit) -->
-        <section class="example-section">
-            <div class="section-header">
-                <h2>Ví dụ 3: Các giá trị toàn cục (Global Values)</h2>
-                <code>initial | inherit | unset</code>
-            </div>
-            <p class="desc">
-                • <code>initial</code>: Trả khoảng cách hàng về giá trị mặc định của trình duyệt (<code>0px</code>).<br>
-                • <code>inherit</code>: Kế thừa khoảng cách hàng <code>30px</code> từ phần tử cha.
+        <!-- PHẦN 3: BỘ MÀU TRÍCH XUẤT TỪ HÌNH ẢNH (CREATE FROM IMAGE) -->
+        <section class="card-section">
+            <h2 class="section-title">🖼️ Thực hành "Create from Image" (Trích xuất từ ảnh)</h2>
+            <p class="section-subtitle">
+                Adobe Color tự động nhận diện các điểm màu đặc trưng từ bức ảnh thiên nhiên <code>background.jpg</code> để tạo nên bảng màu hài hòa tự nhiên.
             </p>
-            
-            <div class="global-demo-wrapper">
-                <div class="sub-demo">
-                    <h3>1. Giá trị <code>initial</code> (Không có khoảng cách hàng):</h3>
-                    <div class="grid-container example-initial">
-                        <div>Ô 1</div>
-                        <div>Ô 2</div>
-                        <div>Ô 3</div>
-                        <div>Ô 4</div>
-                    </div>
+
+            <div class="image-extract-container">
+                <div class="image-preview-wrapper">
+                    <img src="background.jpg" alt="Nature Landscape" class="source-image">
+                    <!-- Các điểm lấy mẫu màu (Color Sampling Pins) mô phỏng Adobe Color -->
+                    <div class="pin pin-1" title="#1E3A8A"></div>
+                    <div class="pin pin-2" title="#3B82F6"></div>
+                    <div class="pin pin-3" title="#10B981"></div>
+                    <div class="pin pin-4" title="#F59E0B"></div>
+                    <div class="pin pin-5" title="#EF4444"></div>
                 </div>
 
-                <div class="parent-container sub-demo">
-                    <h3>2. Giá trị <code>inherit</code> (Kế thừa 30px từ cha):</h3>
-                    <div class="grid-container example-inherit">
-                        <div>Ô 1</div>
-                        <div>Ô 2</div>
-                        <div>Ô 3</div>
-                        <div>Ô 4</div>
+                <div class="extracted-palette">
+                    <h3>Bảng màu trích xuất được từ ảnh:</h3>
+                    <div class="extracted-swatches">
+                        <div class="mini-swatch" style="background-color: #1E3A8A;">
+                            <span>#1E3A8A</span>
+                            <small>Đêm thẳm</small>
+                        </div>
+                        <div class="mini-swatch" style="background-color: #3B82F6;">
+                            <span>#3B82F6</span>
+                            <small>Xanh lam</small>
+                        </div>
+                        <div class="mini-swatch" style="background-color: #10B981;">
+                            <span>#10B981</span>
+                            <small>Xanh ngọc</small>
+                        </div>
+                        <div class="mini-swatch" style="background-color: #F59E0B;">
+                            <span>#F59E0B</span>
+                            <small>Ánh hoàng hôn</small>
+                        </div>
+                        <div class="mini-swatch" style="background-color: #EF4444;">
+                            <span>#EF4444</span>
+                            <small>Đỏ rực</small>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- PHẦN 4: HƯỚNG DẪN THAO TÁC ADOBE COLOR -->
+        <section class="card-section guide-box">
+            <h2 class="section-title">📋 Các bước thao tác trên Adobe Color Web</h2>
+            <ol class="steps-list">
+                <li>Truy cập <a href="https://color.adobe.com/" target="_blank">https://color.adobe.com/</a> trên trình duyệt web.</li>
+                <li>Chọn tab <strong>Create</strong> &rarr; Chọn quy tắc màu ở thanh bên trái (ví dụ: <em>Complementary</em> hoặc <em>Analogous</em>).</li>
+                <li>Xoay vòng tròn màu (Color Wheel) để tinh chỉnh độ bão hòa (Saturation) và độ sáng (Brightness).</li>
+                <li>Nhấp vào nút <strong>Extract Theme</strong> (hoặc "Create from image") ở menu trên cùng để tải ảnh lên và tự động trích xuất bộ màu.</li>
+                <li>Vào tab <strong>Explore</strong> để xem hàng nghìn bộ màu xu hướng do cộng đồng nhà thiết kế chia sẻ.</li>
+                <li>Sao chép các mã màu HEX (ví dụ: <code>#0F172A</code>, <code>#0284C7</code>) và lưu lại để sử dụng trong CSS.</li>
+            </ol>
         </section>
     </div>
 </body>

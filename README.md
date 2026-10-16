@@ -18,9 +18,11 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành: Nhúng CSS vào trang web (Inline, Internal, External)
-├── style.css                # File External CSS cho Phần 3
-├── css_embedding.html       # Bản sao độc lập bài thực hành nhúng CSS
+├── index.html               # Bài tập: Luyện tập các bộ chọn CSS (class, id, element, grouping, pseudo-classes)
+├── style.css                # File CSS định dạng cho bài tập bộ chọn (nền, căn giữa h1, màu danh sách, hover nút)
+├── css_selectors.html       # Bản sao lưu trữ bài tập các bộ chọn CSS
+├── selectors_style.css      # Bản sao lưu trữ CSS cho bài tập bộ chọn
+├── css_embedding.html       # Bài thực hành: Nhúng CSS vào trang web (Inline, Internal, External)
 ├── personal_page.html       # Bài thực hành: Trang web cá nhân (header, avatar, profile, hobbies, goals, footer)
 ├── personal_style.css       # File CSS cho trang web cá nhân
 ├── avatar.jpg               # Ảnh đại diện cho trang web cá nhân
@@ -48,8 +50,6 @@ Luyện tập sử dụng các bộ chọn CSS:
 ├── lists.html               # Bài tập: Các loại thẻ danh sách (ul, ol, li, nested list)
 ├── text_formatting.html     # Bài tập: Định dạng văn bản và thuộc tính CSS nội tuyến
 ├── halong_bay.html          # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
-├── css_selectors.html       # Bài tập: Luyện tập các bộ chọn CSS (Selectors)
-├── selectors_style.css      # Toàn bộ mã định dạng CSS cho bài tập bộ chọn
 └── README.md                # Hướng dẫn và thông tin bài nộp
 ```
 

@@ -3,46 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành Nhúng CSS vào trang web</title>
-    
-    <!-- PHẦN 3: EXTERNAL STYLE (Liên kết file CSS bên ngoài) -->
+    <title>Trang web của tôi</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- PHẦN 2: INTERNAL STYLE (CSS viết trong thẻ style ở head) -->
-    <style>
-        .internal-heading {
-            color: #059669; /* Màu xanh lá đậm */
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .internal-text {
-            color: #d97706; /* Màu cam hổ phách */
-            font-size: 16px;
-            line-height: 1.6;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="main-title">Luyện tập nhúng CSS vào trang web</h1>
+        <!-- 1. Tiêu đề h1 -->
+        <h1 id="main-title">Trang web của tôi</h1>
 
-        <!-- PHẦN 1: INLINE STYLE -->
-        <div class="section-box">
-            <h2 style="color: #e11d48; font-size: 22px; margin-bottom: 8px;">Phần 1: Tiêu đề sử dụng Inline Style</h2>
-            <p style="color: #2563eb; font-size: 16px; line-height: 1.6;">Đoạn văn này được thay đổi màu sắc trực tiếp thông qua thuộc tính style nội tuyến (inline-style).</p>
-        </div>
+        <!-- 2. Đoạn văn p mô tả bản thân -->
+        <p id="bio-desc" class="description">
+            Xin chào! Tôi là một người đam mê công nghệ và lập trình. Tôi thích tìm hiểu về thiết kế giao diện web, xây dựng những trải nghiệm người dùng hiện đại và chia sẻ kiến thức với mọi người.
+        </p>
 
-        <!-- PHẦN 2: INTERNAL STYLE -->
-        <div class="section-box">
-            <h2 class="internal-heading">Phần 2: Tiêu đề sử dụng Internal Style</h2>
-            <p class="internal-text">Đoạn văn này được thay đổi màu sắc thông qua thẻ &lt;style&gt; nội bộ nằm trong phần &lt;head&gt; (internal-style).</p>
-        </div>
+        <!-- 3. Danh sách ul liệt kê 3 sở thích -->
+        <h2 class="sub-title">Sở thích cá nhân</h2>
+        <ul id="favorite-list" class="hobby-list">
+            <li class="hobby-item item-reading">Đọc sách & tài liệu công nghệ</li>
+            <li class="hobby-item item-coding">Lập trình web và phát triển ứng dụng</li>
+            <li class="hobby-item item-music">Nghe nhạc thư giãn và du lịch</li>
+        </ul>
 
-        <!-- PHẦN 3: EXTERNAL STYLE -->
-        <div class="section-box">
-            <h2 class="external-heading">Phần 3: Tiêu đề sử dụng External Style</h2>
-            <p class="external-text">Đoạn văn này được thay đổi màu sắc thông qua tệp tin CSS độc lập bên ngoài style.css (external-style).</p>
+        <!-- 4. Nút bấm button -->
+        <div class="button-wrapper">
+            <button id="btn-action" class="btn-primary" type="button">Nhấn vào đây</button>
         </div>
     </div>
 </body>

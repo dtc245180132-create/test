@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng bố cục với Mô hình hộp CSS (Box Model)</title>
+    <link rel="stylesheet" href="box_model_layout.css">
+</head>
+<body>
+    <h1 class="page-title">Mô hình hộp trong CSS: content-box vs border-box</h1>
+    
+    <div class="cards-container">
+        <!-- Thẻ 1: content-box (màu xanh lá) -->
+        <div class="card">
+            <h3>Thẻ 1: content-box</h3>
+            <p>box-sizing: content-box</p>
+            <p class="size-info">Tổng: 330px × 200px</p>
+        </div>
+
+        <!-- Thẻ 2: border-box (màu vàng) -->
+        <div class="card">
+            <h3>Thẻ 2: border-box</h3>
+            <p>box-sizing: border-box</p>
+            <p class="size-info">Tổng: 280px × 150px</p>
+        </div>
+
+        <!-- Thẻ 3: border-box (màu đỏ) -->
+        <div class="card">
+            <h3>Thẻ 3: border-box</h3>
+            <p>box-sizing: border-box</p>
+            <p class="size-info">Tổng: 280px × 150px</p>
+        </div>
+    </div>
+</body>
+</html>

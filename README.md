@@ -1,18 +1,34 @@
-# Bài tập: Thực hành CSS box-shadow, box-sizing, border-radius và Flexbox
+# Bài tập: Xây dựng bố cục với Mô hình hộp CSS (Box Model)
 
-Dự án thực hành tìm hiểu cách các thuộc tính CSS `box-shadow`, `box-sizing: border-box`, `border-radius`, `display: flex`, `width`, `height`, `padding` và `margin` ảnh hưởng đến kích thước và bố cục phần tử.
+Dự án thực hành tìm hiểu và so sánh sự khác biệt trực quan giữa `box-sizing: content-box` và `box-sizing: border-box`.
 
-## 🎯 Mục tiêu & Phân tích các thuộc tính
-- **`display: flex`**: Sắp xếp 2 phần tử con `.d1` và `.d2` nằm ngang cạnh nhau bên trong khung `#demo`.
-- **`float: left`**: Căn khung `#demo` sang phía bên trái.
-- **`box-sizing: border-box`**: Giúp phần tử giữ nguyên kích thước đã khai báo (`width: 150px`, `height: 80px`), padding `30px` trong `.d2` không làm phần tử bị phình to ra ngoài.
-- **`box-shadow: 0 0 0 4px ...`**: Tạo đường viền đặc 4px không chiếm diện tích box model (`mediumslateblue` cho `.d1` và `darkred` cho `.d2`).
-- **`border-radius: 36%`**: Bo tròn góc tạo hình bầu dục thẩm mỹ cho các hộp con.
+## 🎯 Mục tiêu & So sánh kích thước thực tế
+Áp dụng các thuộc tính `width`, `height`, `padding`, `border`, `margin` và `box-sizing` cho 3 thẻ `.card`:
+- **Khai báo chung:**
+  - `width: 280px;`
+  - `height: 150px;`
+  - `padding: 20px;` (ở tất cả 4 cạnh)
+  - `border: 5px solid #3498db;` (ở tất cả 4 cạnh)
+  - `margin: 20px;` (ở tất cả 4 cạnh)
+
+| Thuộc tính | Thẻ 1 (`content-box`) - Xanh lá (`#2ecc71`) | Thẻ 2 & 3 (`border-box`) - Vàng (`#f1c40f`) / Đỏ (`#e74c3c`) |
+| :--- | :--- | :--- |
+| **box-sizing** | `content-box` (mặc định) | `border-box` |
+| **Chiều rộng nội dung (content width)** | `280px` | `280 - (20*2) - (5*2) = 230px` |
+| **Chiều cao nội dung (content height)** | `150px` | `150 - (20*2) - (5*2) = 100px` |
+| **Tổng chiều rộng hiển thị (Element Width)** | **`330px`** ($280 + 40 + 10$) | **`280px`** (cố định theo khai báo) |
+| **Tổng chiều cao hiển thị (Element Height)** | **`200px`** ($150 + 40 + 10$) | **`150px`** (cố định theo khai báo) |
+| **Tổng không gian chiếm chỗ (kèm margin)** | **`370px × 240px`** | **`320px × 190px`** |
+
+> **Nhận xét quan trọng:** Với `border-box`, kích thước phần tử luôn cố định đúng bằng giá trị `width` và `height` đã đặt, padding và border sẽ tự động co vào trong thay vì nở ra ngoài như `content-box`. Đây là lý do tại sao `box-sizing: border-box` được xem là chuẩn mực trong thiết kế web hiện đại.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: CSS box-shadow, box-sizing, border-radius và Flexbox
-├── box_sizing_flex.html     # File lưu trữ độc lập cho bài box-sizing & flexbox
+├── index.html               # Bài thực hành hiện tại: Xây dựng bố cục với Mô hình hộp CSS
+├── style.css                # File CSS định dạng cho 3 thẻ card (content-box vs border-box)
+├── box_model_layout.html    # Bản sao lưu trữ độc lập cho bài Xây dựng bố cục Box Model
+├── box_model_layout.css     # Bản sao CSS độc lập cho bài Xây dựng bố cục Box Model
+├── box_sizing_flex.html     # Bài thực hành: CSS box-shadow, box-sizing, border-radius và Flexbox
 ├── box_shadow_radius.html   # Bài thực hành: CSS box-shadow và border-radius (inset shadow)
 ├── box_model.html           # Bài thực hành: CSS Box Model (width, padding, border, margin)
 ├── background_styling.html  # Bài thực hành: Sử dụng màu nền (background-color) và ảnh nền (background-image)

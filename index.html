@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách sản phẩm</title>
+    <title>Lịch họp công ty</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,7 +20,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            max-width: 650px;
+            max-width: 750px;
             background-color: #ffffff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-radius: 8px;
@@ -40,40 +40,53 @@
         }
 
         tr:nth-child(even) {
-            background-color: #f1f5f9;
+            background-color: #f8fafc;
         }
     </style>
 </head>
 <body>
-    <!-- 1. Tiêu đề h1: Danh sách sản phẩm -->
-    <h1>Danh sách sản phẩm</h1>
+    <!-- 1. Tiêu đề h1: Lịch họp công ty -->
+    <h1>Lịch họp công ty</h1>
 
-    <!-- 2. Bảng chứa các cột Tên sản phẩm, Giá, Số lượng và ít nhất 4 sản phẩm -->
+    <!-- 2. Bảng hiển thị thông tin lịch họp gồm Ngày, Giờ, Nội dung cuộc họp -->
     <table border="1">
         <tr>
-            <th>Tên sản phẩm</th>
-            <th>Giá</th>
-            <th>Số lượng</th>
+            <th>Ngày</th>
+            <th>Giờ</th>
+            <th>Nội dung cuộc họp</th>
+        </tr>
+        <!-- Sử dụng rowspan khi có nhiều cuộc họp trong cùng một ngày -->
+        <tr>
+            <td rowspan="2">Thứ Hai</td>
+            <td>08:30 - 10:00</td>
+            <td>Họp giao ban toàn công ty đầu tuần</td>
         </tr>
         <tr>
-            <td>Laptop Dell Inspiron 15</td>
-            <td>18.500.000 VNĐ</td>
-            <td>10</td>
+            <td>14:00 - 16:30</td>
+            <td>Họp triển khai dự án mới cùng phòng IT & Thiết kế</td>
+        </tr>
+
+        <!-- Sử dụng colspan khi một cuộc họp kéo dài nhiều giờ (cả ngày) -->
+        <tr>
+            <td>Thứ Ba</td>
+            <td colspan="2">08:00 - 17:00: Hội thảo tập huấn công nghệ (Kéo dài cả ngày)</td>
+        </tr>
+
+        <!-- Sử dụng rowspan gộp ngày có nhiều cuộc họp -->
+        <tr>
+            <td rowspan="2">Thứ Tư</td>
+            <td>09:00 - 11:30</td>
+            <td>Đánh giá tiến độ và báo cáo doanh thu tuần</td>
         </tr>
         <tr>
-            <td>Chuột không dây Logitech M331</td>
-            <td>450.000 VNĐ</td>
-            <td>25</td>
+            <td>15:00 - 16:30</td>
+            <td>Gặp gỡ và trao đổi trực tiếp với đối tác khách hàng</td>
         </tr>
+
+        <!-- Sử dụng colspan gộp giờ và nội dung cho sự kiện kéo dài -->
         <tr>
-            <td>Bàn phím cơ DareU EK87</td>
-            <td>850.000 VNĐ</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>Màn hình máy tính LG 24 inch</td>
-            <td>3.200.000 VNĐ</td>
-            <td>8</td>
+            <td>Thứ Năm</td>
+            <td colspan="2">13:30 - 17:30: Workshop đào tạo kỹ năng lãnh đạo toàn diện</td>
         </tr>
     </table>
 </body>

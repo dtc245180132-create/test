@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch họp công ty</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 750px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e2e8f0;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. Tiêu đề h1: Lịch họp công ty -->
+    <h1>Lịch họp công ty</h1>
+
+    <!-- 2. Bảng hiển thị thông tin lịch họp gồm Ngày, Giờ, Nội dung cuộc họp -->
+    <table border="1">
+        <tr>
+            <th>Ngày</th>
+            <th>Giờ</th>
+            <th>Nội dung cuộc họp</th>
+        </tr>
+        <!-- Sử dụng rowspan khi có nhiều cuộc họp trong cùng một ngày -->
+        <tr>
+            <td rowspan="2">Thứ Hai</td>
+            <td>08:30 - 10:00</td>
+            <td>Họp giao ban toàn công ty đầu tuần</td>
+        </tr>
+        <tr>
+            <td>14:00 - 16:30</td>
+            <td>Họp triển khai dự án mới cùng phòng IT & Thiết kế</td>
+        </tr>
+
+        <!-- Sử dụng colspan khi một cuộc họp kéo dài nhiều giờ (cả ngày) -->
+        <tr>
+            <td>Thứ Ba</td>
+            <td colspan="2">08:00 - 17:00: Hội thảo tập huấn công nghệ (Kéo dài cả ngày)</td>
+        </tr>
+
+        <!-- Sử dụng rowspan gộp ngày có nhiều cuộc họp -->
+        <tr>
+            <td rowspan="2">Thứ Tư</td>
+            <td>09:00 - 11:30</td>
+            <td>Đánh giá tiến độ và báo cáo doanh thu tuần</td>
+        </tr>
+        <tr>
+            <td>15:00 - 16:30</td>
+            <td>Gặp gỡ và trao đổi trực tiếp với đối tác khách hàng</td>
+        </tr>
+
+        <!-- Sử dụng colspan gộp giờ và nội dung cho sự kiện kéo dài -->
+        <tr>
+            <td>Thứ Năm</td>
+            <td colspan="2">13:30 - 17:30: Workshop đào tạo kỹ năng lãnh đạo toàn diện</td>
+        </tr>
+    </table>
+</body>
+</html>

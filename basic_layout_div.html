@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành tạo bố cục cơ bản bằng thẻ DIV và CSS</title>
+    <style>
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #e2e8f0;
+            color: #333333;
+        }
+
+        #main {
+            width: 1000px;
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        #head {
+            height: 100px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            border: 1px solid #CDCDCD;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        #head .logo h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        #head .banner p {
+            margin: 0;
+            font-size: 13px;
+            font-style: italic;
+            color: #e0f2fe;
+        }
+
+        #head-link {
+            height: 35px;
+            line-height: 35px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 1px solid #CDCDCD;
+            background-color: #F5F5F5;
+            margin-bottom: 5px;
+            clear: both;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        #head-link a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0 8px;
+            transition: color 0.2s;
+        }
+
+        #head-link a:hover {
+            color: #ef4444;
+        }
+
+        #left {
+            width: 150px;
+            min-height: 450px;
+            border: 1px solid #CDCDCD;
+            float: left;
+            background-color: #004C00;
+            margin-bottom: 5px;
+            color: #ffffff;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        #left h3 {
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 6px;
+            text-align: center;
+        }
+
+        #left ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #left ul li {
+            margin-bottom: 8px;
+        }
+
+        #left ul li a {
+            color: #f0fdf4;
+            text-decoration: none;
+            display: block;
+            padding: 6px 8px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+
+        #left ul li a:hover {
+            background-color: #15803d;
+        }
+
+        #content {
+            width: 600px;
+            min-height: 450px;
+            border: 1px solid #CDCDCD;
+            float: left;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            background-color: #ffffff;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        .hot-news {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .hot-news h3 {
+            margin: 0 0 5px 0;
+            color: #b91c1c;
+            font-size: 14px;
+        }
+
+        .hot-news p {
+            margin: 0;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .photo-slide {
+            margin-bottom: 15px;
+        }
+
+        .slide-placeholder {
+            height: 140px;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+
+        .news-item {
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .news-item h4 {
+            margin: 0 0 5px 0;
+            color: #1e293b;
+            font-size: 13px;
+        }
+
+        .news-item p {
+            margin: 0;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        #right {
+            width: 234px;
+            min-height: 450px;
+            border: 1px solid #CDCDCD;
+            float: right;
+            margin-bottom: 5px;
+            background-color: #ffffff;
+            padding: 15px;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        .widget {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .widget h3 {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            color: #1e3a8a;
+        }
+
+        .event-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-list li {
+            padding: 4px 0;
+            color: #475569;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            width: 85%;
+            height: 100%;
+            background-color: #10b981;
+        }
+
+        .map-box {
+            background-color: #f8fafc;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .map-pin {
+            color: #ef4444;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        #footer {
+            min-height: 60px;
+            clear: both;
+            border: 1px solid #CDCDCD;
+            background-color: #F8F8FF;
+            text-align: center;
+            padding: 12px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        #footer p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        #footer a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        #footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <div id="head">
+            <div class="logo">
+                <h1>CodeGym Education</h1>
+            </div>
+            <div class="banner">
+                <p>Hệ Thống Đào Tạo Lập Trình Hiện Đại - Học Thực Chiến, Việc Làm Ngay</p>
+            </div>
+        </div>
+
+        <div id="head-link">
+            <a href="#">Home</a> | 
+            <a href="#">Students</a> | 
+            <a href="#">Courses</a> | 
+            <a href="#">About Us</a> | 
+            <a href="#">News</a> | 
+            <a href="#">Contact</a>
+        </div>
+
+        <div id="left">
+            <h3>DANH MỤC</h3>
+            <ul>
+                <li><a href="#">Lập trình Web</a></li>
+                <li><a href="#">Khóa học Java</a></li>
+                <li><a href="#">Front-end React</a></li>
+                <li><a href="#">Back-end Node.js</a></li>
+                <li><a href="#">Python Cơ bản</a></li>
+                <li><a href="#">Kinh nghiệm học</a></li>
+                <li><a href="#">Góc tuyển dụng</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div class="hot-news">
+                <h3>🔥 Tin nổi bật: Khai giảng lớp Lập trình Web Full-stack</h3>
+                <p>Chương trình đào tạo chuẩn quốc tế với 100% thời lượng thực hành trên dự án thực tế. Hỗ trợ kết nối việc làm ngay sau khi tốt nghiệp.</p>
+            </div>
+
+            <div class="photo-slide">
+                <div class="slide-placeholder">
+                    <span>📸 Photo Slide: Môi trường học tập năng động tại CodeGym</span>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <h4>Tin tức 1: Xu hướng công nghệ lập trình năm 2026</h4>
+                <p>Khám phá sự bùng nổ của trí tuệ nhân tạo, điện toán đám mây và những kỹ năng quan trọng mà lập trình viên cần trang bị.</p>
+            </div>
+
+            <div class="news-item">
+                <h4>Tin tức 2: Bí quyết vượt qua vòng phỏng vấn kỹ thuật</h4>
+                <p>Chia sẻ kinh nghiệm chuẩn bị CV, giải quyết bài toán thuật toán và tự tin thể hiện kỹ năng mềm trước nhà tuyển dụng.</p>
+            </div>
+        </div>
+
+        <div id="right">
+            <div class="widget">
+                <h3>📅 Lịch sự kiện</h3>
+                <ul class="event-list">
+                    <li><strong>Thứ 7:</strong> Workshop Web Design</li>
+                    <li><strong>Chủ nhật:</strong> Demo Day Khóa K26</li>
+                    <li><strong>Thứ 3:</strong> Seminar công nghệ AI</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>📊 Biểu đồ học tập</h3>
+                <div class="chart-box">
+                    <p>Tiến độ khóa học: <strong>85%</strong></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3>📍 Bản đồ</h3>
+                <div class="map-box">
+                    <p>Tòa nhà CodeGym, 23 Láng Hạ, Ba Đình, Hà Nội</p>
+                    <span class="map-pin">🚩 Google Maps Location</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>© 2026 CodeGym Education. Tất cả các quyền được bảo lưu.</p>
+            <p>
+                <a href="#">Chính sách bảo mật</a> | 
+                <a href="#">Điều khoản sử dụng</a> | 
+                <a href="#">Liên hệ hỗ trợ</a> | 
+                Hotline: 0978 345 678
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

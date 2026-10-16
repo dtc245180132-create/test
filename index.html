@@ -3,13 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục bằng Float</title>
+    <title>Thực hành tạo bố cục cơ bản bằng thẻ DIV và CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="left-column">Cột bên trái chứa nội dung chính</div>
-        <div class="right-column">Cột bên phải chứa sidebar</div>
+
+    <!-- main: Phân vùng chứa toàn bộ nội dung của trang, căn giữa màn hình -->
+    <div id="main">
+        
+        <!-- head: Phân vùng chứa logo và banner -->
+        <div id="head">
+            <div class="logo">
+                <h1>CodeGym Education</h1>
+            </div>
+            <div class="banner">
+                <p>Hệ Thống Đào Tạo Lập Trình Hiện Đại - Học Thực Chiến, Việc Làm Ngay</p>
+            </div>
+        </div>
+
+        <!-- head-link: Phân vùng chứa các liên kết đầu trang -->
+        <div id="head-link">
+            <a href="#">Home</a> | 
+            <a href="#">Students</a> | 
+            <a href="#">Courses</a> | 
+            <a href="#">About Us</a> | 
+            <a href="#">News</a> | 
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- left: Phân vùng chứa nội dung bên trái (danh mục, liên kết) -->
+        <div id="left">
+            <h3>DANH MỤC</h3>
+            <ul>
+                <li><a href="#">Lập trình Web</a></li>
+                <li><a href="#">Khóa học Java</a></li>
+                <li><a href="#">Front-end React</a></li>
+                <li><a href="#">Back-end Node.js</a></li>
+                <li><a href="#">Python Cơ bản</a></li>
+                <li><a href="#">Kinh nghiệm học</a></li>
+                <li><a href="#">Góc tuyển dụng</a></li>
+            </ul>
+        </div>
+
+        <!-- content: Phân vùng chứa nội dung chính của trang -->
+        <div id="content">
+            <!-- Tin nổi bật -->
+            <div class="hot-news">
+                <h3>🔥 Tin nổi bật: Khai giảng lớp Lập trình Web Full-stack</h3>
+                <p>Chương trình đào tạo chuẩn quốc tế với 100% thời lượng thực hành trên dự án thực tế. Hỗ trợ kết nối việc làm ngay sau khi tốt nghiệp.</p>
+            </div>
+
+            <!-- Slide ảnh giới thiệu -->
+            <div class="photo-slide">
+                <div class="slide-placeholder">
+                    <span>📸 Photo Slide: Môi trường học tập năng động tại CodeGym</span>
+                </div>
+            </div>
+
+            <!-- Các bài viết tin tức -->
+            <div class="news-item">
+                <h4>Tin tức 1: Xu hướng công nghệ lập trình năm 2026</h4>
+                <p>Khám phá sự bùng nổ của trí tuệ nhân tạo, điện toán đám mây và những kỹ năng quan trọng mà lập trình viên cần trang bị.</p>
+            </div>
+
+            <div class="news-item">
+                <h4>Tin tức 2: Bí quyết vượt qua vòng phỏng vấn kỹ thuật</h4>
+                <p>Chia sẻ kinh nghiệm chuẩn bị CV, giải quyết bài toán thuật toán và tự tin thể hiện kỹ năng mềm trước nhà tuyển dụng.</p>
+            </div>
+        </div>
+
+        <!-- right: Phân vùng chứa thông tin bên phải (lịch, biểu đồ, bản đồ) -->
+        <div id="right">
+            <!-- Lịch sự kiện -->
+            <div class="widget">
+                <h3>📅 Lịch sự kiện</h3>
+                <ul class="event-list">
+                    <li><strong>Thứ 7:</strong> Workshop Web Design</li>
+                    <li><strong>Chủ nhật:</strong> Demo Day Khóa K26</li>
+                    <li><strong>Thứ 3:</strong> Seminar công nghệ AI</li>
+                </ul>
+            </div>
+
+            <!-- Biểu đồ học tập -->
+            <div class="widget">
+                <h3>📊 Biểu đồ học tập</h3>
+                <div class="chart-box">
+                    <p>Tiến độ khóa học: <strong>85%</strong></p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bản đồ địa chỉ -->
+            <div class="widget">
+                <h3>📍 Bản đồ</h3>
+                <div class="map-box">
+                    <p>Tòa nhà CodeGym, 23 Láng Hạ, Ba Đình, Hà Nội</p>
+                    <span class="map-pin">🚩 Google Maps Location</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer: Phân vùng chứa các thông tin cuối trang và bản quyền -->
+        <div id="footer">
+            <p>© 2026 CodeGym Education. Tất cả các quyền được bảo lưu.</p>
+            <p>
+                <a href="#">Chính sách bảo mật</a> | 
+                <a href="#">Điều khoản sử dụng</a> | 
+                <a href="#">Liên hệ hỗ trợ</a> | 
+                Hotline: 0978 345 678
+            </p>
+        </div>
+
     </div>
+
 </body>
 </html>

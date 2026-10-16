@@ -1,22 +1,22 @@
-# Bài thực hành: Tạo bố cục 2 cột bằng Float và Clear trong CSS
+# Bài thực hành: Tạo bố cục cơ bản bằng thẻ DIV và CSS
 
-Dự án thực hành sử dụng thuộc tính `float: left;`, `float: right;` và kỹ thuật Clearfix (`clear: both;`) để xây dựng bố cục trang web 2 cột (Cột nội dung chính và Cột Sidebar).
+Dự án thực hành dàn trang (Layout) hoàn chỉnh cho website bằng thẻ `<div>` và các bộ chọn CSS theo chuẩn bài học CodeGym.
 
-## 🎯 Mục tiêu & Phân tích thuộc tính
-1. **`left-column` (Cột nội dung chính)**:
-   - `width: 60%; float: left;`: Chiếm 60% chiều ngang và trôi dạt về phía bên trái.
-   - `background-color: lightblue; padding: 20px; box-sizing: border-box;`.
-2. **`right-column` (Cột sidebar)**:
-   - `width: 38%; float: right;`: Chiếm 38% chiều ngang và trôi dạt về phía bên phải.
-   - `background-color: lightgreen; padding: 20px; box-sizing: border-box;`.
-3. **Kỹ thuật Clearfix (`.container::after`)**:
-   - `content: ""; display: block; clear: both;`: Tự động xóa dòng trôi (float) sau 2 cột, giúp khối cha `.container` tính toán đúng toàn bộ chiều cao và không bị sụp đổ chiều cao (collapse height).
+## 🎯 Mục tiêu & Ý nghĩa các phân vùng (ID Selectors)
+1. **`#main`**: Khung bao bọc toàn bộ nội dung của trang (`width: 1000px; margin: 0 auto;`), căn giữa màn hình.
+2. **`#head`**: Phân vùng đầu trang (`height: 100px; border: 1px solid #CDCDCD; margin-bottom: 5px;`), chứa logo thương hiệu và biểu ngữ banner.
+3. **`#head-link`**: Phân vùng chứa các liên kết đầu trang (`height: 35px; line-height: 35px; clear: both;`), liên kết tới các mục Home, Students, Courses,...
+4. **`#left`**: Phân vùng nội dung bên trái (`width: 150px; min-height: 450px; float: left; background-color: #004C00;`), chứa menu danh mục điều hướng.
+5. **`#content`**: Phân vùng nội dung chính ở giữa (`width: 600px; min-height: 450px; float: left; margin: 0 5px;`), chứa tin nổi bật, slide ảnh và các bài viết tin tức.
+6. **`#right`**: Phân vùng thông tin bên phải (`width: 234px; min-height: 450px; float: right;`), chứa lịch sự kiện, biểu đồ tiến độ học tập và bản đồ địa chỉ.
+7. **`#footer`**: Phân vùng cuối trang (`clear: both; min-height: 60px;`), chứa thông tin bản quyền và các liên kết hỗ trợ.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Bố cục 2 cột bằng Float và Clear
-├── style.css                # File CSS định dạng cho bố cục float và clear
-├── float_layout.html        # File lưu trữ độc lập cho bài Bố cục bằng Float
+├── index.html               # Bài thực hành hiện tại: Tạo bố cục cơ bản bằng thẻ DIV và CSS
+├── style.css                # File CSS định nghĩa các selector (#main, #head, #head-link, #left, #content, #right, #footer)
+├── basic_layout_div.html    # File lưu trữ độc lập cho bài Tạo bố cục cơ bản bằng thẻ DIV
+├── float_layout.html        # Bài thực hành: Tạo bố cục 2 cột bằng Float và Clear trong CSS
 ├── overflow_management.html # Bài thực hành: Quản lý Overflow trong CSS (overflow: auto)
 ├── cartoon_website.html     # Dự án: Website Phim Hoạt Hình Thiếu Nhi (HTML5, Video, Iframe, Responsive)
 ├── simplified_homepage.html # Bài thực hành: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)

@@ -3,114 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bố cục trang web bằng thẻ ngữ nghĩa HTML5</title>
+    <title>Bố cục với display</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Khung chính bao bọc toàn bộ trang -->
-    <div id="main">
-        
-        <!-- 1. HEADER: Phần đầu trang (Logo và Tiêu đề) -->
-        <header id="head">
-            <div class="logo">
-                <h1>CodeGym Academy</h1>
-            </div>
-            <div class="banner">
-                <p>Nền tảng đào tạo Lập trình viên hiện đại theo chuẩn quốc tế</p>
-            </div>
-        </header>
-
-        <!-- 2. NAV: Thanh điều hướng các liên kết chính của website -->
-        <nav id="head-link">
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#students">Học viên</a></li>
-                <li><a href="#courses">Khóa học</a></li>
-                <li><a href="#about">Về chúng tôi</a></li>
-                <li><a href="#news">Tin tức</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
-
-        <!-- Khung chứa 3 cột: aside trái, section ở giữa, aside phải -->
-        <div class="container-body">
-            
-            <!-- 3. ASIDE (Trái): Thanh bên chứa danh mục liên kết -->
-            <aside id="left">
-                <h3>DANH MỤC KHÓA HỌC</h3>
-                <ul>
-                    <li><a href="#">Lập trình Web Frontend</a></li>
-                    <li><a href="#">Lập trình Web Backend</a></li>
-                    <li><a href="#">Full-stack Web Developer</a></li>
-                    <li><a href="#">Khóa học Java Chuyên sâu</a></li>
-                    <li><a href="#">Khóa học Python AI & Data</a></li>
-                    <li><a href="#">Kinh nghiệm phỏng vấn</a></li>
-                    <li><a href="#">Cơ hội việc làm IT</a></li>
-                </ul>
-            </aside>
-
-            <!-- 4. SECTION: Khu vực chứa các bài viết nội dung chính của trang -->
-            <section id="content">
-                
-                <!-- 5. ARTICLE: Từng khối bài viết độc lập -->
-                <article class="featured-post">
-                    <h2>🔥 Tin Nổi Bật: Khai Giảng Khóa Học Lập Trình HTML5 & CSS3</h2>
-                    <p class="post-meta">Đăng ngày: 16/10/2026 • Tác giả: Ban Đào Tạo CodeGym</p>
-                    <p>Khóa học trang bị cho học viên toàn bộ kiến thức nền tảng và nâng cao về cấu trúc tài liệu ngữ nghĩa HTML5 (Semantic Tags), cách tổ chức layout chuẩn SEO và tối ưu hóa trải nghiệm người dùng trên đa nền tảng.</p>
-                </article>
-
-                <article class="news-post">
-                    <h3>Xu Hướng Thiết Kế Web Hiện Đại Với Semantic HTML5</h3>
-                    <p class="post-meta">Chuyên mục: Kiến thức Lập trình</p>
-                    <p>Việc sử dụng các thẻ như &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt; và &lt;footer&gt; giúp tăng cường khả năng tiếp cận (Accessibility), hỗ trợ bot tìm kiếm thu thập dữ liệu chính xác và giúp mã nguồn dễ bảo trì hơn so với việc lạm dụng thẻ &lt;div&gt; truyền thống.</p>
-                </article>
-
-                <article class="news-post">
-                    <h3>Lộ Trình Trở Thành Lập Trình Viên Web Chuyên Nghiệp</h3>
-                    <p class="post-meta">Chuyên mục: Hướng nghiệp</p>
-                    <p>Bắt đầu từ HTML, CSS cơ bản, nâng cao với Responsive Design, JavaScript hiện đại và làm chủ các thư viện/framework phổ biến như React, Node.js để tự tin ứng tuyển vào các công ty công nghệ hàng đầu.</p>
-                </article>
-
-            </section>
-
-            <!-- 3. ASIDE (Phải): Thanh bên chứa các widget thông tin bổ trợ -->
-            <aside id="right">
-                
-                <div class="widget">
-                    <h3>📅 Lịch Khai Giảng</h3>
-                    <ul class="widget-list">
-                        <li><strong>18/10:</strong> Khóa Front-end Foundation</li>
-                        <li><strong>25/10:</strong> Khóa ReactJS Chuyên nghiệp</li>
-                        <li><strong>01/11:</strong> Khóa Java Full-stack</li>
-                    </ul>
-                </div>
-
-                <div class="widget">
-                    <h3>📊 Thống Kê Học Tập</h3>
-                    <div class="stat-box">
-                        <p>Tỷ lệ tốt nghiệp có việc: <strong>98.5%</strong></p>
-                        <p>Số học viên đang học: <strong>1,200+</strong></p>
-                    </div>
-                </div>
-
-                <div class="widget">
-                    <h3>📍 Trụ Sở Đào Tạo</h3>
-                    <p>Tòa nhà CodeGym, 23 Láng Hạ, Ba Đình, Hà Nội</p>
-                    <p>Hotline: 0978 345 678</p>
-                </div>
-
-            </aside>
-
-        </div>
-
-        <!-- 6. FOOTER: Phần chân trang chứa thông tin bản quyền và liên hệ -->
-        <footer id="footer">
-            <p>© 2026 CodeGym Academy. Tất cả các quyền được bảo lưu.</p>
-            <p>Xây dựng bố cục trang web chuẩn ngữ nghĩa bằng HTML5 (header, nav, section, article, aside, footer).</p>
-        </footer>
-
-    </div>
-
+    <h1>Bố cục trang web với display</h1>
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Liên hệ</a>
+    </nav>
+    <section>
+        <div class="box">Cột 1</div>
+        <div class="box">Cột 2</div>
+        <div class="box">Cột 3</div>
+    </section>
+    <footer>
+        <p>Bản quyền &copy; 2024</p>
+    </footer>
 </body>
 </html>

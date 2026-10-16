@@ -1,21 +1,21 @@
-# Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
+# Bài thực hành: Bố cục trang web với thuộc tính Display
 
-Dự án thực hành sử dụng các thẻ ngữ nghĩa (**Semantic Elements**) của HTML5 (`<header>`, `<nav>`, `<section>`, `<article>`, `<aside>`, `<footer>`) để tạo layout chuẩn SEO, dễ bảo trì và hiện đại thay thế cho cách dùng thẻ `<div>` truyền thống.
+Dự án thực hành sử dụng các giá trị của thuộc tính `display` (`block`, `inline-block`), kết hợp với `width`, `max-width`, và `box-sizing: border-box` để xây dựng bố cục trang web cơ bản gồm thanh điều hướng, các cột nội dung và chân trang.
 
-## 🎯 Ý nghĩa & Vai trò của các thẻ HTML5 Semantic
-1. **`<header>`**: Phần đầu trang hoặc tiêu đề giới thiệu của website, chứa logo thương hiệu và thông điệp chào mừng banner.
-2. **`<nav>`**: Vùng điều hướng chứa các liên kết chính của trang web (*Trang chủ*, *Học viên*, *Khóa học*, *Về chúng tôi*, *Tin tức*, *Liên hệ*).
-3. **`<aside>` (Trái)**: Thanh bên trái chứa danh mục các khóa học điều hướng nhanh.
-4. **`<section>`**: Khu vực chứa phần nội dung trọng tâm của trang, nhóm các khối thông tin có chung chủ đề.
-5. **`<article>`**: Các bài viết độc lập, hoàn chỉnh nằm bên trong `<section>` (*Tin tức nổi bật*, *Xu hướng công nghệ*, *Lộ trình nghề nghiệp*).
-6. **`<aside>` (Phải)**: Thanh bên phải chứa các widget thông tin bổ trợ như lịch khai giảng, thống kê và địa chỉ.
-7. **`<footer>`**: Phần chân trang chứa thông tin bản quyền và liên hệ.
+## 🎯 Mục tiêu bài học
+1. **`display: block`**: Hiểu và sử dụng các phần tử cấp khối như `<h1>`, `<nav>`, `<section>`, `<footer>` chiếm trọn 100% chiều rộng dòng.
+2. **`display: inline-block`**: Áp dụng cho các thẻ liên kết `<a>` trong thanh menu và các hộp `.box` nội dung để có thể vừa thiết lập kích thước (`width`, `padding`, `margin`) vừa nằm cùng một hàng ngang.
+3. **`box-sizing: border-box`**: Đảm bảo kích thước padding không làm tràn chiều rộng tính toán của 3 cột, giúp các cột hiển thị cân đối và thẳng hàng.
+4. **`max-width` & Căn giữa tự động**: Giới hạn độ rộng tối đa và căn giữa khối chứa (`margin-left: auto; margin-right: auto;`).
 
-## 📁 Cấu trúc thư mục
+---
+
+## 📁 Cấu trúc thư mục dự án
 ```
-├── index.html               # Bài thực hành hiện tại: Tạo bố cục trang web bằng các thẻ HTML5
-├── style.css                # File CSS định dạng cho các thẻ HTML5 (header, nav, section, article, aside, footer)
-├── html5_layout.html        # File lưu trữ độc lập cho bài Bố cục HTML5
+├── index.html               # Bài thực hành hiện tại: Bố cục trang web với display (block, inline-block)
+├── style.css                # File CSS định dạng cho display (body, nav a, section, .box, footer)
+├── display_layout.html      # Bản sao độc lập cho bài Bố cục trang web với display
+├── html5_layout.html        # Bài thực hành: Tạo bố cục trang web bằng các thẻ HTML5
 ├── basic_layout_div.html    # Bài thực hành: Tạo bố cục cơ bản bằng thẻ DIV và CSS (#main, #head, #left, #content, #right, #footer)
 ├── float_layout.html        # Bài thực hành: Tạo bố cục 2 cột bằng Float và Clear trong CSS
 ├── overflow_management.html # Bài thực hành: Quản lý Overflow trong CSS (overflow: auto)
@@ -65,3 +65,11 @@ Dự án thực hành sử dụng các thẻ ngữ nghĩa (**Semantic Elements**
 ├── halong_bay.html          # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
 └── README.md                # Hướng dẫn và thông tin bài nộp
 ```
+
+---
+
+## 🔗 Liên kết nộp bài GitHub
+- **Repository URL**: [https://github.com/dtc245180132-create/test](https://github.com/dtc245180132-create/test)
+- **File bài nộp trực tiếp**:
+  - `index.html`: Cấu trúc HTML với `<h1>`, `<nav>`, `<section>` (3 cột `.box`), `<footer>`
+  - `style.css`: Quy tắc định dạng CSS với `display: block`, `display: inline-block`, `width: 30%`, `box-sizing: border-box`

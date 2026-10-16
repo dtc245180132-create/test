@@ -1,258 +1,74 @@
-/* ========================================================
-   BÀI THỰC HÀNH: TẠO BỐ CỤC TRANG WEB BẰNG CÁC THẺ HTML5
-   (header, nav, section, article, aside, footer)
-   ======================================================== */
-
-/* Reset và cấu hình cơ bản */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Thiết lập định dạng cơ bản cho toàn bộ trang */
 body {
-    font-family: Arial, Tahoma, sans-serif;
-    font-size: 13px;
-    background-color: #f1f5f9;
-    color: #334155;
-    line-height: 1.6;
-    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8fafc;
 }
 
-/* Khung bọc toàn bộ trang web: 1000px căn giữa */
-#main {
-    width: 1000px;
-    margin: 0 auto;
+/* Tiêu đề chính h1: mặc định display: block */
+h1 {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* Thanh điều hướng nav chứa danh sách liên kết */
+nav {
+    display: block;
+    margin-bottom: 25px;
+    padding: 12px 0;
     background-color: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* 1. THẺ HEADER: Phần đầu trang chứa Logo và Banner */
-header#head {
-    height: 110px;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    border-bottom: 3px solid #38bdf8;
+/* Định dạng các liên kết nav a: inline-block để tùy chỉnh padding, margin và nằm trên cùng một hàng */
+nav a {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-header#head .logo h1 {
-    font-size: 28px;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 1px;
-}
-
-header#head .banner p {
-    font-size: 14px;
-    font-style: italic;
-    color: #bae6fd;
-}
-
-/* 2. THẺ NAV: Thanh điều hướng các liên kết chính */
-nav#head-link {
-    height: 42px;
+nav a:hover {
     background-color: #0284c7;
-    border-bottom: 1px solid #0369a1;
-}
-
-nav#head-link ul {
-    list-style: none;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding-left: 20px;
-}
-
-nav#head-link ul li {
-    margin-right: 5px;
-}
-
-nav#head-link ul li a {
     color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 10px 16px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    display: block;
 }
 
-nav#head-link ul li a:hover {
-    background-color: #0369a1;
-    color: #fef08a;
+/* Khối section chứa 3 cột */
+section {
+    margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Khung chứa phần thân: bố cục 3 cột bằng Flexbox */
-.container-body {
-    display: flex;
-    padding: 15px;
-    gap: 15px;
-    align-items: stretch;
-}
-
-/* 3. THẺ ASIDE (TRÁI): Thanh bên chứa danh mục liên kết */
-aside#left {
-    width: 200px;
-    flex-shrink: 0;
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 15px;
-}
-
-aside#left h3 {
-    font-size: 14px;
-    color: #0f172a;
-    border-bottom: 2px solid #0284c7;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-aside#left ul {
-    list-style: none;
-}
-
-aside#left ul li {
-    margin-bottom: 6px;
-}
-
-aside#left ul li a {
-    color: #334155;
-    text-decoration: none;
-    display: block;
-    padding: 7px 10px;
-    border-radius: 4px;
-    transition: all 0.2s;
-    font-size: 12.5px;
-}
-
-aside#left ul li a:hover {
-    background-color: #e0f2fe;
-    color: #0284c7;
-    padding-left: 14px;
-    font-weight: 600;
-}
-
-/* 4. THẺ SECTION: Khu vực nội dung chính ở giữa */
-section#content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* 5. THẺ ARTICLE: Từng bài viết độc lập */
-article {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 18px 20px;
-    transition: box-shadow 0.2s ease;
-}
-
-article:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-article.featured-post {
-    border-left: 4px solid #ef4444;
-    background-color: #fef2f2;
-}
-
-article.featured-post h2 {
+/* Các cột hộp .box: display inline-block, độ rộng 30%, box-sizing border-box */
+.box {
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    background-color: lightblue;
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-weight: bold;
     font-size: 18px;
-    color: #991b1b;
-    margin-bottom: 6px;
+    color: #0c4a6e;
+    vertical-align: top;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-article.news-post h3 {
-    font-size: 16px;
-    color: #0f172a;
-    margin-bottom: 6px;
-}
-
-.post-meta {
-    font-size: 11.5px;
-    color: #64748b;
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-article p {
-    color: #475569;
-    font-size: 13.5px;
-    line-height: 1.7;
-}
-
-/* 3. THẺ ASIDE (PHẢI): Thanh bên chứa các widget */
-aside#right {
-    width: 230px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.widget {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 14px;
-}
-
-.widget h3 {
-    font-size: 13.5px;
-    color: #0f172a;
-    border-bottom: 1px solid #cbd5e1;
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-}
-
-.widget-list {
-    list-style: none;
-}
-
-.widget-list li {
-    padding: 5px 0;
-    color: #475569;
-    border-bottom: 1px dashed #e2e8f0;
-    font-size: 12.5px;
-}
-
-.widget-list li:last-child {
-    border-bottom: none;
-}
-
-.stat-box {
-    background-color: #ecfdf5;
-    border: 1px solid #a7f3d0;
-    padding: 10px;
-    border-radius: 4px;
-    color: #065f46;
-}
-
-.stat-box p {
-    margin-bottom: 4px;
-}
-
-/* 6. THẺ FOOTER: Chân trang */
-footer#footer {
-    background-color: #0f172a;
-    color: #94a3b8;
-    text-align: center;
-    padding: 18px 20px;
-    border-top: 1px solid #334155;
-    font-size: 12.5px;
-}
-
-footer#footer p {
-    margin: 3px 0;
+/* Phần chân trang footer */
+footer {
+    display: block;
+    margin-top: 30px;
+    color: #777;
+    font-size: 14px;
 }

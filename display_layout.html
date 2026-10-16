@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bố cục với display</title>
+    <style>
+        /* Thiết lập định dạng cơ bản cho toàn bộ trang */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+
+        /* Tiêu đề chính h1: mặc định display: block */
+        h1 {
+            display: block;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        /* Thanh điều hướng nav chứa danh sách liên kết */
+        nav {
+            display: block;
+            margin-bottom: 25px;
+            padding: 12px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Định dạng các liên kết nav a: inline-block để tùy chỉnh padding, margin và nằm trên cùng một hàng */
+        nav a {
+            display: inline-block;
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        nav a:hover {
+            background-color: #0284c7;
+            color: #ffffff;
+        }
+
+        /* Khối section chứa 3 cột */
+        section {
+            margin-top: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Các cột hộp .box: display inline-block, độ rộng 30%, box-sizing border-box */
+        .box {
+            display: inline-block;
+            width: 30%;
+            padding: 20px;
+            background-color: lightblue;
+            margin: 10px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #0c4a6e;
+            vertical-align: top;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Phần chân trang footer */
+        footer {
+            display: block;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bố cục trang web với display</h1>
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Liên hệ</a>
+    </nav>
+    <section>
+        <div class="box">Cột 1</div>
+        <div class="box">Cột 2</div>
+        <div class="box">Cột 3</div>
+    </section>
+    <footer>
+        <p>Bản quyền &copy; 2024</p>
+    </footer>
+</body>
+</html>

@@ -1,25 +1,38 @@
-# Bài tập: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)
+# Dự án: Website Phim Hoạt Hình Thiếu Nhi (KidsToon TV)
 
-Dự án thực hành kết hợp thuộc tính `position: fixed` với kỹ thuật bố cục hiện đại **Flexbox** để tạo ra một giao diện trang chủ hoàn chỉnh, chuyên nghiệp.
+Dự án website chuyên biệt về phim hoạt hình chọn lọc, an toàn cho trẻ em được xây dựng bằng **HTML5 (`<div>`, `<video>`, `<iframe>`)** kết hợp **CSS Layout Hiện Đại (Fixed Header, Flexbox & Responsive Design)**.
 
-## 🎯 Mục tiêu & Các thuộc tính CSS quan trọng
-1. **Header cố định (`position: fixed`)**:
-   - `top: 0; left: 0; width: 100%;`: Neo chặt thanh header ở đầu khung nhìn màn hình.
-   - `z-index: 1000;`: Đảm bảo header luôn nổi trên tất cả các khối nội dung khi người dùng cuộn trang.
-   - `box-sizing: border-box;`: Đảm bảo padding không làm tràn chiều ngang trang web.
-   - `display: flex; justify-content: space-between; align-items: center;`: Căn đều tiêu đề và thanh điều hướng hai bên.
-2. **Điều chỉnh luồng tài liệu (`body { padding-top: 70px; }`)**:
-   - Khắc phục hiện tượng header fixed thoát khỏi luồng tài liệu (document flow), tránh che khuất nội dung đầu trang.
-3. **Bố cục 3 cột bằng Flexbox (`.page-container`)**:
-   - `display: flex; gap: 20px;`: Sắp xếp 3 khối theo hàng ngang với khoảng cách đều nhau.
-   - `.left-sidebar`, `.right-sidebar`: Cố định độ rộng `width: 200px;` kèm `flex-shrink: 0;` để không bị co bóp.
-   - `.main-content`: Sử dụng `flex-grow: 1;` để co giãn chiếm toàn bộ không gian còn lại ở giữa.
+## 🎯 Tiêu chuẩn & Tính năng đáp ứng đầy đủ đề bài
+
+### 1. Mức cơ bản:
+- **Header**: Logo nhận diện bên trái (`KidsToon TV`), thanh tìm kiếm phim theo tên và bộ lọc sắp xếp (Mới cập nhật / Nhiều lượt xem nhất).
+- **Head-link**: Thanh liên kết danh mục trang phong phú (*Trang chủ*, *Doraemon*, *Tom & Jerry*, *Shin*, *Pokémon*, *Cổ tích*, *Yêu thích*).
+- **Content (2 cột)**:
+  - **Left Content (Menu Playlist)**: Danh sách các tập phim hoạt hình có sẵn với ảnh thumbnail, thời lượng, số lượt xem, nhãn thuyết minh.
+  - **Right Content (Video Player)**: Khu vực phát video chính, mặc định hiển thị video đầu tiên (*Chú Thỏ Thông Minh - Big Buck Bunny*), kèm tiêu đề, mô tả và các nhãn tiêu chuẩn.
+- **Footer**: Hiển thị thông tin bản quyền, tiêu chuẩn nội dung sạch và thông tin liên hệ.
+
+### 2. Mức trung bình:
+- **Loại bỏ gạch chân**: Áp dụng `text-decoration: none;` cho tất cả các thẻ liên kết `<a>`.
+- **Hiệu ứng hover tương tác**: Rê chuột vào liên kết sẽ **bôi đậm** (`font-weight: bold;`) và **đổi màu chữ** sang vàng tươi `#ffea00`.
+- **Header cố định**: `position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;` giữ thanh điều hướng luôn nổi cố định khi người dùng cuộn xem nội dung.
+
+### 3. Mức nâng cao:
+- **Thẻ `<video>` & `<iframe>` YouTube**:
+  - Hỗ trợ phát video trực tiếp qua thẻ `<video controls poster="...">` với nguồn video Full HD.
+  - Hỗ trợ nhúng video YouTube chất lượng cao an toàn qua thẻ `<iframe>`.
+  - Có tab chuyển đổi trực tiếp giữa 2 chế độ phát và JavaScript hỗ trợ click đổi phim ngay lập tức trên playlist.
+- **Responsive Design (Đa thiết bị)**:
+  - **PC / Màn hình lớn**: Bố cục 2 cột cân đối, thanh cuộn playlist tiện lợi.
+  - **Tablet**: Co giãn kích thước cột và padding linh hoạt.
+  - **Mobile / Điện thoại**: Tự động đảo thứ tự đưa khung phát video lên đầu trang (`flex-direction: column-reverse;`) để bé có thể xem ngay, danh sách phim xếp gọn bên dưới; thanh tìm kiếm và header co giãn tự nhiên.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Trang Chủ Giản Lược (Fixed Header + Flexbox)
-├── style.css                # File CSS định dạng cho bài Trang Chủ Giản Lược
-├── simplified_homepage.html # File lưu trữ độc lập cho bài Trang Chủ Giản Lược
+├── index.html               # Website Phim Hoạt Hình Thiếu Nhi hoàn chỉnh (HTML5 + Video + Iframe)
+├── style.css                # Toàn bộ CSS định dạng giao diện, fixed header, hover effect và responsive
+├── cartoon_website.html     # Bản sao lưu trữ độc lập cho Website Phim Hoạt Hình
+├── simplified_homepage.html # Bài thực hành: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)
 ├── sticky_navigation.html   # Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)
 ├── dropdown_menu.html       # Bài thực hành: Tạo Menu ngang Dropdown bằng HTML và CSS
 ├── fixed_menu.html          # Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)

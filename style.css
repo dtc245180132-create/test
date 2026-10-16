@@ -1,74 +1,61 @@
 /* ========================================================
-   BÀI THỰC HÀNH: TẠO MENU NGANG DROPDOWN (TRÌNH ĐƠN THẢ XUỐNG)
+   BÀI THỰC HÀNH: SỬ DỤNG POSITION: STICKY TRONG CSS
    ======================================================== */
 
-/* 1. Cố định phông chữ cho trang HTML */
+/* Định dạng chung */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
-    background-color: #f5f5f5;
-}
-
-/* 2. Đặt phân vùng cho trình đơn: chiều cao, đường viền, khoảng cách và màu nền */
-#menu {
-    height: 30px;
-    padding: 0;
-    margin: 0;
-    background-color: #000000;
-    border: 1px solid #CDCDCD;
-}
-
-/* Xóa khoảng đệm và lề mặc định cho danh sách trong menu */
-#menu ul,
-#menu li {
-    padding: 0;
-    margin: 0;
-}
-
-/* 3. Bộ chọn riêng cho các phần tử li trong danh sách menu */
-#menu li {
-    position: relative;
-    float: left;
-    list-style: none;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* 4. Bộ chọn dành cho các liên kết trong trình đơn:
-      Cố định độ rộng (100px), chiều cao (30px), cách hiển thị (block) và định dạng văn bản */
-#menu li a {
-    width: 100px;
-    height: 30px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    line-height: 30px;
-    background-color: black;
+/* Thanh điều hướng */
+.sticky-menu {
+    position: sticky;
+    top: 0;
+    background-color: #333;
     color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
-/* Định dạng riêng cho liên kết trong menu con cấp 2 */
-#menu ul ul li a {
-    width: 200px;
-    text-align: left;
-    padding-left: 10px;
+.sticky-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
-/* 5. Bộ chọn chuyển màu nền của liên kết sang màu đỏ khi con trỏ đưa qua (hover) */
-#menu li a:hover {
-    background-color: red;
+.sticky-menu ul li {
+    margin: 0 15px;
 }
 
-/* 6 & 7. Bộ chọn dành cho các danh sách con (trình đơn con):
-      Quy định vị trí hiển thị (absolute, top: 30px, left: 0) và ẩn mặc định (visibility: hidden) */
-#menu ul ul {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    visibility: hidden;
+.sticky-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.2s ease;
 }
 
-/* 8. Bộ chọn hiển thị menu con khi con trỏ được đưa qua mục chọn của trình đơn cha */
-#menu ul li:hover ul {
-    visibility: visible;
+.sticky-menu ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }
+
+/* Nội dung trang web */
+section {
+    padding: 100px 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+#home { background-color: #f4f4f4; }
+#about { background-color: #ddd; }
+#services { background-color: #bbb; }
+#contact { background-color: #999; }

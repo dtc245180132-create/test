@@ -1,20 +1,20 @@
-# Bài thực hành: Tạo Menu ngang Dropdown (Trình đơn thả xuống)
+# Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)
 
-Dự án thực hành xây dựng trình đơn hàng ngang hai cấp có khả năng thả xuống (dropdown) khi di chuột qua mục cha trong CSS.
+Dự án thực hành sử dụng thuộc tính `position: sticky` trong CSS để tạo thanh điều hướng tự động bám dính ở đầu màn hình khi người dùng cuộn trang.
 
-## 🎯 Mục tiêu & Các bộ chọn CSS quan trọng
-1. **Khung chứa trình đơn `#menu`**: Cố định chiều cao `30px`, màu nền đen `#000000`, đường viền `1px solid #CDCDCD`.
-2. **Các mục chọn `#menu li`**: Sử dụng `float: left;` để xếp menu thành hàng ngang và `position: relative;` làm mốc tọa độ định vị cho menu con.
-3. **Liên kết `#menu li a`**: Thiết lập `width: 100px;`, `height: 30px;`, `display: block;`, căn giữa văn bản `text-align: center;`, `line-height: 30px;`, màu chữ trắng trên nền đen.
-4. **Hiệu ứng hover `#menu li a:hover`**: Đổi màu nền liên kết sang màu đỏ (`background-color: red;`) khi rê chuột.
-5. **Menu con `#menu ul ul`**: Định vị tuyệt đối `position: absolute; top: 30px; left: 0;` và ẩn mặc định bằng thuộc tính `visibility: hidden;`.
-6. **Kích hoạt hiển thị `#menu ul li:hover ul`**: Đổi trạng thái sang `visibility: visible;` để làm xuất hiện menu con khi rê chuột vào mục cha tương ứng.
+## 🎯 Mục tiêu & Phân tích các thuộc tính
+1. **`position: sticky`**: Cho phép phần tử hoạt động như `position: relative` trong luồng tài liệu thông thường cho đến khi cuộn tới vị trí ngưỡng đã định, sau đó nó sẽ "dính" lại như `position: fixed`.
+2. **`top: 0`**: Xác định vị trí neo khi người dùng cuộn đến đỉnh khung nhìn (viewport).
+3. **`z-index: 1000`**: Đảm bảo thanh điều hướng luôn nổi phía trên các phần nội dung của trang khi cuộn.
+4. **`display: flex` & `justify-content: center`**: Căn giữa danh sách các mục điều hướng (`Trang chủ`, `Giới thiệu`, `Dịch vụ`, `Liên hệ`).
+5. **Hiệu ứng cuộn (`height: 100vh`)**: Mỗi khối `section` có chiều cao bằng 100% chiều cao màn hình, màu nền phân biệt để dễ dàng quan sát hiệu ứng sticky hoạt động.
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Tạo Menu ngang Dropdown
-├── style.css                # File CSS định dạng cho menu ngang dropdown
-├── dropdown_menu.html       # File lưu trữ độc lập cho bài Menu ngang Dropdown
+├── index.html               # Bài thực hành hiện tại: Sticky Navigation
+├── style.css                # File CSS định dạng cho Sticky Navigation
+├── sticky_navigation.html   # File lưu trữ độc lập cho bài Sticky Navigation
+├── dropdown_menu.html       # Bài thực hành: Tạo Menu ngang Dropdown bằng HTML và CSS
 ├── fixed_menu.html          # Bài thực hành: Hướng dẫn tạo Fixed Menu (Menu cố định khi cuộn)
 ├── open_source_records.html # Bài thực hành: Model 2 (Open Source Records - CSS Box Model)
 ├── box_model_layout.html    # Bài thực hành: Xây dựng bố cục với Mô hình hộp CSS (content-box vs border-box)

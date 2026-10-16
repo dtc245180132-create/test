@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navigation</title>
+    <style>
+        /* Định dạng chung */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Thanh điều hướng */
+        .sticky-menu {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .sticky-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sticky-menu ul li {
+            margin: 0 15px;
+        }
+
+        .sticky-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            transition: background-color 0.2s ease;
+        }
+
+        .sticky-menu ul li a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Nội dung trang web */
+        section {
+            padding: 100px 20px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        #home { background-color: #f4f4f4; }
+        #about { background-color: #ddd; }
+        #services { background-color: #bbb; }
+        #contact { background-color: #999; }
+    </style>
+</head>
+<body>
+    <nav class="sticky-menu">
+        <ul>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home">
+        <h1>Chào mừng đến với trang web của chúng tôi</h1>
+        <p>Hãy cuộn xuống để xem hiệu ứng sticky.</p>
+    </section>
+    
+    <section id="about">
+        <h2>Giới thiệu</h2>
+        <p>Nội dung giới thiệu rất dài...</p>
+    </section>
+    
+    <section id="services">
+        <h2>Dịch vụ</h2>
+        <p>Danh sách các dịch vụ...</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Liên hệ</h2>
+        <p>Thông tin liên hệ...</p>
+    </section>
+</body>
+</html>

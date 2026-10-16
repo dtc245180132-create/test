@@ -3,37 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thực hành tạo Menu ngang Dropdown</title>
+    <title>Sticky Navigation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="menu">
+    <nav class="sticky-menu">
         <ul>
-            <li>
-                <a href="#">Sem 1</a>
-                <ul>
-                    <li><a href="#">Computing Fundamental</a></li>
-                    <li><a href="#">C Programming</a></li>
-                    <li><a href="#">Building Dynamic Website</a></li>
-                    <li><a href="#">MS Transact-SQL</a></li>
-                    <li><a href="#">Project</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Sem 2</a>
-                <ul>
-                    <li><a href="#">Cloud Computing</a></li>
-                    <li><a href="#">APJ - I</a></li>
-                    <li><a href="#">APJ - II</a></li>
-                    <li><a href="#">APJ - III</a></li>
-                    <li><a href="#">eProject</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Sem 3</a></li>
-            <li><a href="#">Sem 4</a></li>
+            <li><a href="#home">Trang chủ</a></li>
+            <li><a href="#about">Giới thiệu</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
         </ul>
-    </div>
-
+    </nav>
+    
+    <section id="home">
+        <h1>Chào mừng đến với trang web của chúng tôi</h1>
+        <p>Hãy cuộn xuống để xem hiệu ứng sticky.</p>
+    </section>
+    
+    <section id="about">
+        <h2>Giới thiệu</h2>
+        <p>Nội dung giới thiệu rất dài...</p>
+    </section>
+    
+    <section id="services">
+        <h2>Dịch vụ</h2>
+        <p>Danh sách các dịch vụ...</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Liên hệ</h2>
+        <p>Thông tin liên hệ...</p>
+    </section>
 </body>
 </html>

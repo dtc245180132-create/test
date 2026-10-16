@@ -1,31 +1,42 @@
 /* ========================================================
-   BÀI THỰC HÀNH: QUẢN LÝ NỘI DUNG TRÀN (OVERFLOW TRONG CSS)
+   BÀI THỰC HÀNH: TẠO BỐ CỤC BẰNG FLOAT VÀ CLEAR
    ======================================================== */
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8fafc;
     margin: 0;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    box-sizing: border-box;
+    padding: 20px;
+    background-color: #f8fafc;
 }
 
-/* Khối kiểm soát nội dung bị tràn */
-.overflow-box {
-    width: 300px;
-    height: 100px;
-    background-color: lightgray;
-    padding: 10px;
-    overflow: auto; /* Hiển thị thanh cuộn khi nội dung vượt quá kích thước */
-    border: 1px solid #94a3b8;
-    border-radius: 6px;
-    line-height: 1.5;
-    font-size: 14px;
-    color: #1e293b;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+/* Khung bao bọc toàn bộ bố cục */
+.container {
+    width: 100%;
+}
+
+/* Cột bên trái: chiếm 60%, trôi về bên trái */
+.left-column {
+    width: 60%;
+    float: left;
+    background-color: lightblue;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+/* Cột bên phải: chiếm 38%, trôi về bên phải */
+.right-column {
+    width: 38%;
+    float: right;
+    background-color: lightgreen;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+/* Xử lý float (Clearfix) để chống tràn bố cục của container */
+.container::after {
+    content: "";
+    display: block;
+    clear: both;
 }

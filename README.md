@@ -1,19 +1,23 @@
-# Bài thực hành: Quản lý Overflow trong CSS (Nội dung bị tràn)
+# Bài thực hành: Tạo bố cục 2 cột bằng Float và Clear trong CSS
 
-Dự án thực hành sử dụng thuộc tính `overflow: auto` để kiểm soát các nội dung bị tràn và tự động hiển thị thanh cuộn (scrollbar) khi kích thước nội dung vượt quá kích thước của phần tử chứa.
+Dự án thực hành sử dụng thuộc tính `float: left;`, `float: right;` và kỹ thuật Clearfix (`clear: both;`) để xây dựng bố cục trang web 2 cột (Cột nội dung chính và Cột Sidebar).
 
 ## 🎯 Mục tiêu & Phân tích thuộc tính
-1. **`width: 300px; height: 100px;`**: Cố định kích thước khung chứa hộp.
-2. **`overflow: auto;`**:
-   - Nếu nội dung vừa vặn bên trong khung, không có thanh cuộn nào xuất hiện.
-   - Khi nội dung quá dài vượt quá chiều cao `100px`, trình duyệt tự động kích hoạt thanh cuộn dọc (vertical scrollbar) để người dùng có thể cuộn xem toàn bộ nội dung mà không làm vỡ bố cục giao diện.
-3. **`background-color: lightgray; padding: 10px;`**: Phân biệt rõ ranh giới của khối nội dung.
+1. **`left-column` (Cột nội dung chính)**:
+   - `width: 60%; float: left;`: Chiếm 60% chiều ngang và trôi dạt về phía bên trái.
+   - `background-color: lightblue; padding: 20px; box-sizing: border-box;`.
+2. **`right-column` (Cột sidebar)**:
+   - `width: 38%; float: right;`: Chiếm 38% chiều ngang và trôi dạt về phía bên phải.
+   - `background-color: lightgreen; padding: 20px; box-sizing: border-box;`.
+3. **Kỹ thuật Clearfix (`.container::after`)**:
+   - `content: ""; display: block; clear: both;`: Tự động xóa dòng trôi (float) sau 2 cột, giúp khối cha `.container` tính toán đúng toàn bộ chiều cao và không bị sụp đổ chiều cao (collapse height).
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài thực hành hiện tại: Quản lý Overflow trong CSS
-├── style.css                # File CSS định dạng cho khối overflow-box
-├── overflow_management.html # File lưu trữ độc lập cho bài Quản lý Overflow
+├── index.html               # Bài thực hành hiện tại: Bố cục 2 cột bằng Float và Clear
+├── style.css                # File CSS định dạng cho bố cục float và clear
+├── float_layout.html        # File lưu trữ độc lập cho bài Bố cục bằng Float
+├── overflow_management.html # Bài thực hành: Quản lý Overflow trong CSS (overflow: auto)
 ├── cartoon_website.html     # Dự án: Website Phim Hoạt Hình Thiếu Nhi (HTML5, Video, Iframe, Responsive)
 ├── simplified_homepage.html # Bài thực hành: Xây dựng bố cục Trang Chủ Giản Lược (Fixed Header + Flexbox)
 ├── sticky_navigation.html   # Bài thực hành: Sử dụng position: sticky trong CSS (Sticky Navigation)

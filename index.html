@@ -3,91 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch họp công ty</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 40px;
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-
-        h1 {
-            color: #1e3a8a;
-            margin-bottom: 20px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            max-width: 750px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 12px 16px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #e2e8f0;
-            color: #0f172a;
-            font-weight: 600;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-    </style>
+    <title>Định kiểu cho danh sách HTML bằng CSS</title>
+    <!-- Bước 1: Liên kết file CSS với HTML -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 1. Tiêu đề h1: Lịch họp công ty -->
-    <h1>Lịch họp công ty</h1>
+    <div class="container">
+        <h1>Thực hành: Định kiểu cho danh sách HTML bằng CSS</h1>
 
-    <!-- 2. Bảng hiển thị thông tin lịch họp gồm Ngày, Giờ, Nội dung cuộc họp -->
-    <table border="1">
-        <tr>
-            <th>Ngày</th>
-            <th>Giờ</th>
-            <th>Nội dung cuộc họp</th>
-        </tr>
-        <!-- Sử dụng rowspan khi có nhiều cuộc họp trong cùng một ngày -->
-        <tr>
-            <td rowspan="2">Thứ Hai</td>
-            <td>08:30 - 10:00</td>
-            <td>Họp giao ban toàn công ty đầu tuần</td>
-        </tr>
-        <tr>
-            <td>14:00 - 16:30</td>
-            <td>Họp triển khai dự án mới cùng phòng IT & Thiết kế</td>
-        </tr>
+        <!-- Mục 2: Thay đổi kiểu đánh dấu danh sách không có thứ tự -->
+        <section class="exercise-section">
+            <h2>2. Thay đổi kiểu đánh dấu danh sách (list-style-type: square)</h2>
+            <ul class="list-square">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+            </ul>
+        </section>
 
-        <!-- Sử dụng colspan khi một cuộc họp kéo dài nhiều giờ (cả ngày) -->
-        <tr>
-            <td>Thứ Ba</td>
-            <td colspan="2">08:00 - 17:00: Hội thảo tập huấn công nghệ (Kéo dài cả ngày)</td>
-        </tr>
+        <!-- Mục 3: Thay đổi kiểu đánh dấu danh sách có thứ tự -->
+        <section class="exercise-section">
+            <h2>3. Danh sách có thứ tự số La Mã (list-style-type: upper-roman)</h2>
+            <ol class="list-roman">
+                <li>Học HTML</li>
+                <li>Học CSS</li>
+                <li>Học JavaScript</li>
+                <li>Học Git</li>
+            </ol>
+        </section>
 
-        <!-- Sử dụng rowspan gộp ngày có nhiều cuộc họp -->
-        <tr>
-            <td rowspan="2">Thứ Tư</td>
-            <td>09:00 - 11:30</td>
-            <td>Đánh giá tiến độ và báo cáo doanh thu tuần</td>
-        </tr>
-        <tr>
-            <td>15:00 - 16:30</td>
-            <td>Gặp gỡ và trao đổi trực tiếp với đối tác khách hàng</td>
-        </tr>
+        <!-- Mục 4: Sử dụng hình ảnh làm dấu đánh dấu -->
+        <section class="exercise-section">
+            <h2>4. Dấu đánh dấu bằng hình ảnh (list-style-image)</h2>
+            <ul class="list-image">
+                <li>Visual Studio Code</li>
+                <li>Google Chrome</li>
+                <li>GitHub</li>
+                <li>Git</li>
+            </ul>
+        </section>
 
-        <!-- Sử dụng colspan gộp giờ và nội dung cho sự kiện kéo dài -->
-        <tr>
-            <td>Thứ Năm</td>
-            <td colspan="2">13:30 - 17:30: Workshop đào tạo kỹ năng lãnh đạo toàn diện</td>
-        </tr>
-    </table>
+        <!-- Mục 5: Thay đổi vị trí dấu đánh dấu -->
+        <section class="exercise-section">
+            <h2>5. Thay đổi vị trí dấu đánh dấu (list-style-position)</h2>
+            <div class="comparison-grid">
+                <div class="box">
+                    <h3>Vị trí outside (mặc định)</h3>
+                    <ul class="list-pos-outside">
+                        <li>Mục thứ nhất với dấu đánh dấu nằm bên ngoài khối nội dung</li>
+                        <li>Mục thứ hai minh họa vị trí outside</li>
+                        <li>Mục thứ ba hiển thị rõ đường canh lề</li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Vị trí inside</h3>
+                    <ul class="list-pos-inside">
+                        <li>Mục thứ nhất với dấu đánh dấu nằm thụt vào bên trong khối nội dung</li>
+                        <li>Mục thứ hai minh họa vị trí inside</li>
+                        <li>Mục thứ ba hiển thị rõ đường canh lề</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mục 6: Sử dụng thuộc tính rút gọn list-style -->
+        <section class="exercise-section">
+            <h2>6. Thuộc tính rút gọn (list-style)</h2>
+            <ul class="list-shorthand">
+                <li>Kết hợp kiểu đánh dấu, vị trí và hình ảnh</li>
+                <li>Cú pháp rút gọn: list-style: square inside;</li>
+                <li>Giúp mã nguồn ngắn gọn, tối ưu hơn</li>
+            </ul>
+        </section>
+
+        <!-- Mục 7: Tạo kiểu danh sách với màu sắc và khoảng cách -->
+        <section class="exercise-section">
+            <h2>7. Danh sách với màu sắc, padding và margin</h2>
+            <ul class="list-styled-color">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+            </ul>
+        </section>
+
+        <!-- Mục 8: Bài tập tổng hợp -->
+        <section class="exercise-section highlight-section">
+            <h2>8. Bài tập tổng hợp: Lộ trình học lập trình Web</h2>
+            <ul class="list-roadmap">
+                <li>HTML - Xây dựng cấu trúc trang web</li>
+                <li>CSS - Định dạng giao diện và bố cục</li>
+                <li>JavaScript - Tạo tính tương tác động</li>
+                <li>Git - Quản lý phiên bản mã nguồn</li>
+                <li>GitHub - Lưu trữ và làm việc nhóm trực tuyến</li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>

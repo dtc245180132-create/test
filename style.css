@@ -1,134 +1,174 @@
 /* ========================================================
-   BÀI TẬP: LUYỆN TẬP CÁC BỘ CHỌN CSS (CSS SELECTORS)
+   BÀI THỰC HÀNH: ĐỊNH KIỂU CHO DANH SÁCH HTML BẰNG CSS
    ======================================================== */
 
-/* --- 1. ELEMENT SELECTOR (Bộ chọn phần tử) --- */
-/* Đổi màu nền của toàn bộ trang web và cài đặt font chữ */
-body {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+* {
     box-sizing: border-box;
-}
-
-ul {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
-    margin: 20px 0;
 }
 
-button {
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 30px 20px;
+    line-height: 1.6;
 }
 
-/* --- 2. ID SELECTOR (Bộ chọn định danh ID) --- */
-/* Căn giữa tiêu đề h1 và tạo màu sắc nổi bật */
-#main-title {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 32px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-#bio-desc {
-    line-height: 1.8;
-    color: #4a5568;
-    text-align: justify;
-}
-
-#btn-action {
-    display: block;
-    margin: 0 auto;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: #ffffff;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.35);
-    transition: all 0.3s ease;
-}
-
-/* --- 3. CLASS SELECTOR (Bộ chọn lớp) --- */
 .container {
-    background-color: #ffffff;
-    max-width: 600px;
-    width: 100%;
-    padding: 35px 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.description {
+h1 {
+    color: #1e3a8a;
+    font-size: 26px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.exercise-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.exercise-section h2 {
+    color: #2563eb;
+    font-size: 18px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+/* --- 2. Thay đổi kiểu đánh dấu danh sách không có thứ tự --- */
+ul.list-square {
+    list-style-type: square;
+    padding-left: 30px;
+}
+
+ul.list-square li {
+    padding: 4px 0;
+}
+
+/* --- 3. Thay đổi kiểu đánh dấu danh sách có thứ tự --- */
+ol.list-roman {
+    list-style-type: upper-roman;
+    padding-left: 30px;
+}
+
+ol.list-roman li {
+    padding: 4px 0;
+}
+
+/* --- 4. Sử dụng hình ảnh làm dấu đánh dấu --- */
+ul.list-image {
+    list-style-image: url('bullet.png');
+    padding-left: 30px;
+}
+
+ul.list-image li {
+    padding: 4px 0;
+}
+
+/* --- 5. Thay đổi vị trí dấu đánh dấu (outside vs inside) --- */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.box {
     background-color: #f8fafc;
-    border-left: 4px solid #3b82f6;
-    padding: 12px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.box h3 {
+    font-size: 15px;
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+ul.list-pos-outside {
+    list-style-type: disc;
+    list-style-position: outside;
+    border: 1px dashed #94a3b8;
+    padding: 10px 10px 10px 30px;
+    background-color: #ffffff;
+}
+
+ul.list-pos-inside {
+    list-style-type: disc;
+    list-style-position: inside;
+    border: 1px dashed #94a3b8;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* --- 6. Sử dụng thuộc tính rút gọn list-style --- */
+ul.list-shorthand {
+    list-style: square inside;
+    background-color: #f8fafc;
+    border-left: 4px solid #0284c7;
+    padding: 15px 20px;
     border-radius: 0 8px 8px 0;
 }
 
-.hobby-item {
-    padding: 12px 16px;
-    margin-bottom: 10px;
+ul.list-shorthand li {
+    padding: 5px 0;
+}
+
+/* --- 7. Tạo kiểu danh sách với màu sắc, padding và margin --- */
+ul.list-styled-color {
+    background-color: #1e293b;
+    color: #38bdf8;
+    padding: 20px 30px;
     border-radius: 8px;
+    list-style-type: circle;
+}
+
+ul.list-styled-color li {
+    margin: 8px 0;
+    padding: 6px 12px;
+    background-color: #334155;
+    color: #f1f5f9;
+    border-radius: 6px;
     font-weight: 500;
-    transition: transform 0.2s ease;
 }
 
-/* Định dạng danh sách với các màu sắc khác nhau */
-.item-reading {
-    background-color: #fef3c7;
-    color: #92400e;
-    border-left: 5px solid #f59e0b;
+/* --- 8. Bài tập tổng hợp: Lộ trình học lập trình Web --- */
+.highlight-section {
+    border-left: 5px solid #10b981;
 }
 
-.item-coding {
-    background-color: #e0e7ff;
-    color: #3730a3;
-    border-left: 5px solid #6366f1;
+ul.list-roadmap {
+    /* Thuộc tính rút gọn list-style kết hợp kiểu và vị trí */
+    list-style: disc inside;
+    background-color: #ecfdf5;
+    color: #065f46;
+    padding: 22px 26px;
+    border-radius: 8px;
+    border: 1px solid #a7f3d0;
 }
 
-.item-music {
-    background-color: #dcfce7;
-    color: #166534;
-    border-left: 5px solid #22c55e;
+ul.list-roadmap li {
+    margin: 10px 0;
+    padding: 10px 16px;
+    background-color: #ffffff;
+    color: #047857;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* --- 4. GROUPING SELECTOR (Bộ chọn nhóm) --- */
-/* Nhóm các tiêu đề để áp dụng font-weight và viền dưới */
-h1, .sub-title {
-    font-weight: 700;
-}
-
-h2, h3 {
-    color: #1e293b;
-    margin-top: 25px;
-    margin-bottom: 12px;
-}
-
-/* --- 5. PSEUDO-CLASSES (Bộ chọn lớp giả) --- */
-/* Hiệu ứng hover cho nút bấm */
-#btn-action:hover {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 114, 255, 0.45);
-}
-
-/* Hiệu ứng khi nhấn giữ nút bấm */
-#btn-action:active {
-    transform: translateY(1px);
-    box-shadow: 0 3px 10px rgba(0, 114, 255, 0.3);
-}
-
-/* Hiệu ứng hover cho các mục trong danh sách */
-.hobby-item:hover {
+ul.list-roadmap li:hover {
     transform: translateX(6px);
+    background-color: #d1fae5;
 }
-

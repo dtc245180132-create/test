@@ -18,8 +18,11 @@ Luyện tập sử dụng các bộ chọn CSS:
 
 ## 📁 Cấu trúc thư mục
 ```
-├── index.html               # Bài tập: Lịch họp công ty (gộp ô với rowspan và colspan)
-├── meeting_schedule.html    # Bản sao bài tập lịch họp công ty
+├── index.html               # Bài thực hành: Định kiểu cho danh sách HTML bằng CSS (8 mục)
+├── style.css                # File CSS định kiểu cho danh sách (list-style, position, image, color)
+├── list_styling.html        # Bản sao độc lập bài thực hành định kiểu danh sách
+├── bullet.png               # Icon hình ảnh đánh dấu cho list-style-image
+├── meeting_schedule.html    # Bài tập: Lịch họp công ty (gộp ô với rowspan và colspan)
 ├── product_list.html        # Bài tập: Bảng danh sách sản phẩm (table, tr, th, td)
 ├── survey.html              # Bài tập: Form survey khách hàng (Market Research Survey theo mẫu Wufoo)
 ├── registration_form.html   # Bài tập: Form đăng ký người dùng gửi POST lên server CodeGym
@@ -40,7 +43,7 @@ Luyện tập sử dụng các bộ chọn CSS:
 ├── text_formatting.html     # Bài tập: Định dạng văn bản và thuộc tính CSS nội tuyến
 ├── halong_bay.html          # Bài tập: Vịnh Hạ Long - Kỳ quan Thiên nhiên (thẻ h1, p, img, a)
 ├── css_selectors.html       # Bài tập: Luyện tập các bộ chọn CSS (Selectors)
-├── style.css                # Toàn bộ mã định dạng CSS cho bài tập bộ chọn
+├── selectors_style.css      # Toàn bộ mã định dạng CSS cho bài tập bộ chọn
 └── README.md                # Hướng dẫn và thông tin bài nộp
 ```
 
